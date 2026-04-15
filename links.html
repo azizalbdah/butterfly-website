@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,20 +8,24 @@
 
   <style>
     :root {
-      --bg: #f8efe9;
-      --surface: rgba(255, 250, 247, 0.78);
-      --surface-strong: #fffaf7;
-      --primary: #c87441;
-      --primary-dark: #a95f33;
-      --text: #4b1a0e;
-      --text-soft: #7b5a4f;
-      --line: rgba(75, 26, 14, 0.10);
-      --shadow: 0 18px 60px rgba(75, 26, 14, 0.12);
-      --shadow-soft: 0 10px 30px rgba(75, 26, 14, 0.08);
-      --radius-xl: 28px;
-      --radius-lg: 18px;
-      --radius-md: 14px;
-      --max-width: 520px;
+      --brand-bg: #bf7749;
+      --brand-bg-deep: #a9653a;
+      --brand-dark: #4b190d;
+      --brand-dark-2: #68301b;
+      --brand-mid: #8d5b3e;
+      --brand-soft: #f8efe8;
+      --brand-white: #fffaf7;
+      --brand-white-2: rgba(255, 250, 247, 0.82);
+      --line: rgba(75, 25, 13, 0.14);
+      --line-strong: rgba(75, 25, 13, 0.22);
+      --shadow-xl: 0 26px 80px rgba(75, 25, 13, 0.24);
+      --shadow-lg: 0 18px 38px rgba(75, 25, 13, 0.16);
+      --shadow-sm: 0 10px 22px rgba(75, 25, 13, 0.10);
+      --radius-xl: 34px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 620px;
+      --transition: 300ms cubic-bezier(.2,.8,.2,1);
     }
 
     * {
@@ -36,232 +40,449 @@
       margin: 0;
       min-height: 100vh;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      color: var(--text);
+      color: var(--brand-dark);
       background:
-        radial-gradient(circle at top left, rgba(200, 116, 65, 0.16), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(169, 95, 51, 0.12), transparent 28%),
-        linear-gradient(180deg, #fcf7f3 0%, var(--bg) 100%);
+        linear-gradient(rgba(191, 119, 73, 0.92), rgba(191, 119, 73, 0.92)),
+        url("images/butterfly-logo.png") center center / cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 36px 18px;
+      padding: 24px 14px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      top: -100px;
+      left: -90px;
+      background: rgba(255, 250, 247, 0.18);
+    }
+
+    body::after {
+      right: -110px;
+      bottom: -110px;
+      background: rgba(75, 25, 13, 0.14);
     }
 
     .page-shell {
       width: 100%;
       max-width: var(--max-width);
       position: relative;
-    }
-
-    .page-shell::before,
-    .page-shell::after {
-      content: "";
-      position: absolute;
-      inset: auto;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      filter: blur(50px);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .page-shell::before {
-      top: -20px;
-      left: -40px;
-      background: rgba(200, 116, 65, 0.16);
-    }
-
-    .page-shell::after {
-      bottom: -30px;
-      right: -30px;
-      background: rgba(75, 26, 14, 0.08);
+      z-index: 1;
     }
 
     .card {
       position: relative;
-      z-index: 1;
-      background: var(--surface);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow);
       overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: rgba(255, 250, 247, 0.56);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.04) 30%, rgba(75,25,13,0.02) 100%);
     }
 
     .top-panel {
       position: relative;
-      padding: 44px 28px 28px;
-      background:
-        linear-gradient(180deg, rgba(200, 116, 65, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%);
       text-align: center;
+      padding: 24px 24px 28px;
       border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.24) 0%, rgba(255,255,255,0.10) 100%);
     }
 
     .top-panel::after {
       content: "";
       position: absolute;
-      left: 28px;
-      right: 28px;
+      left: 30px;
+      right: 30px;
       bottom: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent 0%, rgba(75, 26, 14, 0.14) 50%, transparent 100%);
+      background: linear-gradient(90deg, transparent, rgba(75, 25, 13, 0.18), transparent);
     }
 
-    .brand-mark {
-      width: 74px;
-      height: 74px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      background:
-        linear-gradient(145deg, rgba(200, 116, 65, 0.18), rgba(75, 26, 14, 0.06));
-      border: 1px solid rgba(75, 26, 14, 0.08);
+    .toolbar {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+      gap: 14px;
+      margin-bottom: 26px;
     }
 
-    .brand-mark span {
-      font-size: 30px;
-      font-family: Georgia, "Times New Roman", serif;
-      color: var(--secondary, var(--text));
-      line-height: 1;
+    .status-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-dark-2);
+      background: rgba(255, 250, 247, 0.55);
+      border: 1px solid rgba(75, 25, 13, 0.10);
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px;
+      background: rgba(255, 250, 247, 0.58);
+      border: 1px solid rgba(75, 25, 13, 0.10);
+      border-radius: 999px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .lang-btn {
+      border: 0;
+      background: transparent;
+      color: var(--brand-dark-2);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .lang-btn.active {
+      background: var(--brand-dark);
+      color: var(--brand-white);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      align-items: center;
+      text-align: left;
+    }
+
+    .logo-wrap {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--brand-white);
+      border: 1px solid rgba(75, 25, 13, 0.10);
+      box-shadow: 0 18px 38px rgba(75, 25, 13, 0.20);
+      flex-shrink: 0;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-copy {
+      min-width: 0;
     }
 
     .eyebrow {
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       font-size: 11px;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--primary-dark);
-      opacity: 0.9;
+      color: var(--brand-mid);
     }
 
-    .logo {
+    .title {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(32px, 7vw, 42px);
+      font-size: clamp(34px, 6vw, 50px);
       font-weight: 500;
-      letter-spacing: -0.02em;
-      line-height: 1.04;
-      color: var(--text);
+      letter-spacing: -0.03em;
+      line-height: 0.98;
+      color: var(--brand-dark);
     }
 
     .subtitle {
-      max-width: 360px;
-      margin: 14px auto 0;
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text-soft);
+      margin: 14px 0 0;
+      max-width: 400px;
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(75, 25, 13, 0.78);
+    }
+
+    .divider {
+      width: 74px;
+      height: 1px;
+      margin: 18px 0 0;
+      background: linear-gradient(90deg, rgba(75,25,13,0.28), transparent);
+    }
+
+    .content {
+      padding: 18px 14px 14px;
+      position: relative;
+    }
+
+    .section-head {
+      padding: 4px 10px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--brand-dark);
+    }
+
+    .section-note {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(75, 25, 13, 0.54);
+      white-space: nowrap;
     }
 
     .links {
-      padding: 22px 18px 18px;
+      display: grid;
+      gap: 13px;
     }
 
     .link-button {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       width: 100%;
-      margin: 0 0 14px;
       padding: 18px 18px;
       text-decoration: none;
-      color: var(--text);
-      background: var(--surface-strong);
-      border: 1px solid rgba(75, 26, 14, 0.08);
+      color: var(--brand-dark);
+      background: rgba(255, 250, 247, 0.90);
+      border: 1px solid rgba(75, 25, 13, 0.08);
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition);
+      overflow: hidden;
+    }
+
+    .link-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.58) 50%, transparent 100%);
+      transform: translateX(-120%);
+      transition: transform 900ms cubic-bezier(.16,.84,.44,1);
+      pointer-events: none;
+    }
+
+    .link-button::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(191,119,73,0.95), rgba(75,25,13,0.90));
+      opacity: 0;
+      transition: opacity var(--transition);
     }
 
     .link-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 36px rgba(75, 26, 14, 0.10);
-      border-color: rgba(200, 116, 65, 0.28);
-      background: #fffdfb;
+      transform: translateY(-3px);
+      background: var(--brand-white);
+      border-color: rgba(75, 25, 13, 0.18);
+      box-shadow: var(--shadow-lg);
     }
 
-    .link-button:active {
-      transform: translateY(0);
+    .link-button:hover::before {
+      transform: translateX(120%);
+    }
+
+    .link-button:hover::after {
+      opacity: 1;
     }
 
     .link-content {
-      text-align: left;
       min-width: 0;
+      flex: 1;
+      text-align: left;
     }
 
     .link-title {
       display: block;
       font-family: Georgia, "Times New Roman", serif;
       font-size: 20px;
-      line-height: 1.15;
-      margin-bottom: 6px;
-      color: var(--text);
+      line-height: 1.16;
+      margin-bottom: 4px;
+      color: var(--brand-dark);
     }
 
     .link-desc {
       display: block;
       font-size: 13px;
-      line-height: 1.55;
-      color: var(--text-soft);
+      line-height: 1.6;
+      color: rgba(75, 25, 13, 0.68);
     }
 
     .link-arrow {
       flex-shrink: 0;
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       display: grid;
       place-items: center;
-      background: rgba(200, 116, 65, 0.10);
-      border: 1px solid rgba(200, 116, 65, 0.18);
-      color: var(--primary-dark);
       font-size: 18px;
-      line-height: 1;
-      transition: transform 0.28s ease, background 0.28s ease;
+      color: var(--brand-dark);
+      background: rgba(191, 119, 73, 0.12);
+      border: 1px solid rgba(75, 25, 13, 0.10);
+      transition: transform var(--transition), background var(--transition);
     }
 
     .link-button:hover .link-arrow {
-      transform: translateX(2px);
-      background: rgba(200, 116, 65, 0.16);
+      transform: translateX(3px);
+      background: rgba(191, 119, 73, 0.18);
     }
 
     .footer {
-      padding: 6px 22px 26px;
+      padding: 10px 22px 24px;
       text-align: center;
     }
 
     .footer-line {
-      width: 72px;
+      width: 94px;
       height: 1px;
-      margin: 0 auto 18px;
-      background: linear-gradient(90deg, transparent 0%, rgba(75, 26, 14, 0.18) 50%, transparent 100%);
+      margin: 0 auto 16px;
+      background: linear-gradient(90deg, transparent, rgba(75, 25, 13, 0.26), transparent);
     }
 
     .footer p {
       margin: 0;
       font-size: 12px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: rgba(75, 26, 14, 0.55);
+      color: rgba(75, 25, 13, 0.58);
     }
 
-    @media (max-width: 480px) {
-      body {
-        padding: 20px 14px;
+    .hide {
+      display: none !important;
+    }
+
+    html[lang="ar"] body {
+      direction: rtl;
+    }
+
+    html[lang="ar"] .hero-grid {
+      grid-template-columns: 1fr 120px;
+      text-align: right;
+    }
+
+    html[lang="ar"] .hero-copy,
+    html[lang="ar"] .link-content {
+      text-align: right;
+    }
+
+    html[lang="ar"] .divider {
+      margin-left: 0;
+      margin-right: 0;
+      background: linear-gradient(270deg, rgba(75,25,13,0.28), transparent);
+    }
+
+    html[lang="ar"] .section-head {
+      flex-direction: row-reverse;
+    }
+
+    html[lang="ar"] .link-button {
+      flex-direction: row-reverse;
+    }
+
+    html[lang="ar"] .link-button:hover .link-arrow {
+      transform: translateX(-3px);
+    }
+
+    @media (max-width: 580px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .logo-wrap {
+        margin: 0 auto;
+      }
+
+      .hero-copy {
+        text-align: center;
+      }
+
+      .divider {
+        margin-left: auto;
+        margin-right: auto;
+        background: linear-gradient(90deg, transparent, rgba(75,25,13,0.28), transparent);
+      }
+
+      html[lang="ar"] .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      html[lang="ar"] .hero-copy {
+        text-align: center;
+      }
+
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .status-badge {
+        text-align: center;
+      }
+
+      .lang-toggle {
+        justify-content: center;
       }
 
       .top-panel {
-        padding: 34px 20px 22px;
+        padding: 24px 18px 22px;
       }
 
-      .links {
-        padding: 18px 14px 14px;
+      .content {
+        padding: 16px 12px 12px;
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      html[lang="ar"] .section-head {
+        flex-direction: column;
       }
 
       .link-button {
@@ -273,7 +494,12 @@
       }
 
       .link-desc {
-        font-size: 12.5px;
+        font-size: 12px;
+      }
+
+      .link-arrow {
+        width: 40px;
+        height: 40px;
       }
     }
   </style>
@@ -283,65 +509,137 @@
   <main class="page-shell">
     <section class="card">
       <div class="top-panel">
-        <div class="brand-mark">
-          <span>B</span>
+        <div class="toolbar">
+          <div class="status-badge" id="statusText">Official Destinations</div>
+
+          <div class="lang-toggle" aria-label="Language switcher">
+            <button class="lang-btn active" id="btnEn" type="button">EN</button>
+            <button class="lang-btn" id="btnAr" type="button">AR</button>
+          </div>
         </div>
 
-        <span class="eyebrow">Official Links</span>
-        <h1 class="logo">Butterfly Chocolate</h1>
-        <p class="subtitle">
-          Discover our official destinations for online ordering, customer support, contact, showroom location, and brand updates.
-        </p>
+        <div class="hero-grid">
+          <div class="logo-wrap">
+            <img src="images/butterfly-logo.png" alt="Butterfly Chocolate Logo">
+          </div>
+
+          <div class="hero-copy">
+            <span class="eyebrow" id="eyebrowText">Official Links</span>
+            <h1 class="title" id="mainTitle">Butterfly Chocolate</h1>
+            <p class="subtitle" id="mainSubtitle">
+              Discover our official destinations for online ordering, customer support, direct contact, showroom location, and brand updates.
+            </p>
+            <div class="divider"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="links">
-        <a href="https://www.butterfly-kw.com" class="link-button" target="_blank" rel="noopener noreferrer">
-          <div class="link-content">
-            <span class="link-title">Order Online</span>
-            <span class="link-desc">Browse the collection and place your order through our official website.</span>
-          </div>
-          <span class="link-arrow">→</span>
-        </a>
+      <div class="content">
+        <div class="section-head">
+          <h2 class="section-title" id="sectionTitle">Quick Access</h2>
+          <p class="section-note" id="sectionNote">Curated Essentials</p>
+        </div>
 
-        <a href="https://wa.me/96566363741" class="link-button" target="_blank" rel="noopener noreferrer">
-          <div class="link-content">
-            <span class="link-title">WhatsApp Support</span>
-            <span class="link-desc">Connect directly with our team for assistance, inquiries, and order support.</span>
-          </div>
-          <span class="link-arrow">→</span>
-        </a>
+        <div class="links">
+          <a href="https://www.butterfly-kw.com" class="link-button" target="_blank" rel="noopener noreferrer">
+            <div class="link-content">
+              <span class="link-title" data-en="Order Online" data-ar="الطلب أونلاين">Order Online</span>
+              <span class="link-desc" data-en="Browse the collection and place your order through our official online store." data-ar="تصفح التشكيلة واطلب مباشرة عبر متجرنا الإلكتروني الرسمي.">
+                Browse the collection and place your order through our official online store.
+              </span>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
 
-        <a href="tel:+96566363741" class="link-button">
-          <div class="link-content">
-            <span class="link-title">Call Center</span>
-            <span class="link-desc">Speak with us directly for immediate assistance and customer service.</span>
-          </div>
-          <span class="link-arrow">→</span>
-        </a>
+          <a href="https://wa.me/96566363741" class="link-button" target="_blank" rel="noopener noreferrer">
+            <div class="link-content">
+              <span class="link-title" data-en="WhatsApp Support" data-ar="خدمة واتساب">WhatsApp Support</span>
+              <span class="link-desc" data-en="Connect with our team directly for assistance, inquiries, and order support." data-ar="تواصل مباشرة مع فريقنا للمساعدة والاستفسارات ودعم الطلبات.">
+                Connect with our team directly for assistance, inquiries, and order support.
+              </span>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
 
-        <a href="https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA" class="link-button" target="_blank" rel="noopener noreferrer">
-          <div class="link-content">
-            <span class="link-title">Ghawali Shop Location</span>
-            <span class="link-desc">Visit our showroom in Ghawali and experience Butterfly Chocolate in person.</span>
-          </div>
-          <span class="link-arrow">→</span>
-        </a>
+          <a href="tel:+96566363741" class="link-button">
+            <div class="link-content">
+              <span class="link-title" data-en="Call Center" data-ar="مركز الاتصال">Call Center</span>
+              <span class="link-desc" data-en="Speak with us directly for immediate customer service and support." data-ar="تحدث معنا مباشرة للحصول على خدمة ودعم فوري.">
+                Speak with us directly for immediate customer service and support.
+              </span>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
 
-        <a href="https://www.instagram.com/brfly.kw/" class="link-button" target="_blank" rel="noopener noreferrer">
-          <div class="link-content">
-            <span class="link-title">Instagram</span>
-            <span class="link-desc">Follow our latest creations, collections, and brand moments.</span>
-          </div>
-          <span class="link-arrow">→</span>
-        </a>
+          <a href="https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA" class="link-button" target="_blank" rel="noopener noreferrer">
+            <div class="link-content">
+              <span class="link-title" data-en="Ghawali Shop Location" data-ar="موقع معرض الغوالي">Ghawali Shop Location</span>
+              <span class="link-desc" data-en="Visit our showroom in Ghawali and experience Butterfly Chocolate in person." data-ar="زر معرضنا في الغوالي واستمتع بتجربة بترفلاي على أرض الواقع.">
+                Visit our showroom in Ghawali and experience Butterfly Chocolate in person.
+              </span>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+
+          <a href="https://www.instagram.com/brfly.kw/" class="link-button" target="_blank" rel="noopener noreferrer">
+            <div class="link-content">
+              <span class="link-title" data-en="Instagram" data-ar="إنستغرام">Instagram</span>
+              <span class="link-desc" data-en="Follow our latest creations, collections, and brand moments." data-ar="تابع أحدث الإبداعات والتشكيلات ولحظات العلامة.">
+                Follow our latest creations, collections, and brand moments.
+              </span>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+        </div>
       </div>
 
       <div class="footer">
         <div class="footer-line"></div>
-        <p>&copy; 2025 Butterfly Chocolate</p>
+        <p id="footerText">&copy; 2026 Butterfly Chocolate</p>
       </div>
     </section>
   </main>
+
+  <script>
+    const html = document.documentElement;
+    const btnEn = document.getElementById('btnEn');
+    const btnAr = document.getElementById('btnAr');
+
+    const statusText = document.getElementById('statusText');
+    const eyebrowText = document.getElementById('eyebrowText');
+    const mainTitle = document.getElementById('mainTitle');
+    const mainSubtitle = document.getElementById('mainSubtitle');
+    const sectionTitle = document.getElementById('sectionTitle');
+    const sectionNote = document.getElementById('sectionNote');
+    const footerText = document.getElementById('footerText');
+
+    function setLanguage(lang) {
+      const isArabic = lang === 'ar';
+
+      html.lang = isArabic ? 'ar' : 'en';
+      html.dir = isArabic ? 'rtl' : 'ltr';
+
+      btnEn.classList.toggle('active', !isArabic);
+      btnAr.classList.toggle('active', isArabic);
+
+      statusText.textContent = isArabic ? 'الروابط الرسمية' : 'Official Destinations';
+      eyebrowText.textContent = isArabic ? 'الروابط الرسمية' : 'Official Links';
+      mainTitle.textContent = isArabic ? 'بترفلاي للشوكولاتة' : 'Butterfly Chocolate';
+      mainSubtitle.textContent = isArabic
+        ? 'اكتشف روابطنا الرسمية للطلب أونلاين، خدمة العملاء، التواصل المباشر، موقع المعرض، وآخر مستجدات العلامة.'
+        : 'Discover our official destinations for online ordering, customer support, direct contact, showroom location, and brand updates.';
+      sectionTitle.textContent = isArabic ? 'الوصول السريع' : 'Quick Access';
+      sectionNote.textContent = isArabic ? 'مختارات أساسية' : 'Curated Essentials';
+      footerText.textContent = isArabic ? '© 2026 بترفلاي للشوكولاتة' : '© 2026 Butterfly Chocolate';
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+    }
+
+    btnEn.addEventListener('click', () => setLanguage('en'));
+    btnAr.addEventListener('click', () => setLanguage('ar'));
+  </script>
 
 </body>
 </html>
