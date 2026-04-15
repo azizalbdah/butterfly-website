@@ -4,11 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Butterfly Chocolate | Luxury Chocolates & Pastries</title>
+
+    <title>Butterfly Chocolate Kuwait | Luxury Chocolates, Desserts & Online Ordering</title>
     <meta
       name="description"
-      content="Butterfly Chocolate Kuwait — luxury chocolates, pastries, gifting, and premium online ordering."
+      content="Butterfly Chocolate Kuwait offers luxury chocolates, refined desserts, premium gifting, and elegant online ordering for memorable occasions."
     />
+    <meta
+      name="keywords"
+      content="Butterfly Chocolate, Kuwait chocolate, luxury chocolates Kuwait, premium desserts Kuwait, online chocolate ordering, gifting Kuwait, macarons Kuwait, canapes Kuwait, cakes Kuwait"
+    />
+    <meta name="theme-color" content="#bf7749" />
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Butterfly Chocolate" />
+    <link rel="canonical" href="https://butterflykwt.com/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Butterfly Chocolate Kuwait" />
+    <meta
+      property="og:description"
+      content="Luxury chocolates, elegant desserts, premium gifting, and official online ordering from Butterfly Chocolate Kuwait."
+    />
+    <meta property="og:url" content="https://butterflykwt.com/" />
+    <meta property="og:image" content="https://butterflykwt.com/images/hero.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Butterfly Chocolate Kuwait" />
+    <meta
+      name="twitter:description"
+      content="Luxury chocolates, elegant desserts, premium gifting, and official online ordering from Butterfly Chocolate Kuwait."
+    />
+    <meta name="twitter:image" content="https://butterflykwt.com/images/hero.png" />
 
     <style>
       @font-face {
@@ -16,6 +42,7 @@
         src: url("fonts/HV-Simplicite-Bold.otf") format("opentype");
         font-weight: 700;
         font-style: normal;
+        font-display: swap;
       }
 
       :root {
@@ -26,17 +53,17 @@
         --brand-mid: #8d5b3e;
         --brand-soft: #f8efe8;
         --brand-white: #fffaf7;
-        --brand-white-2: rgba(255, 250, 247, 0.8);
+        --brand-glass: rgba(255, 250, 247, 0.14);
+        --card-bg: rgba(255, 250, 247, 0.78);
         --line: rgba(75, 25, 13, 0.12);
-        --line-strong: rgba(75, 25, 13, 0.2);
-        --shadow-xl: 0 28px 80px rgba(75, 25, 13, 0.22);
-        --shadow-lg: 0 18px 40px rgba(75, 25, 13, 0.14);
-        --shadow-md: 0 10px 26px rgba(75, 25, 13, 0.1);
-        --radius-xl: 30px;
-        --radius-lg: 22px;
-        --radius-md: 16px;
+        --shadow-xl: 0 24px 70px rgba(75, 25, 13, 0.18);
+        --shadow-lg: 0 16px 36px rgba(75, 25, 13, 0.12);
+        --shadow-md: 0 10px 24px rgba(75, 25, 13, 0.08);
+        --radius-xl: 32px;
+        --radius-lg: 24px;
+        --radius-md: 18px;
         --max-width: 1320px;
-        --transition: 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+        --transition: 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
       }
 
       * {
@@ -54,20 +81,20 @@
         line-height: 1.6;
         color: var(--brand-dark);
         background:
-          radial-gradient(circle at top left, rgba(191, 119, 73, 0.16), transparent 30%),
-          radial-gradient(circle at bottom right, rgba(75, 25, 13, 0.08), transparent 24%),
+          radial-gradient(circle at top left, rgba(191, 119, 73, 0.14), transparent 28%),
+          radial-gradient(circle at bottom right, rgba(75, 25, 13, 0.08), transparent 22%),
           linear-gradient(180deg, #fcf7f3 0%, var(--brand-soft) 100%);
         overflow-x: hidden;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
       }
 
       a {
         color: inherit;
         text-decoration: none;
-      }
-
-      img {
-        max-width: 100%;
-        display: block;
       }
 
       .container {
@@ -77,8 +104,8 @@
 
       .reveal {
         opacity: 0;
-        transform: translateY(26px);
-        transition: opacity 750ms ease, transform 750ms ease;
+        transform: translateY(24px);
+        transition: opacity 700ms ease, transform 700ms ease;
       }
 
       .reveal.is-visible {
@@ -99,10 +126,10 @@
 
       header.scrolled {
         background: rgba(255, 250, 247, 0.7);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
         border-bottom: 1px solid rgba(75, 25, 13, 0.08);
-        box-shadow: 0 12px 30px rgba(75, 25, 13, 0.08);
+        box-shadow: 0 10px 24px rgba(75, 25, 13, 0.08);
       }
 
       .nav-wrapper {
@@ -149,7 +176,7 @@
         list-style: none;
         display: flex;
         align-items: center;
-        gap: 1.4rem;
+        gap: 1.35rem;
         flex-wrap: wrap;
         justify-content: flex-end;
       }
@@ -157,7 +184,6 @@
       nav a {
         position: relative;
         font-size: 0.96rem;
-        color: var(--brand-dark);
         transition: color var(--transition);
       }
 
@@ -168,7 +194,7 @@
         bottom: -7px;
         width: 100%;
         height: 1px;
-        background: var(--brand-dark);
+        background: currentColor;
         transform: scaleX(0);
         transform-origin: center;
         transition: transform var(--transition);
@@ -178,11 +204,17 @@
         transform: scaleX(1);
       }
 
+      header:not(.scrolled) nav a,
+      header:not(.scrolled) .brand-text {
+        color: rgba(255, 250, 247, 0.96);
+      }
+
       .nav-cta {
         padding: 10px 16px;
         border-radius: 999px;
-        background: rgba(75, 25, 13, 0.94);
+        background: rgba(75, 25, 13, 0.78);
         color: var(--brand-white);
+        border: 1px solid rgba(255, 250, 247, 0.14);
         box-shadow: var(--shadow-md);
       }
 
@@ -202,7 +234,8 @@
         overflow: hidden;
       }
 
-      .hero-media {
+      .hero-media,
+      .hero-overlay {
         position: absolute;
         inset: 0;
       }
@@ -216,18 +249,27 @@
       }
 
       .hero-overlay {
-        position: absolute;
-        inset: 0;
         background:
-          linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.46) 58%, rgba(0, 0, 0, 0.56) 100%),
-          linear-gradient(90deg, rgba(75, 25, 13, 0.68) 0%, rgba(75, 25, 13, 0.22) 48%, rgba(75, 25, 13, 0.12) 100%);
+          linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.10) 0%,
+            rgba(0, 0, 0, 0.34) 56%,
+            rgba(0, 0, 0, 0.42) 100%
+          ),
+          linear-gradient(
+            90deg,
+            rgba(75, 25, 13, 0.52) 0%,
+            rgba(75, 25, 13, 0.16) 48%,
+            rgba(75, 25, 13, 0.08) 100%
+          );
       }
 
       .hero-content {
         position: relative;
         z-index: 2;
         width: 100%;
-        padding-top: 110px;
+        padding-top: 118px;
+        padding-inline: clamp(10px, 2.2vw, 28px);
         color: var(--brand-white);
       }
 
@@ -240,8 +282,9 @@
 
       .hero-copy {
         max-width: 720px;
-        padding-left: clamp(6px, 2vw, 18px);
-        padding-right: clamp(10px, 2vw, 24px);
+        padding-left: clamp(10px, 2.2vw, 26px);
+        padding-right: clamp(12px, 2.2vw, 28px);
+        padding-top: 18px;
       }
 
       .hero-eyebrow {
@@ -259,21 +302,21 @@
 
       .hero-copy h1 {
         font-family: "ButterflyHero", Georgia, "Times New Roman", serif;
-        font-size: clamp(3.4rem, 7vw, 6.2rem);
-        line-height: 0.92;
+        font-size: clamp(3.2rem, 6.8vw, 6rem);
+        line-height: 0.94;
         font-weight: 700;
-        letter-spacing: -0.045em;
-        margin-bottom: 20px;
-        max-width: 9.2ch;
+        letter-spacing: -0.05em;
+        margin-bottom: 22px;
+        max-width: 8.8ch;
         text-wrap: balance;
       }
 
       .hero-copy p {
-        max-width: 620px;
+        max-width: 610px;
         font-size: 1.08rem;
-        line-height: 1.9;
-        color: rgba(255, 250, 247, 0.9);
-        margin-bottom: 30px;
+        line-height: 1.95;
+        color: rgba(255, 250, 247, 0.92);
+        margin-bottom: 32px;
       }
 
       .hero-actions {
@@ -329,21 +372,22 @@
       }
 
       .btn-secondary {
-        background: rgba(255, 250, 247, 0.12);
+        background: rgba(255, 250, 247, 0.14);
         border: 1px solid rgba(255, 250, 247, 0.22);
         color: var(--brand-white);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 26px rgba(0, 0, 0, 0.10);
       }
 
       .hero-panel {
-        background: rgba(255, 250, 247, 0.12);
+        background: rgba(255, 250, 247, 0.14);
         border: 1px solid rgba(255, 250, 247, 0.18);
         border-radius: 28px;
-        padding: 28px;
-        backdrop-filter: blur(14px);
+        padding: 30px;
+        backdrop-filter: blur(16px);
         box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
         animation: floatCard 6s ease-in-out infinite;
-        margin-right: clamp(6px, 2vw, 18px);
+        margin-right: clamp(12px, 3vw, 30px);
       }
 
       .hero-panel-label {
@@ -529,7 +573,7 @@
         position: relative;
         overflow: hidden;
         border-radius: 26px;
-        background: var(--brand-white-2);
+        background: var(--card-bg);
         border: 1px solid rgba(75, 25, 13, 0.08);
         box-shadow: var(--shadow-md);
         transition:
@@ -815,21 +859,13 @@
       }
 
       @keyframes slowZoom {
-        from {
-          transform: scale(1.02);
-        }
-        to {
-          transform: scale(1.1);
-        }
+        from { transform: scale(1.02); }
+        to { transform: scale(1.1); }
       }
 
       @keyframes floatCard {
-        0%, 100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
       }
 
       @media (max-width: 1100px) {
@@ -885,14 +921,18 @@
           padding: 124px 0 70px;
         }
 
+        .hero-content {
+          padding-inline: 0;
+        }
+
         .hero-copy {
           padding-left: 0;
           padding-right: 0;
         }
 
         .hero-copy h1 {
-          font-size: clamp(2.6rem, 13vw, 4.6rem);
-          max-width: 8.5ch;
+          font-size: clamp(2.7rem, 13vw, 4.6rem);
+          max-width: 8.4ch;
         }
 
         .hero-metrics,
@@ -931,12 +971,12 @@
       <div class="container nav-wrapper">
         <div class="brand">
           <div class="brand-mark">
-            <img src="images/butterfly-logo.png" alt="Butterfly Chocolate logo" />
+            <img src="images/butterfly-logo.png" alt="Butterfly Chocolate logo" width="46" height="46" />
           </div>
           <div class="brand-text">Butterfly Chocolate</div>
         </div>
 
-        <nav>
+        <nav aria-label="Primary">
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#products">Collections</a></li>
@@ -949,282 +989,360 @@
       </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-media">
-        <img src="images/hero.png" alt="Butterfly Chocolate hero image" />
-      </div>
-      <div class="hero-overlay"></div>
-
-      <div class="container hero-content">
-        <div class="hero-grid">
-          <div class="hero-copy reveal">
-            <span class="hero-eyebrow">Luxury Confectionery Since 2010</span>
-            <h1>Crafted to Be Remembered.</h1>
-            <p>
-              Butterfly Chocolate brings together luxury chocolates, refined pastries, premium gifting, and elegant presentation — designed to turn everyday moments into memorable occasions.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#products" class="btn btn-primary">Explore Collections</a>
-              <a href="https://www.butterfly-kw.com" target="_blank" class="btn btn-secondary" rel="noopener noreferrer">Order Online</a>
-              <a href="links.html" class="btn btn-secondary">All Official Links</a>
-            </div>
-          </div>
-
-          <div class="hero-panel reveal">
-            <span class="hero-panel-label">A Signature Experience</span>
-            <h3>Elegance in Every Detail</h3>
-            <p>
-              From handcrafted chocolates to curated gifting and premium occasion pieces, every Butterfly creation is made to feel elevated, polished, and distinctly luxurious.
-            </p>
-            <a href="#about">Discover Our Story →</a>
-          </div>
+    <main>
+      <section class="hero" aria-label="Butterfly Chocolate hero section">
+        <div class="hero-media">
+          <img
+            src="images/hero.png"
+            alt="Butterfly Chocolate premium dessert display"
+            fetchpriority="high"
+            width="1600"
+            height="1000"
+          />
         </div>
+        <div class="hero-overlay"></div>
 
-        <div class="hero-metrics reveal">
-          <div class="metric">
-            <strong>2010</strong>
-            <span>Founded with a passion for refined desserts</span>
-          </div>
-          <div class="metric">
-            <strong>Luxury</strong>
-            <span>Premium presentation, taste, and gifting</span>
-          </div>
-          <div class="metric">
-            <strong>Kuwait</strong>
-            <span>Serving customers with local elegance</span>
-          </div>
-          <div class="metric">
-            <strong>Online</strong>
-            <span>Seamless ordering through our official store</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-kicker">Our Story</span>
-          <h2>A Brand Built on Taste, Beauty, and Presence</h2>
-          <p>
-            Butterfly Chocolate has evolved from a passionate home business into one of Kuwait’s distinguished destinations for luxury sweets, desserts, and premium gifting.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-copy reveal">
-            <p class="lead">
-              Established in 2010, Butterfly Chocolate was created with a simple idea: exceptional taste should be paired with elegance, detail, and emotion.
-            </p>
-            <p>
-              Over the years, the brand has grown through dedication to quality, creative presentation, and a consistent commitment to premium customer experience.
-            </p>
-            <p>
-              Today, Butterfly Chocolate stands for more than products alone — it represents refined gifting, thoughtful design, and a signature visual identity that customers instantly recognize.
-            </p>
-            <div class="signature">Butterfly</div>
-          </div>
-
-          <div class="about-visual reveal">
-            <div class="about-frame">
-              <img src="images/truffles.png" alt="Butterfly Chocolate truffles" />
-            </div>
-            <div class="about-tag">
-              <strong>Premium Quality</strong>
-              <span>Crafted for gifting, occasions, and everyday indulgence</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="products" class="products">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-kicker">Collections</span>
-          <h2>Designed for Celebration, Gifting, and Indulgence</h2>
-          <p>
-            A curated range of premium chocolates, pastries, savoury canapés, and elegant desserts — each created to reflect Butterfly’s refined identity.
-          </p>
-        </div>
-
-        <div class="product-grid">
-          <article class="product-card reveal">
-            <div class="product-media">
-              <img src="images/truffles.png" alt="Luxury chocolates" />
-              <div class="product-overlay"></div>
-            </div>
-            <div class="product-body">
-              <span class="product-label">Signature</span>
-              <h3>Luxury Chocolates</h3>
-              <p>Handcrafted chocolate creations for elegant gifting, special occasions, and premium personal indulgence.</p>
-            </div>
-          </article>
-
-          <article class="product-card reveal">
-            <div class="product-media">
-              <img src="images/macarons.jpg" alt="Macarons and pastries" />
-              <div class="product-overlay"></div>
-            </div>
-            <div class="product-body">
-              <span class="product-label">Refined</span>
-              <h3>Macarons & Pastries</h3>
-              <p>Delicate textures, balanced flavours, and beautiful presentation inspired by timeless European elegance.</p>
-            </div>
-          </article>
-
-          <article class="product-card reveal">
-            <div class="product-media">
-              <img src="images/canapes.png" alt="Savoury canapés" />
-              <div class="product-overlay"></div>
-            </div>
-            <div class="product-body">
-              <span class="product-label">Curated</span>
-              <h3>Canapés</h3>
-              <p>Perfectly styled savoury bites designed to elevate receptions, events, and sophisticated gatherings.</p>
-            </div>
-          </article>
-
-          <article class="product-card reveal">
-            <div class="product-media">
-              <img src="images/cake.png" alt="Cakes and desserts" />
-              <div class="product-overlay"></div>
-            </div>
-            <div class="product-body">
-              <span class="product-label">Celebration</span>
-              <h3>Cakes & Desserts</h3>
-              <p>Elegant dessert pieces and celebration cakes designed to make every occasion feel more beautiful.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="gallery">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-kicker">Gallery</span>
-          <h2>A Glimpse Into the Butterfly World</h2>
-          <p>
-            A visual expression of texture, detail, and premium craftsmanship across our most loved creations.
-          </p>
-        </div>
-
-        <div class="gallery-grid">
-          <div class="gallery-item large reveal">
-            <img src="images/truffles.png" alt="Chocolate collection" />
-            <div class="gallery-caption">
-              <strong>Chocolate Collection</strong>
-              <span>Luxury handcrafted gifting pieces</span>
-            </div>
-          </div>
-
-          <div class="gallery-item reveal">
-            <img src="images/macarons.jpg" alt="Macarons" />
-            <div class="gallery-caption">
-              <strong>Macarons</strong>
-              <span>Delicate, colourful, refined</span>
-            </div>
-          </div>
-
-          <div class="gallery-item reveal">
-            <img src="images/canapes.png" alt="Canapés" />
-            <div class="gallery-caption">
-              <strong>Canapés</strong>
-              <span>Styled for elegant events</span>
-            </div>
-          </div>
-
-          <div class="gallery-item reveal">
-            <img src="images/cake.png" alt="Cake and desserts" />
-            <div class="gallery-caption">
-              <strong>Desserts</strong>
-              <span>Crafted for celebration</span>
-            </div>
-          </div>
-
-          <div class="gallery-item reveal">
-            <img src="images/hero.png" alt="Butterfly signature presentation" />
-            <div class="gallery-caption">
-              <strong>Signature Presentation</strong>
-              <span>Luxury in every visual detail</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="order-online" class="order-online">
-      <div class="container">
-        <div class="order-card reveal">
-          <div class="order-copy">
-            <span class="section-kicker">Order Online</span>
-            <h2>Experience Butterfly Online</h2>
-            <p>
-              Discover our official online ordering platform and browse a premium selection of chocolates, pastries, gifting pieces, and occasion-ready creations.
-            </p>
-
-            <div class="order-actions">
-              <a href="https://www.butterfly-kw.com" target="_blank" rel="noopener noreferrer" class="btn btn-light">
-                Visit Online Store
-              </a>
-              <a href="links.html" class="btn btn-outline">
-                View All Official Links
-              </a>
-            </div>
-          </div>
-
-          <div class="order-side">
-            <div class="order-note">
-              <strong>Direct. Elegant. Seamless.</strong>
+        <div class="container hero-content">
+          <div class="hero-grid">
+            <div class="hero-copy reveal">
+              <span class="hero-eyebrow">Luxury Confectionery Since 2010</span>
+              <h1>Crafted to Be Remembered.</h1>
               <p>
-                The website is the best place to explore the full collection and order directly through Butterfly’s official online experience.
+                Butterfly Chocolate brings together luxury chocolates, refined pastries, premium gifting, and elegant presentation — designed to turn everyday moments into memorable occasions.
               </p>
+
+              <div class="hero-actions">
+                <a href="#products" class="btn btn-primary">Explore Collections</a>
+                <a href="https://www.butterfly-kw.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Order Online</a>
+                <a href="links.html" class="btn btn-secondary">All Official Links</a>
+              </div>
+            </div>
+
+            <aside class="hero-panel reveal" aria-label="Brand statement">
+              <span class="hero-panel-label">A Signature Experience</span>
+              <h3>Elegance in Every Detail</h3>
+              <p>
+                From handcrafted chocolates to curated gifting and premium occasion pieces, every Butterfly creation is made to feel elevated, polished, and distinctly luxurious.
+              </p>
+              <a href="#about">Discover Our Story →</a>
+            </aside>
+          </div>
+
+          <div class="hero-metrics reveal">
+            <div class="metric">
+              <strong>2010</strong>
+              <span>Founded with a passion for refined desserts</span>
+            </div>
+            <div class="metric">
+              <strong>Luxury</strong>
+              <span>Premium presentation, taste, and gifting</span>
+            </div>
+            <div class="metric">
+              <strong>Kuwait</strong>
+              <span>Serving customers with local elegance</span>
+            </div>
+            <div class="metric">
+              <strong>Online</strong>
+              <span>Seamless ordering through our official store</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-kicker">Contact</span>
-          <h2>Visit, Call, or Reach Out Directly</h2>
-          <p>
-            Whether you want to place an order, visit the showroom, or speak with the team, Butterfly is always within reach.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card reveal">
-            <span class="section-kicker">Customer Service</span>
-            <h3>Get in Touch</h3>
-            <p><strong>Phone / WhatsApp:</strong> +965 6636 3741</p>
-            <p><strong>Email:</strong> info@butterfly-chocolate.com</p>
-
-            <div class="contact-links">
-              <a href="tel:+96566363741" class="contact-pill">Call Center</a>
-              <a href="https://wa.me/96566363741" target="_blank" rel="noopener noreferrer" class="contact-pill">WhatsApp</a>
-              <a href="https://www.instagram.com/brfly.kw" target="_blank" rel="noopener noreferrer" class="contact-pill">Instagram</a>
-            </div>
+      <section id="about" class="about">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-kicker">Our Story</span>
+            <h2>A Brand Built on Taste, Beauty, and Presence</h2>
+            <p>
+              Butterfly Chocolate has evolved from a passionate home business into one of Kuwait’s distinguished destinations for luxury sweets, desserts, and premium gifting.
+            </p>
           </div>
 
-          <div class="contact-card reveal">
-            <span class="section-kicker">Showroom</span>
-            <h3>Visit the Boutique</h3>
-            <p><strong>Location:</strong> Sharq, Al Ghawali Complex – Basement Level, Kuwait</p>
-            <p>Experience Butterfly Chocolate in person and discover our premium creations up close.</p>
+          <div class="about-grid">
+            <div class="about-copy reveal">
+              <p class="lead">
+                Established in 2010, Butterfly Chocolate was created with a simple idea: exceptional taste should be paired with elegance, detail, and emotion.
+              </p>
+              <p>
+                Over the years, the brand has grown through dedication to quality, creative presentation, and a consistent commitment to premium customer experience.
+              </p>
+              <p>
+                Today, Butterfly Chocolate stands for more than products alone — it represents refined gifting, thoughtful design, and a signature visual identity that customers instantly recognize.
+              </p>
+              <div class="signature">Butterfly</div>
+            </div>
 
-            <div class="contact-links">
-              <a href="https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA" target="_blank" rel="noopener noreferrer" class="contact-pill">Open Location</a>
-              <a href="links.html" class="contact-pill">All Links</a>
+            <div class="about-visual reveal">
+              <div class="about-frame">
+                <img
+                  src="images/truffles.png"
+                  alt="Butterfly Chocolate truffles"
+                  loading="lazy"
+                  decoding="async"
+                  width="900"
+                  height="1100"
+                />
+              </div>
+              <div class="about-tag">
+                <strong>Premium Quality</strong>
+                <span>Crafted for gifting, occasions, and everyday indulgence</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section id="products" class="products">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-kicker">Collections</span>
+            <h2>Designed for Celebration, Gifting, and Indulgence</h2>
+            <p>
+              A curated range of premium chocolates, pastries, savoury canapés, and elegant desserts — each created to reflect Butterfly’s refined identity.
+            </p>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card reveal">
+              <div class="product-media">
+                <img
+                  src="images/truffles.png"
+                  alt="Luxury chocolates"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="700"
+                />
+                <div class="product-overlay"></div>
+              </div>
+              <div class="product-body">
+                <span class="product-label">Signature</span>
+                <h3>Luxury Chocolates</h3>
+                <p>Handcrafted chocolate creations for elegant gifting, special occasions, and premium personal indulgence.</p>
+              </div>
+            </article>
+
+            <article class="product-card reveal">
+              <div class="product-media">
+                <img
+                  src="images/macarons.jpg"
+                  alt="Macarons and pastries"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="700"
+                />
+                <div class="product-overlay"></div>
+              </div>
+              <div class="product-body">
+                <span class="product-label">Refined</span>
+                <h3>Macarons & Pastries</h3>
+                <p>Delicate textures, balanced flavours, and beautiful presentation inspired by timeless European elegance.</p>
+              </div>
+            </article>
+
+            <article class="product-card reveal">
+              <div class="product-media">
+                <img
+                  src="images/canapes.png"
+                  alt="Savoury canapés"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="700"
+                />
+                <div class="product-overlay"></div>
+              </div>
+              <div class="product-body">
+                <span class="product-label">Curated</span>
+                <h3>Canapés</h3>
+                <p>Perfectly styled savoury bites designed to elevate receptions, events, and sophisticated gatherings.</p>
+              </div>
+            </article>
+
+            <article class="product-card reveal">
+              <div class="product-media">
+                <img
+                  src="images/cake.png"
+                  alt="Cakes and desserts"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="700"
+                />
+                <div class="product-overlay"></div>
+              </div>
+              <div class="product-body">
+                <span class="product-label">Celebration</span>
+                <h3>Cakes & Desserts</h3>
+                <p>Elegant dessert pieces and celebration cakes designed to make every occasion feel more beautiful.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-kicker">Gallery</span>
+            <h2>A Glimpse Into the Butterfly World</h2>
+            <p>
+              A visual expression of texture, detail, and premium craftsmanship across our most loved creations.
+            </p>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-item large reveal">
+              <img
+                src="images/truffles.png"
+                alt="Chocolate collection"
+                loading="lazy"
+                decoding="async"
+                width="900"
+                height="1200"
+              />
+              <div class="gallery-caption">
+                <strong>Chocolate Collection</strong>
+                <span>Luxury handcrafted gifting pieces</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal">
+              <img
+                src="images/macarons.jpg"
+                alt="Macarons"
+                loading="lazy"
+                decoding="async"
+                width="700"
+                height="700"
+              />
+              <div class="gallery-caption">
+                <strong>Macarons</strong>
+                <span>Delicate, colourful, refined</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal">
+              <img
+                src="images/canapes.png"
+                alt="Canapés"
+                loading="lazy"
+                decoding="async"
+                width="700"
+                height="700"
+              />
+              <div class="gallery-caption">
+                <strong>Canapés</strong>
+                <span>Styled for elegant events</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal">
+              <img
+                src="images/cake.png"
+                alt="Cake and desserts"
+                loading="lazy"
+                decoding="async"
+                width="700"
+                height="700"
+              />
+              <div class="gallery-caption">
+                <strong>Desserts</strong>
+                <span>Crafted for celebration</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal">
+              <img
+                src="images/hero.png"
+                alt="Butterfly signature presentation"
+                loading="lazy"
+                decoding="async"
+                width="900"
+                height="700"
+              />
+              <div class="gallery-caption">
+                <strong>Signature Presentation</strong>
+                <span>Luxury in every visual detail</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="order-online" class="order-online">
+        <div class="container">
+          <div class="order-card reveal">
+            <div class="order-copy">
+              <span class="section-kicker">Order Online</span>
+              <h2>Experience Butterfly Online</h2>
+              <p>
+                Discover our official online ordering platform and browse a premium selection of chocolates, pastries, gifting pieces, and occasion-ready creations.
+              </p>
+
+              <div class="order-actions">
+                <a href="https://www.butterfly-kw.com" target="_blank" rel="noopener noreferrer" class="btn btn-light">
+                  Visit Online Store
+                </a>
+                <a href="links.html" class="btn btn-outline">
+                  View All Official Links
+                </a>
+              </div>
+            </div>
+
+            <div class="order-side">
+              <div class="order-note">
+                <strong>Direct. Elegant. Seamless.</strong>
+                <p>
+                  The website is the best place to explore the full collection and order directly through Butterfly’s official online experience.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-kicker">Contact</span>
+            <h2>Visit, Call, or Reach Out Directly</h2>
+            <p>
+              Whether you want to place an order, visit the showroom, or speak with the team, Butterfly is always within reach.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card reveal">
+              <span class="section-kicker">Customer Service</span>
+              <h3>Get in Touch</h3>
+              <p><strong>Phone / WhatsApp:</strong> +965 6636 3741</p>
+              <p><strong>Email:</strong> info@butterfly-chocolate.com</p>
+
+              <div class="contact-links">
+                <a href="tel:+96566363741" class="contact-pill">Call Center</a>
+                <a href="https://wa.me/96566363741" target="_blank" rel="noopener noreferrer" class="contact-pill">WhatsApp</a>
+                <a href="https://www.instagram.com/brfly.kw" target="_blank" rel="noopener noreferrer" class="contact-pill">Instagram</a>
+              </div>
+            </div>
+
+            <div class="contact-card reveal">
+              <span class="section-kicker">Showroom</span>
+              <h3>Visit the Boutique</h3>
+              <p><strong>Location:</strong> Sharq, Al Ghawali Complex – Basement Level, Kuwait</p>
+              <p>Experience Butterfly Chocolate in person and discover our premium creations up close.</p>
+
+              <div class="contact-links">
+                <a href="https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA" target="_blank" rel="noopener noreferrer" class="contact-pill">Open Location</a>
+                <a href="links.html" class="contact-pill">All Links</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <p>&copy; <span id="year"></span> Butterfly Chocolate. All rights reserved.</p>
@@ -1256,9 +1374,7 @@
             }
           });
         },
-        {
-          threshold: 0.12,
-        }
+        { threshold: 0.12 }
       );
 
       reveals.forEach((el) => observer.observe(el));
