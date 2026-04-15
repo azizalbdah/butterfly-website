@@ -3,56 +3,345 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Butterfly Chocolate | Links</title>
+  <title>Butterfly Chocolate | Official Links</title>
+  <meta name="description" content="Official Butterfly Chocolate links for online ordering, WhatsApp support, call center, showroom location, and Instagram." />
+
   <style>
+    :root {
+      --bg: #f8efe9;
+      --surface: rgba(255, 250, 247, 0.78);
+      --surface-strong: #fffaf7;
+      --primary: #c87441;
+      --primary-dark: #a95f33;
+      --text: #4b1a0e;
+      --text-soft: #7b5a4f;
+      --line: rgba(75, 26, 14, 0.10);
+      --shadow: 0 18px 60px rgba(75, 26, 14, 0.12);
+      --shadow-soft: 0 10px 30px rgba(75, 26, 14, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max-width: 520px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff8f4;
-      color: #4c2b1a;
+      min-height: 100vh;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(200, 116, 65, 0.16), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(169, 95, 51, 0.12), transparent 28%),
+        linear-gradient(180deg, #fcf7f3 0%, var(--bg) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 36px 18px;
+    }
+
+    .page-shell {
+      width: 100%;
+      max-width: var(--max-width);
+      position: relative;
+    }
+
+    .page-shell::before,
+    .page-shell::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .page-shell::before {
+      top: -20px;
+      left: -40px;
+      background: rgba(200, 116, 65, 0.16);
+    }
+
+    .page-shell::after {
+      bottom: -30px;
+      right: -30px;
+      background: rgba(75, 26, 14, 0.08);
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .top-panel {
+      position: relative;
+      padding: 44px 28px 28px;
+      background:
+        linear-gradient(180deg, rgba(200, 116, 65, 0.12) 0%, rgba(255, 255, 255, 0.00) 100%);
       text-align: center;
-      padding: 40px 20px;
+      border-bottom: 1px solid var(--line);
     }
+
+    .top-panel::after {
+      content: "";
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(75, 26, 14, 0.14) 50%, transparent 100%);
+    }
+
+    .brand-mark {
+      width: 74px;
+      height: 74px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background:
+        linear-gradient(145deg, rgba(200, 116, 65, 0.18), rgba(75, 26, 14, 0.06));
+      border: 1px solid rgba(75, 26, 14, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.65);
+    }
+
+    .brand-mark span {
+      font-size: 30px;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--secondary, var(--text));
+      line-height: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 11px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      opacity: 0.9;
+    }
+
     .logo {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 30px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(32px, 7vw, 42px);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1.04;
+      color: var(--text);
     }
+
+    .subtitle {
+      max-width: 360px;
+      margin: 14px auto 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-soft);
+    }
+
+    .links {
+      padding: 22px 18px 18px;
+    }
+
     .link-button {
-      display: block;
-      margin: 12px auto;
-      width: 90%;
-      max-width: 400px;
-      padding: 16px;
-      background-color: #c87e4f;
-      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      width: 100%;
+      margin: 0 0 14px;
+      padding: 18px 18px;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      color: var(--text);
+      background: var(--surface-strong);
+      border: 1px solid rgba(75, 26, 14, 0.08);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
     }
+
     .link-button:hover {
-      background-color: #b86f44;
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(75, 26, 14, 0.10);
+      border-color: rgba(200, 116, 65, 0.28);
+      background: #fffdfb;
     }
+
+    .link-button:active {
+      transform: translateY(0);
+    }
+
+    .link-content {
+      text-align: left;
+      min-width: 0;
+    }
+
+    .link-title {
+      display: block;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1.15;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .link-desc {
+      display: block;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-soft);
+    }
+
+    .link-arrow {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(200, 116, 65, 0.10);
+      border: 1px solid rgba(200, 116, 65, 0.18);
+      color: var(--primary-dark);
+      font-size: 18px;
+      line-height: 1;
+      transition: transform 0.28s ease, background 0.28s ease;
+    }
+
+    .link-button:hover .link-arrow {
+      transform: translateX(2px);
+      background: rgba(200, 116, 65, 0.16);
+    }
+
     .footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #aaa;
+      padding: 6px 22px 26px;
+      text-align: center;
+    }
+
+    .footer-line {
+      width: 72px;
+      height: 1px;
+      margin: 0 auto 18px;
+      background: linear-gradient(90deg, transparent 0%, rgba(75, 26, 14, 0.18) 50%, transparent 100%);
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(75, 26, 14, 0.55);
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 14px;
+      }
+
+      .top-panel {
+        padding: 34px 20px 22px;
+      }
+
+      .links {
+        padding: 18px 14px 14px;
+      }
+
+      .link-button {
+        padding: 16px 15px;
+      }
+
+      .link-title {
+        font-size: 18px;
+      }
+
+      .link-desc {
+        font-size: 12.5px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="logo">🦋 Butterfly Chocolate</div>
+  <main class="page-shell">
+    <section class="card">
+      <div class="top-panel">
+        <div class="brand-mark">
+          <span>B</span>
+        </div>
 
-  <a href="https://www.butterfly-kw.com" class="link-button" target="_blank">🛍️ Order Online</a>
-  <a href="https://wa.me/96566363741" class="link-button" target="_blank">💬 WhatsApp Support</a>
-  <a href="tel:+96566363741" class="link-button">📞 Call Center</a>
-  <a href="https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA" class="link-button" target="_blank">📍 Ghawali Shop Location</a>
-  <a href="https://www.instagram.com/brfly.kw/" class="link-button" target="_blank">📸 Instagram</a>
+        <span class="eyebrow">Official Links</span>
+        <h1 class="logo">Butterfly Chocolate</h1>
+        <p class="subtitle">
+          Discover our official destinations for online ordering, customer support, contact, showroom location, and brand updates.
+        </p>
+      </div>
 
-  <div class="footer">&copy; 2025 Butterfly Chocolate</div>
+      <div class="links">
+        <a href="https://www.butterfly-kw.com" class="link-button" target="_blank" rel="noopener noreferrer">
+          <div class="link-content">
+            <span class="link-title">Order Online</span>
+            <span class="link-desc">Browse the collection and place your order through our official website.</span>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+
+        <a href="https://wa.me/96566363741" class="link-button" target="_blank" rel="noopener noreferrer">
+          <div class="link-content">
+            <span class="link-title">WhatsApp Support</span>
+            <span class="link-desc">Connect directly with our team for assistance, inquiries, and order support.</span>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+
+        <a href="tel:+96566363741" class="link-button">
+          <div class="link-content">
+            <span class="link-title">Call Center</span>
+            <span class="link-desc">Speak with us directly for immediate assistance and customer service.</span>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+
+        <a href="https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA" class="link-button" target="_blank" rel="noopener noreferrer">
+          <div class="link-content">
+            <span class="link-title">Ghawali Shop Location</span>
+            <span class="link-desc">Visit our showroom in Ghawali and experience Butterfly Chocolate in person.</span>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+
+        <a href="https://www.instagram.com/brfly.kw/" class="link-button" target="_blank" rel="noopener noreferrer">
+          <div class="link-content">
+            <span class="link-title">Instagram</span>
+            <span class="link-desc">Follow our latest creations, collections, and brand moments.</span>
+          </div>
+          <span class="link-arrow">→</span>
+        </a>
+      </div>
+
+      <div class="footer">
+        <div class="footer-line"></div>
+        <p>&copy; 2025 Butterfly Chocolate</p>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
