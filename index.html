@@ -130,13 +130,28 @@
 
     /* ---------- header ---------- */
 
+    .skip-link {
+      position: absolute;
+      top: -48px;
+      inset-inline-start: var(--pad);
+      z-index: 3000;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 10px 18px;
+      font-size: 12px;
+      transition: top 200ms var(--ease);
+    }
+    .skip-link:focus { top: 8px; }
+
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
       background: var(--paper);
       border-bottom: 1px solid var(--hairline);
+      transition: transform 360ms var(--ease);
     }
+    header.hdr-hidden { transform: translateY(-101%); }
 
     .nav {
       display: grid;
@@ -379,10 +394,25 @@
     /* ---------- responsive ---------- */
 
     @media (max-width: 980px) {
-      .cat-grid, .prod-grid { grid-template-columns: repeat(2, 1fr); }
       .svc-grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
       .hide-mobile { display: none; }
       .nav { height: 58px; }
+
+      /* LV-style horizontal swipe carousels with next-card peek */
+      .cat-grid, .prod-grid {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        margin-inline: calc(-1 * var(--pad));
+        padding-inline: var(--pad);
+      }
+      .cat-grid::-webkit-scrollbar, .prod-grid::-webkit-scrollbar { display: none; }
+
+      .cat-card { flex: 0 0 42vw; scroll-snap-align: start; }
+      .prod-card { flex: 0 0 68vw; scroll-snap-align: start; }
     }
 
     @media (max-width: 540px) {
@@ -413,6 +443,8 @@
 </head>
 
 <body>
+
+  <a class="skip-link" href="#main" data-en="Skip to content" data-ar="تخطّ إلى المحتوى">Skip to content</a>
 
   <!-- ================= HEADER ================= -->
   <header>
@@ -463,7 +495,7 @@
     </nav>
   </div>
 
-  <main>
+  <main id="main">
 
     <!-- ================= HERO ================= -->
     <!-- SHOT NEEDED: wide editorial campaign image, single hero product,
@@ -702,6 +734,25 @@
 
     langBtn.addEventListener("click", () => applyLang(lang === "en" ? "ar" : "en"));
     langLinkFoot.addEventListener("click", (e) => { e.preventDefault(); applyLang(lang === "en" ? "ar" : "en"); });
+
+    /* remember the choice across visits (fails silently if storage unavailable) */
+    function saveLang() { try { localStorage.setItem("bf-lang", lang); } catch (e) {} }
+    langBtn.addEventListener("click", saveLang);
+    langLinkFoot.addEventListener("click", saveLang);
+    try {
+      const saved = localStorage.getItem("bf-lang");
+      if (saved === "ar") applyLang("ar");
+    } catch (e) {}
+
+    /* ---------- smart header: hide on scroll down, reveal on scroll up ---------- */
+    const headerEl = document.querySelector("header");
+    let lastY = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+      if (y > lastY && y > 120) headerEl.classList.add("hdr-hidden");
+      else headerEl.classList.remove("hdr-hidden");
+      lastY = y;
+    }, { passive: true });
 
     /* ---------- drawer ---------- */
     const drawer = document.getElementById("drawer");
