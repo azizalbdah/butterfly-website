@@ -10,11 +10,11 @@
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://butterflykwt.com/" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Butterfly Chocolate Kuwait" />
-  <meta property="og:description" content="Luxury chocolates, elegant desserts, premium gifting and official online ordering from Butterfly Chocolate Kuwait." />
-  <meta property="og:url" content="https://butterflykwt.com/" />
-  <meta property="og:image" content="https://butterflykwt.com/images/hero.png" />
+  
+  
+  
+  
+  
 
   <!-- Arabic typeface for the AR experience -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -388,8 +388,8 @@
     .foot-base .lang-link { border-bottom: 1px solid currentColor; padding-bottom: 1px; }
 
     /* ---------- reveal ---------- */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 800ms var(--ease), transform 800ms var(--ease); }
-    .reveal.in { opacity: 1; transform: none; }
+    .reveal { opacity: 1; transform: none; transition: opacity 800ms var(--ease), transform 800ms var(--ease); }
+    .motion .reveal { opacity:0; transform:translateY(22px); } .reveal.in { opacity: 1; transform: none; }
 
     /* ---------- responsive ---------- */
 
@@ -426,7 +426,9 @@
       html { scroll-behavior: auto; }
       .reveal { opacity: 1; transform: none; }
     }
-  </style>
+  
+.cat-media,.svc-media,.prod-media{overflow:hidden}.cat-media img,.svc-media img,.prod-media img{transition:transform 1.2s var(--ease)}.cat-card:hover img,.svc-card:hover img,.prod-card:hover img{transform:scale(1.04)}.cat-card:nth-child(4n+2),.prod-card:nth-child(4n+2){transition-delay:60ms}.cat-card:nth-child(4n+3),.prod-card:nth-child(4n+3){transition-delay:120ms}.cat-card:nth-child(4n+4),.prod-card:nth-child(4n+4){transition-delay:180ms}@media(prefers-reduced-motion:reduce){.motion .reveal{opacity:1;transform:none}*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
 
   <script type="application/ld+json">
   {
@@ -443,6 +445,8 @@
 <link rel="preload" href="fonts/HV-Simplicite-Bold.otf" as="font" type="font/otf" crossorigin />
 <style>
 @font-face { font-family: "ButterflyBrand"; src: url("fonts/HV-Simplicite-Bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+.cat-media,.svc-media,.prod-media{overflow:hidden}.cat-media img,.svc-media img,.prod-media img{transition:transform 1.2s var(--ease)}.cat-card:hover img,.svc-card:hover img,.prod-card:hover img{transform:scale(1.04)}.cat-card:nth-child(4n+2),.prod-card:nth-child(4n+2){transition-delay:60ms}.cat-card:nth-child(4n+3),.prod-card:nth-child(4n+3){transition-delay:120ms}.cat-card:nth-child(4n+4),.prod-card:nth-child(4n+4){transition-delay:180ms}@media(prefers-reduced-motion:reduce){.motion .reveal{opacity:1;transform:none}*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 <!-- Meta Pixel Code -->
 <script>
@@ -461,8 +465,23 @@ fbq('track', 'PageView');
 <style>
 .wordmark, html[lang="ar"] .wordmark { font-family:"ButterflyBrand",Georgia,serif; font-weight:700; font-size:clamp(26px,3vw,36px); letter-spacing:0; text-transform:none; padding-inline-start:0; line-height:1.1; }
 @media(max-width:540px){.nav{gap:10px;grid-template-columns:auto 1fr auto;padding-inline:16px}.nav-right{gap:10px}.wordmark{font-size:28px}.nav-link{font-size:11px}.lang-toggle{padding:6px 8px}}
+
+.cat-media,.svc-media,.prod-media{overflow:hidden}.cat-media img,.svc-media img,.prod-media img{transition:transform 1.2s var(--ease)}.cat-card:hover img,.svc-card:hover img,.prod-card:hover img{transform:scale(1.04)}.cat-card:nth-child(4n+2),.prod-card:nth-child(4n+2){transition-delay:60ms}.cat-card:nth-child(4n+3),.prod-card:nth-child(4n+3){transition-delay:120ms}.cat-card:nth-child(4n+4),.prod-card:nth-child(4n+4){transition-delay:180ms}@media(prefers-reduced-motion:reduce){.motion .reveal{opacity:1;transform:none}*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
-<style>.hero>img{object-position:center 48%}.band>img{object-position:center 48%}@media(max-width:540px){.hero{height:78svh;min-height:500px}.hero>img{object-position:center}.band{height:75svh;min-height:430px}}</style>
+<style>.hero>img{object-position:center 48%}.band>img{object-position:center 48%}@media(max-width:540px){.hero{height:78svh;min-height:500px}.hero>img{object-position:center}.band{height:75svh;min-height:430px}}
+.cat-media,.svc-media,.prod-media{overflow:hidden}.cat-media img,.svc-media img,.prod-media img{transition:transform 1.2s var(--ease)}.cat-card:hover img,.svc-card:hover img,.prod-card:hover img{transform:scale(1.04)}.cat-card:nth-child(4n+2),.prod-card:nth-child(4n+2){transition-delay:60ms}.cat-card:nth-child(4n+3),.prod-card:nth-child(4n+3){transition-delay:120ms}.cat-card:nth-child(4n+4),.prod-card:nth-child(4n+4){transition-delay:180ms}@media(prefers-reduced-motion:reduce){.motion .reveal{opacity:1;transform:none}*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+
+<style>
+/* Keep the brand at the geometric centre, independently of side controls. */
+header .nav { position:relative; }
+header .nav>.wordmark { position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);margin:0; }
+header .nav-left { grid-column:1; }
+header .nav-right { grid-column:3; }
+
+.cat-media,.svc-media,.prod-media{overflow:hidden}.cat-media img,.svc-media img,.prod-media img{transition:transform 1.2s var(--ease)}.cat-card:hover img,.svc-card:hover img,.prod-card:hover img{transform:scale(1.04)}.cat-card:nth-child(4n+2),.prod-card:nth-child(4n+2){transition-delay:60ms}.cat-card:nth-child(4n+3),.prod-card:nth-child(4n+3){transition-delay:120ms}.cat-card:nth-child(4n+4),.prod-card:nth-child(4n+4){transition-delay:180ms}@media(prefers-reduced-motion:reduce){.motion .reveal{opacity:1;transform:none}*,*:before,*:after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+<meta property="og:type" content="website"><meta property="og:site_name" content="Butterfly Chocolate"><meta property="og:title" content="Butterfly Chocolate Kuwait"><meta property="og:description" content="Chocolate, gifting and elegant hospitality from Butterfly Kuwait."><meta property="og:url" content="https://butterflykwt.com/"><meta property="og:image" content="https://butterflykwt.com/images/butterfly-share.jpg"><meta property="og:image:secure_url" content="https://butterflykwt.com/images/butterfly-share.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Butterfly Chocolate"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Butterfly Chocolate Kuwait"><meta name="twitter:description" content="Chocolate, gifting and elegant hospitality from Butterfly Kuwait."><meta name="twitter:image" content="https://butterflykwt.com/images/butterfly-share.jpg"><link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
 </head>
 
 <body>
@@ -511,6 +530,7 @@ alt="" /></noscript>
         <a href="#signature" data-en="Signature Collection" data-ar="المجموعة المميزة">Signature Collection</a>
         <a href="#services" data-en="Butterfly Services" data-ar="خدمات بترفلاي">Butterfly Services</a>
         <a href="https://www.butterfly-kw.com" target="_blank" rel="noopener noreferrer" data-en="Order Online" data-ar="اطلب أونلاين">Order Online</a>
+        <a href="business.html" data-en="Corporate Gifting" data-ar="إهداءات الشركات">Corporate Gifting</a><a href="catering.html" data-en="Catering" data-ar="الكيترنق">Catering</a>
         <a href="links.html" data-en="All Official Links" data-ar="جميع الروابط الرسمية">All Official Links</a>
       </div>
       <div class="drawer-foot">
@@ -570,7 +590,7 @@ alt="" /></noscript>
             <div class="cat-media"><img src="images/artistic-collection.webp" alt="Occasions and events" loading="lazy" /></div>
             <span class="label" data-en="Occasions &amp; Events" data-ar="مناسبات وفعاليات">Occasions &amp; Events</span>
           </a>
-          <a class="cat-card reveal" href="https://www.butterfly-kw.com" target="_blank" rel="noopener noreferrer">
+          <a class="cat-card reveal" href="business.html">
             <div class="cat-media"><img src="images/bespoke-chocolate.webp" alt="Corporate gifting" loading="lazy" /></div>
             <span class="label" data-en="Corporate Gifting" data-ar="هدايا الشركات">Corporate Gifting</span>
           </a>
@@ -675,7 +695,7 @@ alt="" /></noscript>
           <div class="svc-card reveal">
             <div class="svc-media"><img src="images/bespoke-chocolate.webp" alt="Customization service" loading="lazy" /></div>
             <h3 data-en="Customization" data-ar="التخصيص">Customization</h3>
-            <a class="text-link" href="https://wa.me/96566363741" target="_blank" rel="noopener noreferrer" data-en="Explore" data-ar="اكتشف">Explore</a>
+            <a class="text-link" href="business.html" data-en="Explore Corporate Gifting" data-ar="اكتشف إهداءات الشركات">Explore Corporate Gifting</a>
           </div>
           <div class="svc-card reveal">
             <div class="svc-media"><img src="images/artistic-collection.webp" alt="Art of gifting" loading="lazy" /></div>
@@ -685,7 +705,7 @@ alt="" /></noscript>
           <div class="svc-card reveal">
             <div class="svc-media"><img src="images/svc-events.jpg" onerror="this.onerror=null;this.src='images/canapes.png'" alt="Events and catering" loading="lazy" /></div>
             <h3 data-en="Events &amp; Catering" data-ar="الفعاليات والتموين">Events &amp; Catering</h3>
-            <a class="text-link" href="https://wa.me/96566363741" target="_blank" rel="noopener noreferrer" data-en="Contact Us" data-ar="تواصل معنا">Contact Us</a>
+            <a class="text-link" href="catering.html" data-en="Explore Catering" data-ar="اكتشف الكيترنق">Explore Catering</a>
           </div>
         </div>
       </div>
@@ -709,7 +729,7 @@ alt="" /></noscript>
         <div class="acc-body"><div class="acc-body-in">
           <a href="https://www.butterfly-kw.com" target="_blank" rel="noopener noreferrer" data-en="Online Ordering" data-ar="الطلب أونلاين">Online Ordering</a>
           <a href="https://wa.me/96566363741" target="_blank" rel="noopener noreferrer" data-en="Custom Orders" data-ar="الطلبات الخاصة">Custom Orders</a>
-          <a href="https://wa.me/96566363741" target="_blank" rel="noopener noreferrer" data-en="Events &amp; Catering" data-ar="الفعاليات والتموين">Events &amp; Catering</a>
+          <a href="catering.html" data-en="Events &amp; Catering" data-ar="الفعاليات والتموين">Events &amp; Catering</a>
         </div></div>
       </div>
       <div class="acc-item">
@@ -811,11 +831,12 @@ alt="" /></noscript>
     });
 
     /* ---------- scroll reveals ---------- */
-    const io = new IntersectionObserver((entries) => {
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion:reduce)').matches) { document.documentElement.classList.add('motion'); const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
     }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el)); }
   </script>
 </body>
 </html>
+
 
