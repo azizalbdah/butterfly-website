@@ -4,6 +4,9 @@ __pycache__/
 .env.*
 !.env.example
 node_modules/
+staff/dist/
+supabase/.temp/
+supabase/.branches/
 private-backups/
 *.dump
 *.bundle
