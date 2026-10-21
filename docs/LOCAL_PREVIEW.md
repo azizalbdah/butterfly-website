@@ -20,8 +20,8 @@ cd /workspace/butterfly-website
 python3 scripts/local-start.py
 ```
 
-The helper verifies the project and CLI version, builds the actual invitation
-handler using the lockfile-pinned SDK, and starts the real Auth, Postgres,
+The helper verifies the project and CLI version, builds the actual invitation and publishing/media
+handlers using the lockfile-pinned SDK, and starts the real Auth, Postgres,
 Storage, Data API, Mailpit and Edge services. The self-contained local Edge
 bundle avoids a certificate-chain failure in this environment's graph loader;
 it does not disable TLS checks. The hosted source uses its pinned production

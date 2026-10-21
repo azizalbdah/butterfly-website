@@ -1,6 +1,6 @@
 # Staff dashboard delivery gates
 
-Status on 21 October 2026: **Stages A and B passed their local acceptance gates; Stages C and D have not started.** Production remains on the preserved website baseline. Stage B is a genuine local backend and browser checkpoint, not a verified hosted deployment. See [the sanitized Stage B report](checkpoints/stage-b-local-2026-10-21.json).
+Status on 21 October 2026: **Stages A and B passed their local acceptance gates; Stage C has passed its publishing API/browser checks and is completing its final recovery rehearsal; Stage D has not started.** Production remains on the preserved website baseline. Stage B is a genuine local backend and browser checkpoint, not a verified hosted deployment. See [the sanitized Stage B report](checkpoints/stage-b-local-2026-10-21.json).
 
 ## A — Baseline and preview
 

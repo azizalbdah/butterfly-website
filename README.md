@@ -9,6 +9,7 @@ work is developed on the feature branch.
 - [Verified website baseline and rollback](ROLLBACK.md)
 - [Local preview and acceptance commands](docs/LOCAL_PREVIEW.md)
 - [Supabase setup and external prerequisites](docs/SUPABASE_SETUP.md)
+- [Content, package editing and safe publishing](docs/PUBLISHING.md)
 - [Separate backend recovery requirements](docs/BACKEND_RECOVERY.md)
 - [Encrypted local backup and tested recovery procedure](docs/LOCAL_RECOVERY.md)
 

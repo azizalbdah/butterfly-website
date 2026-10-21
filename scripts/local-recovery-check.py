@@ -72,6 +72,9 @@ def restore_check(backup_set, key_file, destination, fixtures=None, runtime_api=
         raise backup_tools.BackupError('Unsafe restore target rejected.')
     before = backup_tools.table_fingerprints()
     destination.mkdir(parents=True, mode=0o700)
+    if not fixtures and 'acceptance-fixtures.json.aesgcm' in artifacts:
+        fixtures = destination / 'acceptance-fixtures.json'
+        backup_tools.write_private(fixtures, artifacts['acceptance-fixtures.json.aesgcm'])
     # Target names are generated internally. There is no flag to restore over an existing DB.
     backup_tools.sql(f'CREATE DATABASE {backup_tools.identifier(target_db)} WITH TEMPLATE template0 OWNER postgres;')
     try:
@@ -113,7 +116,7 @@ def restore_check(backup_set, key_file, destination, fixtures=None, runtime_api=
             'limitations': ['Local isolated recovery only; no hosted-project recovery or production cutover',
                            'Encrypted global-role export is not replayed; recovery of custom roles into a differently configured cluster is untested',
                            'Hosted SMTP/DNS/account rebinding and external service recovery are untested',
-                           'Invitation Edge runtime is not started in the recovery clone; its source/config follows the separate code checkpoint',
+                           'Edge runtimes are not started in the recovery clone; their source/config follows the separate code checkpoint',
                            'No production backup, cutover, off-site retention or production recovery is configured'],
         }
         if not runtime_api:
@@ -146,6 +149,13 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
     config = re.sub(r'(\[edge_runtime\]\s*\n)enabled\s*=\s*true', r'\1enabled = false', config)
     backup_tools.write_private(config_dir / 'config.toml', config.encode())
     backup_tools.write_private(config_dir / 'signing_keys.json', json.dumps(bindings['signing_keys']).encode())
+    migration_sources = json.loads(artifacts.get('migration-sources.json.aesgcm',b'{}'))
+    if migration_sources:
+        (config_dir/'migrations').mkdir(mode=0o700)
+        for name,source in migration_sources.items():
+            if not re.fullmatch(r'[0-9]{14}_[a-z0-9_]+\.sql',name) or not isinstance(source,str):
+                raise backup_tools.BackupError('Invalid captured migration source.')
+            backup_tools.write_private(config_dir/'migrations'/name,source.encode())
     log = destination / 'runtime-start.log'
     env = dict(os.environ, SUPABASE_USE_SLIM_IMAGES='true', BUTTERFLY_RECOVERY_JWT_SECRET=bindings['legacy_jwt_secret'])
     original_container = backup_tools.CONTAINER
@@ -165,6 +175,11 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
         if status.get('API_URL') != 'http://127.0.0.1:55321' or status.get('JWT_SECRET') != bindings['legacy_jwt_secret']:
             raise backup_tools.BackupError('Disposable API endpoint or legacy signing binding differs from the backup.')
         backup_tools.CONTAINER = clone_db
+        if migration_sources:
+            versions=json.loads(backup_tools.sql("select coalesce(jsonb_agg(version order by version),'[]'::jsonb)::text from supabase_migrations.schema_migrations;"))
+            if versions!=sorted(name.split('_')[0] for name in migration_sources):
+                raise backup_tools.BackupError('Captured migrations did not apply to the fresh Supabase project.')
+            checks.append('clean-versioned-migrations-applied')
         if backup_tools.role_fingerprint() != inventory['roles_sha256']:
             raise backup_tools.BackupError('Fresh CLI cluster roles differ from captured role inventory.')
         backup_tools.sql(f'CREATE DATABASE {backup_tools.identifier(recovery_db)} WITH TEMPLATE template0 OWNER postgres;')
@@ -302,7 +317,9 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
             if request('GET','/storage/v1/object/public/' + path)[0] == 200:
                 raise backup_tools.BackupError('Restored private Storage became public.')
         checks.append('restored-storage-api-bytes-and-role-boundaries')
-        item = inventory['objects'][0]
+        item = next((item for item in inventory['objects'] if item['bucket']=='staff-media'),None)
+        if not item:
+            raise backup_tools.BackupError('No mutable private staff-media fixture exists for upload recovery.')
         probe_path = '/storage/v1/object/' + quote(item['bucket'],safe='') + '/recovery-probe/' + secrets.token_hex(8) + '.png'
         code, _ = request('POST',probe_path,token=sessions['marketing'],raw=artifacts[item['artifact']],
                           headers={'Content-Type':item['metadata'].get('mimetype','image/png'),'x-upsert':'false'})
@@ -312,6 +329,20 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
         if code != 200 or backup_tools.digest(body) != item['sha256']:
             raise backup_tools.BackupError('A new recovered-runtime upload could not be read back exactly.')
         checks.append('restored-storage-api-authorized-new-upload')
+        if inventory.get('published_site'):
+            code, body = request('POST','/rest/v1/rpc/get_published_site',data={})
+            if code != 200 or json.loads(body) != inventory['published_site']:
+                raise backup_tools.BackupError('Restored anonymous published content/catalogue differs from the backup.')
+            for item in inventory['objects']:
+                if item['bucket']=='site-media':
+                    statement = "select coalesce(jsonb_agg(name),'[]'::jsonb)::text from public.site_published_media;"
+                    expected = item['path'] in json.loads(backup_tools.command([
+                        'docker','exec','-i',clone_db,'psql','-X','-At','-U',
+                        backup_tools.OPERATOR_ROLE,'-d',recovery_db,'-c',statement]).decode())
+                    code, body = request('POST','/rest/v1/rpc/is_site_media_published',data={'object_name':item['path']})
+                    if code != 200 or json.loads(body) is not expected:
+                        raise backup_tools.BackupError('Restored publication media visibility differs from its saved state.')
+            checks.append('restored-published-content-catalogue-and-media-visibility')
         code, _ = request('POST','/auth/v1/recover?redirect_to=' + quote('http://127.0.0.1:5173/staff/',safe=''),
                            data={'email':accounts['recovery']['email']})
         if code != 200:

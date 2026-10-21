@@ -200,16 +200,20 @@ def runtime_bindings():
                                  if name.startswith('GOTRUE_') or name == 'API_EXTERNAL_URL'}}
 
 
-def backup(destination, key_file, credential_file):
+def backup(destination, key_file, credential_file, fixture_file=None):
     destination = safe_private_path(destination, must_not_exist=True)
     key_file = safe_private_path(key_file, must_not_exist=True)
     if key_file == destination or key_file.is_relative_to(destination):
         raise BackupError('Keep the encryption key outside the backup set.')
+    migration_sources = {p.name:p.read_text() for p in sorted((ROOT/'supabase/migrations').glob('*.sql'))}
     config_bytes = (ROOT / 'supabase/config.toml').read_bytes()
     config = tomllib.loads(config_bytes.decode())
     if config.get('project_id') != PROJECT:
         raise BackupError('Unexpected project; the local-only backup guard refused to proceed.')
     state, api, service_key = credentials(credential_file)
+    fixture_bytes = read_private(fixture_file) if fixture_file else None
+    if fixture_bytes and json.loads(fixture_bytes).get('api_url') != api:
+        raise BackupError('Acceptance fixture must belong to this exact local preview.')
     command(['docker', 'inspect', '--format', '{{.State.Running}}', CONTAINER])
     os.umask(0o077)
     destination.mkdir(parents=True, mode=0o700)
@@ -234,8 +238,11 @@ def backup(destination, key_file, credential_file):
         write_private(output, encrypted)
         artifacts[name] = {'plaintext_sha256': digest(body), 'encrypted_sha256': digest(encrypted), 'bytes': len(body)}
 
+    if fixture_bytes:
+        save('acceptance-fixtures.json.aesgcm', fixture_bytes)
     save('database.dump.aesgcm', database)
     save('roles.sql.aesgcm', command(['docker','exec',CONTAINER,'pg_dumpall','-U',OPERATOR_ROLE,'--roles-only']))
+    save('migration-sources.json.aesgcm', json.dumps(migration_sources).encode())
     save('runtime-bindings.json.aesgcm', json.dumps(bindings_before, sort_keys=True).encode())
     # Preserve Storage's versioned on-disk layout as well as independently
     # downloaded logical object bytes. This enables an actual API restore.
@@ -247,14 +254,14 @@ def backup(destination, key_file, credential_file):
                           headers={'apikey': service_key, 'Authorization': 'Bearer ' + service_key})
         try:
             with opener.open(request, timeout=30) as response:
-                body = response.read(6 * 1024 * 1024)
+                body = response.read(10 * 1024 * 1024 + 1)
                 if response.status != 200:
                     raise BackupError('A local Storage object could not be read.')
         except BackupError:
             raise
         except Exception:
             raise BackupError('Local Storage download failed; no credential values were logged.') from None
-        if len(body) > 5 * 1024 * 1024:
+        if len(body) > 10 * 1024 * 1024:
             raise BackupError('Object exceeds the configured local preview limit.')
         item['sha256'] = digest(body)
         item['bytes'] = len(body)
@@ -266,8 +273,14 @@ def backup(destination, key_file, credential_file):
         {k:v for k,v in item.items() if k in ('bucket','path','metadata')} for item in inventory
     ]):
         raise BackupError('Source data changed during capture. The partial set is not a valid backup; retry after local writes stop.')
+    if migration_sources != {p.name:p.read_text() for p in sorted((ROOT/'supabase/migrations').glob('*.sql'))}:
+        raise BackupError('Migrations changed during capture; partial backup rejected.')
+    if fixture_bytes and read_private(fixture_file) != fixture_bytes:
+        raise BackupError('Acceptance fixtures changed during capture; partial backup rejected.')
+    published = (json.loads(sql('select public.get_published_site()::text;'))
+                 if sql("select to_regprocedure('public.get_published_site()') is not null;") == 't' else None)
     save('source-inventory.json.aesgcm', json.dumps({'tables': before, 'objects': inventory, 'policy_sha256': policy_before,
-                                                   'roles_sha256':roles_before}, sort_keys=True).encode())
+                                                   'roles_sha256':roles_before,'published_site':published}, sort_keys=True).encode())
     save('supabase-config.toml.aesgcm', config_bytes)
     manifest = {
         'format': 'butterfly-local-aes256gcm-v1', 'status': 'completed', 'local_preview_only': True,
@@ -293,10 +306,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--destination', required=True, help='Fresh private directory outside the checkout.')
     parser.add_argument('--key-file', required=True, help='Fresh private key file outside the backup set and checkout.')
+    parser.add_argument('--fixtures', help='Optional matching local test fixture, stored encrypted for repeatable recovery checks.')
     parser.add_argument('--credentials', default='/workspace/.butterfly-private/local-supabase.json')
     args = parser.parse_args()
     try:
-        result = backup(args.destination, args.key_file, args.credentials)
+        result = backup(args.destination, args.key_file, args.credentials, args.fixtures)
     except (BackupError, OSError, ValueError) as error:
         parser.exit(1, str(error) + '\n')
     print(json.dumps(result, indent=2))
