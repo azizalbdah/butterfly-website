@@ -131,3 +131,14 @@ git -C /tmp/butterfly-offline-recovery rev-parse HEAD
 7. Record the recovery release and evidence. This work tested isolated recovery and inspected the real successful baseline deployment; it did not perform a production redeploy.
 
 **A website rollback must never automatically restore an old database.** Records and uploads created after launch must survive it. Database, file, Auth and environment recovery are separate incident procedures in [BACKEND_RECOVERY.md](docs/BACKEND_RECOVERY.md). The separate staff backend now has versioned migrations and a tested local encrypted recovery workflow in [LOCAL_RECOVERY.md](docs/LOCAL_RECOVERY.md). No hosted production backend or production customer backup has been configured. Preserve all later backend migrations and records when restoring the website.
+
+
+Latest accepted local staff checkpoint: `checkpoint/butterfly-stage-d-local-2026-10-21`.
+The Stage D website-only rollback rehearsal served the exact 27-file baseline
+and passed all 13 public browser groups while preserving every current backend
+table digest (53 tables) and the uploaded-file inventory. No database was restored
+and no production redeployment occurred. The separate encrypted backend backup
+is `stage-d-002`; isolated rehearsal `stage-d-003` restored 53 tables and 16 files,
+including Auth/MFA, extension dependencies and the actual Edge submission/media
+routes. Its clean captured code commit is `5936f26d578c9a991739c13601b38cef32cc8574`.
+See [Stage D evidence](docs/checkpoints/stage-d-local-2026-10-21.json).

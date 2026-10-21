@@ -1,6 +1,6 @@
 # Staff dashboard delivery gates
 
-Status on 21 October 2026: **Stages A, B and C passed their local acceptance gates; Stage D implementation and browser acceptance are complete; final recovery/checkpoint verification is in progress.** Production remains on the preserved website baseline. Stage B is a genuine local backend and browser checkpoint, not a verified hosted deployment. See [the sanitized Stage B report](checkpoints/stage-b-local-2026-10-21.json).
+Status on 21 October 2026: **Stages A, B, C and D passed their local acceptance gates.** Production remains on the preserved website baseline. Stage B is a genuine local backend and browser checkpoint, not a verified hosted deployment. See [the sanitized Stage B report](checkpoints/stage-b-local-2026-10-21.json).
 
 ## A — Baseline and preview
 
@@ -27,6 +27,12 @@ Acceptance passed: 55,494 comparisons against the saved calculator, eight direct
 Only begin after B passes. Import existing AR/EN content and approved package data. Preserve the logo font and quiet luxury design. Add explicit draft/preview/publish/version-history states and publish atomically with auditing; permit Marketing drafts and media, and Admin prices/publishing. Store one authoritative published package catalogue used by the dashboard and public calculator. Preserve the current recommendation rules, guest capacities, prices and add-ons, testing old versus new results across capacities, extensions, hours, towers, unavailable packages and custom quotations. Snapshots must retain the catalogue version and calculated price used by each enquiry/quotation. Test persistence, concurrent editing, invalid publishes, anonymous published reads, private draft isolation, AR/EN, RTL/mobile and keyboard access. Commit/tag only after acceptance passes.
 
 ## D — Enquiries, customers and follow-ups
+
+Completed locally: actual overview/date filters; six-stage board and table; assignment, follow-ups, notes and loss reasons; scoped customer/company profiles and activity; validated anonymous capture; separate WhatsApp, quotation and booking actions; immutable catalogue/approval price snapshots. [CRM.md](CRM.md) describes the workflow.
+
+All **17 CRM API groups and 10 CRM browser groups passed**. Earlier-stage regression checks passed: 15 backend groups, 13 auth browser groups, eight publishing API groups, eight publishing browser groups, 13 public browser groups, 29 unit tests and 55,494 pricing comparisons. The curated staff release includes its required response-header rules. The isolated baseline website rollback preserved all 53 backend table digests and uploaded-file inventory.
+
+Encrypted backup `stage-d-002` captured clean code commit `5936f26d578c9a991739c13601b38cef32cc8574`. Recovery rehearsal `stage-d-003` passed for **53 tables and 16 uploads** after a clean 13-migration setup, including captured extension dependencies, Auth/MFA/sessions, assignment permissions, booking prices, private uploads, published photos and actual new anonymous submissions through restored Edge functions. Source data was preserved and the independent clone was removed. See [the sanitized Stage D report](checkpoints/stage-d-local-2026-10-21.json). Hosted setup remains pending; production was reverified on the saved baseline.
 
 Only begin after C passes. Add real overview counts and date filters with empty states; board/table pipeline (New, Contacted, Quotation Sent, Confirmed, Completed, Lost); assignment, next action, follow-up date, notes and loss reason; related customer/company records and history. Use validated anonymous submissions through a rate-limited server function with server-calculated price snapshots. Separate submission, WhatsApp opening, quotation sending and booking confirmation. A client opening WhatsApp is not evidence that a message was sent. Enforce assignee permissions at the database. Check customer matching without merging unrelated records, activity/audit consistency, overdue follow-ups and date boundaries. Test later records survive website rollback.
 
