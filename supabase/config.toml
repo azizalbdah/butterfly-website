@@ -110,3 +110,7 @@ import_map = "./functions/publish-site/production-import-map.json"
 [functions.site-media]
 verify_jwt = false
 import_map = "./functions/site-media/production-import-map.json"
+
+[functions.submit-enquiry]
+verify_jwt = false
+import_map = "./functions/submit-enquiry/production-import-map.json"

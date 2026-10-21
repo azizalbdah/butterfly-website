@@ -40,7 +40,7 @@ try {
   }
   const bundleBytes = await readFile(bundle);
   const functions = {};
-  for (const name of ['invite-staff','publish-site','site-media']) {
+  for (const name of ['invite-staff','publish-site','site-media','submit-enquiry']) {
     const source=resolve(root,'supabase/functions',name,'index.ts');
     const functionFolder=resolve(folder,name);
     const artifact=resolve(functionFolder,'index.js');
@@ -51,11 +51,13 @@ try {
     if(built.output.length!==1||built.output[0].type!=='chunk'||built.output[0].imports.length||built.output[0].dynamicImports.length)throw new Error('Edge bundles must be self-contained.');
     functions[name]={source_sha256:sha256(await readFile(source)),bundle_sha256:sha256(await readFile(artifact))};
   }
+  const sharedSources={};
+  for(const name of ['assets/pricing.mjs','supabase/functions/_shared/enquiry.mjs'])sharedSources[name]=sha256(await readFile(resolve(root,name)));
   const metadata = {
     sdk: '@supabase/supabase-js', version: sdkVersion,
     npm_integrity: pinned.integrity,
     lockfile_sha256: sha256(lockBytes), bundle_sha256: sha256(bundleBytes),
-    functions,
+    functions, shared_sources_sha256:sharedSources,
     scope: 'SDK plus exact Edge handler only; production source map pins the npm dependency.',
   };
   await writeFile(resolve(folder, 'sdk-metadata.json'), JSON.stringify(metadata, null, 2) + '\n', { mode: 0o600 });
