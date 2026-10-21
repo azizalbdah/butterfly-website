@@ -1,72 +1,17 @@
-/* Butterfly Catering V4.0. Hospitality V3.2 and Coffee Catalogue-approved data, October 2026. */
-(function (global) {
+/* Butterfly calculator. Uses the published catalogue when configured. */
+(async function (global) {
 'use strict';
-const packages = [
- {id:'signature',name:'Signature Reception',ar:'سيغنتشر',guests:30,max:40,price:475,savouries:120,trays:4,selections:2,towers:1,tiramisu:15,delight:15,artistic:15,chocolate:1.25,drinks:35,coffee:35,baristas:1,staff:3,captains:0,hours:4},
- {id:'grand',name:'Grand Reception',ar:'غراند',guests:50,max:70,price:650,savouries:200,trays:6,selections:3,towers:2,tiramisu:25,delight:25,artistic:15,chocolate:2,drinks:55,coffee:55,baristas:1,staff:4,captains:0,hours:4},
- {id:'prestige',name:'Prestige Reception',ar:'بريستيج',guests:75,max:95,price:995,savouries:300,trays:10,selections:5,towers:3,tiramisu:40,delight:40,artistic:30,chocolate:3,drinks:80,coffee:80,baristas:2,staff:5,captains:1,hours:5}
-];
-const addons = [
- {id:'canapes',en:'Assorted savouries & canapés',ar:'موالح وكانابيه مشكلة',unitEn:'30 pieces',unitAr:'30 قطعة',price:22,group:'food'},
- {id:'tiramisu',en:'Mini tiramisu',ar:'ميني تيراميسو',unitEn:'12 pieces',unitAr:'12 قطعة',price:22,group:'food'},
- {id:'delight',en:'Mini Delight cakes',ar:'ميني ديلايت كيك',unitEn:'12 pieces',unitAr:'12 قطعة',price:28,group:'food'},
- {id:'bites',en:'Dessert bites',ar:'ديزرت بايتس',unitEn:'20 pieces',unitAr:'20 قطعة',price:22,group:'food'},
- {id:'artistic',en:'Personalised artistic pieces',ar:'قطع فنية مخصصة إضافية',unitEn:'15 pieces',unitAr:'15 قطعة',price:25,group:'food'},
- {id:'chocolateHalf',en:'Assorted chocolate',ar:'شوكولاتة مشكلة',unitEn:'0.5 kg',unitAr:'0.5 كغم',price:25,group:'food'},
- {id:'chocolateKg',en:'Assorted chocolate',ar:'شوكولاتة مشكلة',unitEn:'1 kg',unitAr:'1 كغم',price:45,group:'food'},
- {id:'biscuits',en:'Personalised coffee biscuit tags',ar:'بسكويت تاق للقهوة بطباعة مخصصة',unitEn:'12 pieces',unitAr:'12 قطعة',price:7,group:'food'},
- {id:'staff',en:'Additional hospitality staff',ar:'موظفة ضيافة إضافية',unitEn:'1 team member',unitAr:'موظفة واحدة',price:20,group:'service'},
- {id:'barista',en:'Additional barista',ar:'باريستا إضافي',unitEn:'1 barista',unitAr:'باريستا واحد',price:30,group:'service'},
- {id:'captain',en:'Additional event captain',ar:'مشرف مناسبة إضافي',unitEn:'1 event captain',unitAr:'مشرف واحد',price:65,group:'service'}
-];
-const savouries=[{id:'vine',en:'Vine leaves & musakhan',ar:'ورق عنب ومسخن'},{id:'tarts',en:'Savoury tarts',ar:'تارت مالح'},{id:'sable',en:'Savoury sablé',ar:'موالح سابليه'},{id:'canapes',en:'Assorted canapés',ar:'كانابيه مشكلة'},{id:'other',en:'Another current selection — agree with our team',ar:'صنف آخر من القائمة الحالية — يحدد مع الفريق'}];
-const towers=[{id:'eclair',en:'Éclair',ar:'إكلير'},{id:'macaron',en:'Macaron',ar:'ماكرون'},{id:'madeleine',en:'Madeleine',ar:'مادلين'},{id:'chocolate',en:'Chocolate',ar:'شوكولاتة'}];
-const coffeePackages = [
- {id:'coffee30',service:'coffee',name:'Coffee Reception',guests:30,price:125,baristas:1,helpers:0},
- {id:'coffee50',service:'coffee',name:'Coffee Reception',guests:50,price:175,baristas:1,helpers:0},
- {id:'coffee100',service:'coffee',name:'Coffee Reception',guests:100,price:275,baristas:1,helpers:1},
- {id:'coffee150',service:'coffee',name:'Coffee Reception',guests:150,price:375,baristas:2,helpers:1},
- {id:'coffee200',service:'coffee',name:'Coffee Reception',guests:200,price:475,baristas:2,helpers:1}
-];
-const serviceTypes=[
- {id:'hospitality',en:'Full hospitality',ar:'ضيافة كاملة'},
- {id:'wedding',en:'Wedding hospitality',ar:'ضيافة عرس'},
- {id:'coffee',en:'Coffee station only',ar:'ستيشن قهوة فقط'}
-];
-function validGuests(n){return Number.isInteger(n)&&n>=1&&n<=400;}
-function guestBlocks(p,n){return Math.max(0,Math.ceil((n-p.guests)/10));}
-function hourRate(n){return n<=50?45:60;}
-function packageQuote(p,n,hours=4){
- if(!validGuests(n)||n>p.max||!Number.isFinite(hours)||hours<4||hours>8)return null;
- const blocks=guestBlocks(p,n),extraHours=Math.max(0,hours-p.hours);
- return {package:p,blocks,capacity:p.guests+blocks*10,guestCost:blocks*125,extraHours,hourCost:extraHours*hourRate(n),total:p.price+blocks*125+extraHours*hourRate(n)};
+const [pricing,site] = await Promise.all([import('./pricing.mjs'), global.ButterflySiteReady]);
+if (!site?.catalogue) {
+ const status=document.createElement('p');status.setAttribute('role','alert');
+ status.textContent='Package estimates are temporarily unavailable. Please contact Butterfly. تعذّر تحميل أسعار الباقات مؤقتًا. يرجى التواصل مع بترفلاي.';
+ document.getElementById('configForm').before(status);
+ document.getElementById('configForm').inert=true;
+ return;
 }
-function recommend(n,minTowers=0,hours=4){
- if(!validGuests(n))return null;
- const candidates=packages.filter(p=>p.towers>=minTowers).map(p=>packageQuote(p,n,hours)).filter(Boolean);
- return candidates.sort((a,b)=>a.total-b.total||a.package.guests-b.package.guests)[0]||null;
-}
-function coffeeQuote(p,n){
- if(!validGuests(n)||n>p.guests)return null;
- return {package:p,capacity:p.guests,total:p.price,blocks:0,guestCost:0,extraHours:0,hourCost:0};
-}
-function recommendCoffee(n){
- if(!validGuests(n))return null;
- const p=coffeePackages.find(p=>p.guests>=n);
- return p?coffeeQuote(p,n):null;
-}
-function recommendService(service,n,minTowers=0,hours=4){
- if(service==='coffee')return recommendCoffee(n);
- return ['hospitality','wedding'].includes(service)?recommend(n,minTowers,hours):null;
-}
-function extrasTotal(qty,service='hospitality'){
- if(service==='coffee')return 0;
- return addons.reduce((sum,a)=>sum+a.price*(Number.isInteger(qty[a.id])&&qty[a.id]>0?qty[a.id]:0),0);
-}
-const model={packages,coffeePackages,serviceTypes,addons,savouries,towers,validGuests,guestBlocks,hourRate,packageQuote,coffeeQuote,recommend,recommendCoffee,recommendService,extrasTotal};
-if(typeof module!=='undefined'&&module.exports)module.exports=model;
-if(typeof document==='undefined')return;
-
+const model=pricing.createPricingModel(site.catalogue);
+const {packages,coffeePackages,serviceTypes,addons,savouries,towers,validGuests,guestBlocks,hourRate,packageQuote,coffeeQuote,recommend,recommendCoffee,recommendService,extrasTotal}=model;
+global.ButterflyCalculator={model,catalogueRevision:site.catalogue_revision};
 const $=id=>document.getElementById(id);
 let lang='ar',stage=1,currentService='',manual=null,lastPackage=null,result=null,recommended=null;
 const state={savouries:[],towers:['','',''],extras:Object.fromEntries(addons.map(a=>[a.id,0]))};
@@ -156,7 +101,7 @@ function renderPackages(){
   const q=coffee?coffeeQuote(p,n):packageQuote(p,n,requestedHours());
   const eligible=!!q&&(coffee||p.towers>=minTowers),selected=result?.package.id===p.id,isRec=recommended?.package.id===p.id;
   const towerText=!coffee?(p.towers===1?tr('1 medium tower','برج متوسط واحد'):p.towers===2?tr('2 medium towers','برجان متوسطان'):tr('3 medium towers','3 أبراج متوسطة'))+' · '+p.hours+' '+tr('service hours','ساعات خدمة'):'';
-  return '<article class="package-card '+(selected?'selected':'')+'"><div class="card-top"><span class="eyebrow">'+esc(coffee?tr('Coffee Reception','ضيافة القهوة'):p.name)+'</span>'+(isRec?'<span class="recommend-badge">'+tr('Our recommendation','ترشيحنا لك')+'</span>':'')+'</div><h3>'+countLabel(p.guests,'guests','ضيفًا')+'</h3><p class="package-price">'+money(p.price)+'</p><p class="mini">'+esc(coffee?coffeeTeam(p):towerText)+'</p><button type="button" class="btn '+(selected?'':'outline')+'" data-package="'+p.id+'" aria-pressed="'+selected+'" '+(!eligible?'disabled':'')+'>'+tr(selected?'Selected':eligible?'Choose package':'Does not fit these choices',selected?'الباقة المختارة':eligible?'اختر الباقة':'لا تناسب هذه الاختيارات')+'</button>'+(!coffee&&eligible&&q.blocks?'<p class="mini">'+tr('With guest extension: ','مع زيادة الضيوف: ')+money(p.price+q.guestCost)+'</p>':'')+'</article>';
+  return '<article class="package-card '+(selected?'selected':'')+'"><div class="card-top"><span class="eyebrow">'+esc(coffee?tr(p.name,'ضيافة القهوة'):p.name)+'</span>'+(isRec?'<span class="recommend-badge">'+tr('Our recommendation','ترشيحنا لك')+'</span>':'')+'</div><h3>'+countLabel(p.guests,'guests','ضيفًا')+'</h3><p class="package-price">'+money(p.price)+'</p><p class="mini">'+esc(coffee?coffeeTeam(p):towerText)+'</p><button type="button" class="btn '+(selected?'':'outline')+'" data-package="'+p.id+'" aria-pressed="'+selected+'" '+(!eligible?'disabled':'')+'>'+tr(selected?'Selected':eligible?'Choose package':'Does not fit these choices',selected?'الباقة المختارة':eligible?'اختر الباقة':'لا تناسب هذه الاختيارات')+'</button>'+(!coffee&&eligible&&q.blocks?'<p class="mini">'+tr('With guest extension: ','مع زيادة الضيوف: ')+money(p.price+q.guestCost)+'</p>':'')+'</article>';
  }).join('');
 }
 function renderChoices(){
@@ -169,7 +114,7 @@ function renderChoices(){
   $('customNote').textContent=tr('Share your preferences below. Your event price is quoted separately.','أكمل تفضيلاتك أدناه. يُحدد سعر مناسبتك بعرض منفصل.');
  }
  if(!p)return;
- $('includedHeading').textContent=coffee?tr('Coffee Reception','ضيافة القهوة'):tr(p.name,p.ar+' ريسبشن');
+ $('includedHeading').textContent=coffee?tr(p.name,'ضيافة القهوة'):tr(p.name,p.ar+' ريسبشن');
  $('includedDetails').innerHTML=packageDetails(p);
  $('baseQuantities').textContent=coffee?tr('Coffee-only service for up to '+p.guests+' guests, with the team listed below.','خدمة قهوة فقط لغاية '+p.guests+' ضيفًا، مع الفريق الموضح أدناه.'):tr('The quantities below are the base package for '+p.guests+' guests. '+(result.blocks?'Guest-extension quantities will be agreed with our team.':'Additional food selections are shown separately in your summary.'),'الكميات أدناه للباقة الأساسية لـ'+p.guests+' شخصًا. '+(result.blocks?'تُؤكد كميات زيادة الضيوف مع فريقنا.':'تظهر إضافات المأكولات بشكل مستقل في ملخصك.'));
  $('includedNote').textContent=coffee?tr('The booking proposal confirms drinks, cup allowance, service duration and any additional charges. Food, chocolate trays and towers are not included in coffee-only packages.','يُحدد عرض الحجز المشروبات وعدد الأكواب ومدة الخدمة وأي رسوم إضافية. لا تشمل باقات القهوة فقط المأكولات أو صواني الشوكولاتة أو الأبراج.'):tr('Chocolate weight is the content of the serving tray. Coffee cups are the combined hot and cold total. Dessert bites and printed coffee biscuit tags are optional add-ons.','وزن الشوكولاتة هو محتوى الصينية نفسها. أكواب القهوة إجمالي الساخن والبارد معًا. ديزرت بايتس وبسكويت تاق القهوة إضافات مستقلة.');
@@ -184,7 +129,7 @@ function renderSummary(){
  $('submitQuote').disabled=!ready||!valid;
  $('summaryTotalLabel').hidden=!ready;$('priceLines').hidden=!ready;$('summaryPersonalisation').hidden=!ready;
  $('summaryService').textContent=currentService?serviceName():'';
- $('summaryName').textContent=!ready?tr(stage===1?'Start with your service':'Tell us your guest count',stage===1?'ابدأ بنوع الخدمة':'حدد عدد ضيوفك'):p?(coffee?tr('Coffee Reception','ضيافة القهوة'):p.name):tr('A tailored proposal','عرض يناسب مناسبتك');
+ $('summaryName').textContent=!ready?tr(stage===1?'Start with your service':'Tell us your guest count',stage===1?'ابدأ بنوع الخدمة':'حدد عدد ضيوفك'):p?(coffee?tr(p.name,'ضيافة القهوة'):p.name):tr('A tailored proposal','عرض يناسب مناسبتك');
  $('summaryPrice').textContent=ready?(p?money(result.total+extra):tr('Custom quotation','عرض سعر خاص')):'';
  $('mobilePrice').textContent=ready?(p?money(result.total+extra):tr('Custom quotation','عرض سعر خاص')):'';
  $('summaryGuests').textContent=ready&&valid?countLabel(n,'guests','ضيفًا'):tr('Service → guests → your package','نوع الخدمة ← عدد الضيوف ← الباقة المناسبة');

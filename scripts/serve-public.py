@@ -66,10 +66,13 @@ class PublicHandler(SimpleHTTPRequestHandler):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--port', type=int, default=8000)
+    parser.add_argument('--root', type=Path, default=ROOT, help='Explicit public export directory.')
     args = parser.parse_args()
     if not 1 <= args.port <= 65535:
         parser.error('Choose a valid local port.')
-    handler = partial(PublicHandler, directory=str(ROOT))
+    if not args.root.is_dir():
+        parser.error('Public document root must exist.')
+    handler = partial(PublicHandler, directory=str(args.root.resolve()))
     with ThreadingHTTPServer(('127.0.0.1', args.port), handler) as server:
         print(f'Public-only preview listening on loopback port {args.port}.', flush=True)
         try:

@@ -1,0 +1,4663 @@
+{
+  "baseline_commit": "ad8cda04dc84c70dbf3a4f1fbc12f711d4fd35bd",
+  "definitions": [
+    {
+      "id": "index-seo-001",
+      "page": "index",
+      "kind": "seo",
+      "label": "Page title"
+    },
+    {
+      "id": "index-seo-002",
+      "page": "index",
+      "kind": "seo",
+      "label": "description"
+    },
+    {
+      "id": "index-seo-003",
+      "page": "index",
+      "kind": "seo",
+      "label": "og:title"
+    },
+    {
+      "id": "index-seo-004",
+      "page": "index",
+      "kind": "seo",
+      "label": "og:description"
+    },
+    {
+      "id": "index-seo-005",
+      "page": "index",
+      "kind": "seo",
+      "label": "twitter:title"
+    },
+    {
+      "id": "index-seo-006",
+      "page": "index",
+      "kind": "seo",
+      "label": "twitter:description"
+    },
+    {
+      "id": "index-text-007",
+      "page": "index",
+      "kind": "text",
+      "label": "Skip to content"
+    },
+    {
+      "id": "index-link-008",
+      "page": "index",
+      "kind": "link",
+      "label": "Skip to content"
+    },
+    {
+      "id": "index-text-009",
+      "page": "index",
+      "kind": "text",
+      "label": "Menu"
+    },
+    {
+      "id": "index-link-010",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-text-011",
+      "page": "index",
+      "kind": "text",
+      "label": "Search"
+    },
+    {
+      "id": "index-link-012",
+      "page": "index",
+      "kind": "link",
+      "label": "#"
+    },
+    {
+      "id": "index-text-013",
+      "page": "index",
+      "kind": "text",
+      "label": "Call Us"
+    },
+    {
+      "id": "index-link-014",
+      "page": "index",
+      "kind": "link",
+      "label": "Call Us"
+    },
+    {
+      "id": "index-link-015",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-text-016",
+      "page": "index",
+      "kind": "text",
+      "label": "Order"
+    },
+    {
+      "id": "index-text-017",
+      "page": "index",
+      "kind": "text",
+      "label": "Creations"
+    },
+    {
+      "id": "index-link-018",
+      "page": "index",
+      "kind": "link",
+      "label": "Creations"
+    },
+    {
+      "id": "index-text-019",
+      "page": "index",
+      "kind": "text",
+      "label": "Gifting Collection"
+    },
+    {
+      "id": "index-link-020",
+      "page": "index",
+      "kind": "link",
+      "label": "Gifting Collection"
+    },
+    {
+      "id": "index-text-021",
+      "page": "index",
+      "kind": "text",
+      "label": "Signature Collection"
+    },
+    {
+      "id": "index-link-022",
+      "page": "index",
+      "kind": "link",
+      "label": "Signature Collection"
+    },
+    {
+      "id": "index-text-023",
+      "page": "index",
+      "kind": "text",
+      "label": "Butterfly Services"
+    },
+    {
+      "id": "index-link-024",
+      "page": "index",
+      "kind": "link",
+      "label": "Butterfly Services"
+    },
+    {
+      "id": "index-text-025",
+      "page": "index",
+      "kind": "text",
+      "label": "Order Online"
+    },
+    {
+      "id": "index-link-026",
+      "page": "index",
+      "kind": "link",
+      "label": "Order Online"
+    },
+    {
+      "id": "index-text-027",
+      "page": "index",
+      "kind": "text",
+      "label": "Corporate Gifting"
+    },
+    {
+      "id": "index-link-028",
+      "page": "index",
+      "kind": "link",
+      "label": "Corporate Gifting"
+    },
+    {
+      "id": "index-text-029",
+      "page": "index",
+      "kind": "text",
+      "label": "Catering"
+    },
+    {
+      "id": "index-link-030",
+      "page": "index",
+      "kind": "link",
+      "label": "Catering"
+    },
+    {
+      "id": "index-text-031",
+      "page": "index",
+      "kind": "text",
+      "label": "All Official Links"
+    },
+    {
+      "id": "index-link-032",
+      "page": "index",
+      "kind": "link",
+      "label": "All Official Links"
+    },
+    {
+      "id": "index-text-033",
+      "page": "index",
+      "kind": "text",
+      "label": "Call Center +965 6636 3741"
+    },
+    {
+      "id": "index-link-034",
+      "page": "index",
+      "kind": "link",
+      "label": "Call Center +965 6636 3741"
+    },
+    {
+      "id": "index-text-035",
+      "page": "index",
+      "kind": "text",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "index-link-036",
+      "page": "index",
+      "kind": "link",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "index-text-037",
+      "page": "index",
+      "kind": "text",
+      "label": "Boutique — Sharq, Al Ghawali Complex"
+    },
+    {
+      "id": "index-link-038",
+      "page": "index",
+      "kind": "link",
+      "label": "Boutique — Sharq, Al Ghawali Complex"
+    },
+    {
+      "id": "index-image-039",
+      "page": "index",
+      "kind": "image",
+      "label": "Butterfly Chocolate signature presentation"
+    },
+    {
+      "id": "index-text-040",
+      "page": "index",
+      "kind": "text",
+      "label": "Gifting"
+    },
+    {
+      "id": "index-text-041",
+      "page": "index",
+      "kind": "text",
+      "label": "Crafted to Be Remembered"
+    },
+    {
+      "id": "index-text-042",
+      "page": "index",
+      "kind": "text",
+      "label": "Discover the Gift Guide"
+    },
+    {
+      "id": "index-link-043",
+      "page": "index",
+      "kind": "link",
+      "label": "Discover the Gift Guide"
+    },
+    {
+      "id": "index-text-044",
+      "page": "index",
+      "kind": "text",
+      "label": "The Maison"
+    },
+    {
+      "id": "index-text-045",
+      "page": "index",
+      "kind": "text",
+      "label": "Explore a Selection of Butterfly's Creations"
+    },
+    {
+      "id": "index-text-046",
+      "page": "index",
+      "kind": "text",
+      "label": "Enjoy signature packaging and elegant presentation with every order."
+    },
+    {
+      "id": "index-link-047",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-048",
+      "page": "index",
+      "kind": "image",
+      "label": "Luxury chocolates"
+    },
+    {
+      "id": "index-text-049",
+      "page": "index",
+      "kind": "text",
+      "label": "Luxury Chocolates"
+    },
+    {
+      "id": "index-link-050",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-051",
+      "page": "index",
+      "kind": "image",
+      "label": "Macarons and pastries"
+    },
+    {
+      "id": "index-text-052",
+      "page": "index",
+      "kind": "text",
+      "label": "Macarons & Pastries"
+    },
+    {
+      "id": "index-link-053",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-054",
+      "page": "index",
+      "kind": "image",
+      "label": "Savoury canapés"
+    },
+    {
+      "id": "index-text-055",
+      "page": "index",
+      "kind": "text",
+      "label": "Canapés"
+    },
+    {
+      "id": "index-link-056",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-057",
+      "page": "index",
+      "kind": "image",
+      "label": "Cakes and desserts"
+    },
+    {
+      "id": "index-text-058",
+      "page": "index",
+      "kind": "text",
+      "label": "Cakes & Desserts"
+    },
+    {
+      "id": "index-link-059",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-060",
+      "page": "index",
+      "kind": "image",
+      "label": "Gift trays"
+    },
+    {
+      "id": "index-text-061",
+      "page": "index",
+      "kind": "text",
+      "label": "Gifting & Trays"
+    },
+    {
+      "id": "index-link-062",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-063",
+      "page": "index",
+      "kind": "image",
+      "label": "Occasions and events"
+    },
+    {
+      "id": "index-text-064",
+      "page": "index",
+      "kind": "text",
+      "label": "Occasions & Events"
+    },
+    {
+      "id": "index-link-065",
+      "page": "index",
+      "kind": "link",
+      "label": "business.html"
+    },
+    {
+      "id": "index-image-066",
+      "page": "index",
+      "kind": "image",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "index-text-067",
+      "page": "index",
+      "kind": "text",
+      "label": "Corporate Gifting"
+    },
+    {
+      "id": "index-link-068",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-069",
+      "page": "index",
+      "kind": "image",
+      "label": "Seasonal collection"
+    },
+    {
+      "id": "index-text-070",
+      "page": "index",
+      "kind": "text",
+      "label": "Seasonal Collection"
+    },
+    {
+      "id": "index-image-071",
+      "page": "index",
+      "kind": "image",
+      "label": "images/signature-tray.webp"
+    },
+    {
+      "id": "index-text-072",
+      "page": "index",
+      "kind": "text",
+      "label": "Gifting"
+    },
+    {
+      "id": "index-text-073",
+      "page": "index",
+      "kind": "text",
+      "label": "The Gifting Collection"
+    },
+    {
+      "id": "index-link-074",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-075",
+      "page": "index",
+      "kind": "image",
+      "label": "Butterfly chocolate selection"
+    },
+    {
+      "id": "index-text-076",
+      "page": "index",
+      "kind": "text",
+      "label": "Chocolate Selection"
+    },
+    {
+      "id": "index-link-077",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-078",
+      "page": "index",
+      "kind": "image",
+      "label": "Macaron coffret"
+    },
+    {
+      "id": "index-text-079",
+      "page": "index",
+      "kind": "text",
+      "label": "Macaron Coffret"
+    },
+    {
+      "id": "index-link-080",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-081",
+      "page": "index",
+      "kind": "image",
+      "label": "Celebration cake"
+    },
+    {
+      "id": "index-text-082",
+      "page": "index",
+      "kind": "text",
+      "label": "Celebration Cake"
+    },
+    {
+      "id": "index-link-083",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-084",
+      "page": "index",
+      "kind": "image",
+      "label": "Reception canapés"
+    },
+    {
+      "id": "index-text-085",
+      "page": "index",
+      "kind": "text",
+      "label": "Reception Canapés"
+    },
+    {
+      "id": "index-text-086",
+      "page": "index",
+      "kind": "text",
+      "label": "Discover the Collection"
+    },
+    {
+      "id": "index-link-087",
+      "page": "index",
+      "kind": "link",
+      "label": "Discover the Collection"
+    },
+    {
+      "id": "index-image-088",
+      "page": "index",
+      "kind": "image",
+      "label": "images/chocolate-craft.webp"
+    },
+    {
+      "id": "index-text-089",
+      "page": "index",
+      "kind": "text",
+      "label": "Signature"
+    },
+    {
+      "id": "index-text-090",
+      "page": "index",
+      "kind": "text",
+      "label": "The Butterfly Icons"
+    },
+    {
+      "id": "index-link-091",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-092",
+      "page": "index",
+      "kind": "image",
+      "label": "Medallion tray"
+    },
+    {
+      "id": "index-text-093",
+      "page": "index",
+      "kind": "text",
+      "label": "The Medallion Tray"
+    },
+    {
+      "id": "index-link-094",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-095",
+      "page": "index",
+      "kind": "image",
+      "label": "Butterfly artistic chocolate"
+    },
+    {
+      "id": "index-text-096",
+      "page": "index",
+      "kind": "text",
+      "label": "Artistic Chocolate"
+    },
+    {
+      "id": "index-link-097",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-098",
+      "page": "index",
+      "kind": "image",
+      "label": "Butterfly chocolate reception pieces"
+    },
+    {
+      "id": "index-text-099",
+      "page": "index",
+      "kind": "text",
+      "label": "Reception Pieces"
+    },
+    {
+      "id": "index-link-100",
+      "page": "index",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "index-image-101",
+      "page": "index",
+      "kind": "image",
+      "label": "Petit four assortment"
+    },
+    {
+      "id": "index-text-102",
+      "page": "index",
+      "kind": "text",
+      "label": "Petit Four Assortment"
+    },
+    {
+      "id": "index-text-103",
+      "page": "index",
+      "kind": "text",
+      "label": "Discover the New Creations"
+    },
+    {
+      "id": "index-link-104",
+      "page": "index",
+      "kind": "link",
+      "label": "Discover the New Creations"
+    },
+    {
+      "id": "index-text-105",
+      "page": "index",
+      "kind": "text",
+      "label": "Butterfly Services"
+    },
+    {
+      "id": "index-text-106",
+      "page": "index",
+      "kind": "text",
+      "label": "Butterfly offers an array of tailored services — including custom orders, signature gift wrapping, a"
+    },
+    {
+      "id": "index-image-107",
+      "page": "index",
+      "kind": "image",
+      "label": "Customization service"
+    },
+    {
+      "id": "index-text-108",
+      "page": "index",
+      "kind": "text",
+      "label": "Customization"
+    },
+    {
+      "id": "index-text-109",
+      "page": "index",
+      "kind": "text",
+      "label": "Explore Corporate Gifting"
+    },
+    {
+      "id": "index-link-110",
+      "page": "index",
+      "kind": "link",
+      "label": "Explore Corporate Gifting"
+    },
+    {
+      "id": "index-image-111",
+      "page": "index",
+      "kind": "image",
+      "label": "Art of gifting"
+    },
+    {
+      "id": "index-text-112",
+      "page": "index",
+      "kind": "text",
+      "label": "The Art of Gifting"
+    },
+    {
+      "id": "index-text-113",
+      "page": "index",
+      "kind": "text",
+      "label": "For Every Occasion"
+    },
+    {
+      "id": "index-link-114",
+      "page": "index",
+      "kind": "link",
+      "label": "For Every Occasion"
+    },
+    {
+      "id": "index-image-115",
+      "page": "index",
+      "kind": "image",
+      "label": "Events and catering"
+    },
+    {
+      "id": "index-text-116",
+      "page": "index",
+      "kind": "text",
+      "label": "Events & Catering"
+    },
+    {
+      "id": "index-text-117",
+      "page": "index",
+      "kind": "text",
+      "label": "Explore Catering"
+    },
+    {
+      "id": "index-link-118",
+      "page": "index",
+      "kind": "link",
+      "label": "Explore Catering"
+    },
+    {
+      "id": "index-text-119",
+      "page": "index",
+      "kind": "text",
+      "label": "Help"
+    },
+    {
+      "id": "index-text-120",
+      "page": "index",
+      "kind": "text",
+      "label": "Call Center +965 6636 3741"
+    },
+    {
+      "id": "index-link-121",
+      "page": "index",
+      "kind": "link",
+      "label": "Call Center +965 6636 3741"
+    },
+    {
+      "id": "index-text-122",
+      "page": "index",
+      "kind": "text",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "index-link-123",
+      "page": "index",
+      "kind": "link",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "index-text-124",
+      "page": "index",
+      "kind": "text",
+      "label": "Email Us"
+    },
+    {
+      "id": "index-link-125",
+      "page": "index",
+      "kind": "link",
+      "label": "Email Us"
+    },
+    {
+      "id": "index-text-126",
+      "page": "index",
+      "kind": "text",
+      "label": "Services"
+    },
+    {
+      "id": "index-text-127",
+      "page": "index",
+      "kind": "text",
+      "label": "Online Ordering"
+    },
+    {
+      "id": "index-link-128",
+      "page": "index",
+      "kind": "link",
+      "label": "Online Ordering"
+    },
+    {
+      "id": "index-text-129",
+      "page": "index",
+      "kind": "text",
+      "label": "Custom Orders"
+    },
+    {
+      "id": "index-link-130",
+      "page": "index",
+      "kind": "link",
+      "label": "Custom Orders"
+    },
+    {
+      "id": "index-text-131",
+      "page": "index",
+      "kind": "text",
+      "label": "Events & Catering"
+    },
+    {
+      "id": "index-link-132",
+      "page": "index",
+      "kind": "link",
+      "label": "Events & Catering"
+    },
+    {
+      "id": "index-text-133",
+      "page": "index",
+      "kind": "text",
+      "label": "About Butterfly"
+    },
+    {
+      "id": "index-text-134",
+      "page": "index",
+      "kind": "text",
+      "label": "Our Creations"
+    },
+    {
+      "id": "index-link-135",
+      "page": "index",
+      "kind": "link",
+      "label": "Our Creations"
+    },
+    {
+      "id": "index-text-136",
+      "page": "index",
+      "kind": "text",
+      "label": "Boutique — Sharq, Al Ghawali Complex"
+    },
+    {
+      "id": "index-link-137",
+      "page": "index",
+      "kind": "link",
+      "label": "Boutique — Sharq, Al Ghawali Complex"
+    },
+    {
+      "id": "index-text-138",
+      "page": "index",
+      "kind": "text",
+      "label": "All Official Links"
+    },
+    {
+      "id": "index-link-139",
+      "page": "index",
+      "kind": "link",
+      "label": "All Official Links"
+    },
+    {
+      "id": "index-text-140",
+      "page": "index",
+      "kind": "text",
+      "label": "Connect"
+    },
+    {
+      "id": "index-text-141",
+      "page": "index",
+      "kind": "text",
+      "label": "Instagram"
+    },
+    {
+      "id": "index-link-142",
+      "page": "index",
+      "kind": "link",
+      "label": "Instagram"
+    },
+    {
+      "id": "index-text-143",
+      "page": "index",
+      "kind": "text",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "index-link-144",
+      "page": "index",
+      "kind": "link",
+      "label": "WhatsApp"
+    },
+    {
+      "id": "index-text-145",
+      "page": "index",
+      "kind": "text",
+      "label": "© Butterfly Chocolate. All rights reserved."
+    },
+    {
+      "id": "index-text-146",
+      "page": "index",
+      "kind": "text",
+      "label": "Deliver to: Kuwait"
+    },
+    {
+      "id": "index-link-147",
+      "page": "index",
+      "kind": "link",
+      "label": "#"
+    },
+    {
+      "id": "business-seo-001",
+      "page": "business",
+      "kind": "seo",
+      "label": "Page title"
+    },
+    {
+      "id": "business-seo-002",
+      "page": "business",
+      "kind": "seo",
+      "label": "description"
+    },
+    {
+      "id": "business-seo-003",
+      "page": "business",
+      "kind": "seo",
+      "label": "og:title"
+    },
+    {
+      "id": "business-seo-004",
+      "page": "business",
+      "kind": "seo",
+      "label": "og:description"
+    },
+    {
+      "id": "business-seo-005",
+      "page": "business",
+      "kind": "seo",
+      "label": "twitter:title"
+    },
+    {
+      "id": "business-seo-006",
+      "page": "business",
+      "kind": "seo",
+      "label": "twitter:description"
+    },
+    {
+      "id": "business-text-007",
+      "page": "business",
+      "kind": "text",
+      "label": "Skip to content"
+    },
+    {
+      "id": "business-link-008",
+      "page": "business",
+      "kind": "link",
+      "label": "Skip to content"
+    },
+    {
+      "id": "business-text-009",
+      "page": "business",
+      "kind": "text",
+      "label": "← Home"
+    },
+    {
+      "id": "business-link-010",
+      "page": "business",
+      "kind": "link",
+      "label": "← Home"
+    },
+    {
+      "id": "business-link-011",
+      "page": "business",
+      "kind": "link",
+      "label": "Butterfly home"
+    },
+    {
+      "id": "business-text-012",
+      "page": "business",
+      "kind": "text",
+      "label": "Request a proposal"
+    },
+    {
+      "id": "business-link-013",
+      "page": "business",
+      "kind": "link",
+      "label": "Request a proposal"
+    },
+    {
+      "id": "business-text-014",
+      "page": "business",
+      "kind": "text",
+      "label": "CORPORATE GIFTING & BESPOKE ORDERS"
+    },
+    {
+      "id": "business-text-015",
+      "page": "business",
+      "kind": "text",
+      "label": "Your brand."
+    },
+    {
+      "id": "business-text-016",
+      "page": "business",
+      "kind": "text",
+      "label": "Beautifully remembered."
+    },
+    {
+      "id": "business-text-017",
+      "page": "business",
+      "kind": "text",
+      "label": "Thoughtful chocolate and dessert gifts for your clients, teams and most important occasions. For com"
+    },
+    {
+      "id": "business-text-018",
+      "page": "business",
+      "kind": "text",
+      "label": "Request a corporate proposal ↗"
+    },
+    {
+      "id": "business-link-019",
+      "page": "business",
+      "kind": "link",
+      "label": "Request a corporate proposal ↗"
+    },
+    {
+      "id": "business-text-020",
+      "page": "business",
+      "kind": "text",
+      "label": "Explore the possibilities"
+    },
+    {
+      "id": "business-link-021",
+      "page": "business",
+      "kind": "link",
+      "label": "Explore the possibilities"
+    },
+    {
+      "id": "business-text-022",
+      "page": "business",
+      "kind": "text",
+      "label": "Your occasion, quantity and identity. One tailored proposal."
+    },
+    {
+      "id": "business-image-023",
+      "page": "business",
+      "kind": "image",
+      "label": "Butterfly branded mini cheesecakes"
+    },
+    {
+      "id": "business-text-024",
+      "page": "business",
+      "kind": "text",
+      "label": "Branded mini cheesecakes from Butterfly"
+    },
+    {
+      "id": "business-text-025",
+      "page": "business",
+      "kind": "text",
+      "label": "MADE FOR YOUR BUSINESS"
+    },
+    {
+      "id": "business-text-026",
+      "page": "business",
+      "kind": "text",
+      "label": "Companies & banks"
+    },
+    {
+      "id": "business-text-027",
+      "page": "business",
+      "kind": "text",
+      "label": "Client & team appreciation"
+    },
+    {
+      "id": "business-text-028",
+      "page": "business",
+      "kind": "text",
+      "label": "Events & special commissions"
+    },
+    {
+      "id": "business-text-029",
+      "page": "business",
+      "kind": "text",
+      "label": "THE GIFTING EDIT"
+    },
+    {
+      "id": "business-text-030",
+      "page": "business",
+      "kind": "text",
+      "label": "Many ways to leave an impression."
+    },
+    {
+      "id": "business-text-031",
+      "page": "business",
+      "kind": "text",
+      "label": "Start with the purpose of your gift. We help you explore a selection and presentation that suit it."
+    },
+    {
+      "id": "business-image-032",
+      "page": "business",
+      "kind": "image",
+      "label": "Branded cheesecake"
+    },
+    {
+      "id": "business-text-033",
+      "page": "business",
+      "kind": "text",
+      "label": "Branded cheesecake"
+    },
+    {
+      "id": "business-text-034",
+      "page": "business",
+      "kind": "text",
+      "label": "Mini cheesecakes with your logo or message. Discuss the design and suitable formats with us."
+    },
+    {
+      "id": "business-text-035",
+      "page": "business",
+      "kind": "text",
+      "label": "Discuss this idea ↗"
+    },
+    {
+      "id": "business-link-036",
+      "page": "business",
+      "kind": "link",
+      "label": "Discuss this idea ↗"
+    },
+    {
+      "id": "business-image-037",
+      "page": "business",
+      "kind": "image",
+      "label": "Thoughtful gifting"
+    },
+    {
+      "id": "business-text-038",
+      "page": "business",
+      "kind": "text",
+      "label": "Thoughtful gifting"
+    },
+    {
+      "id": "business-text-039",
+      "page": "business",
+      "kind": "text",
+      "label": "Chocolate and dessert selections for clients, colleagues and special occasions, with presentation ag"
+    },
+    {
+      "id": "business-text-040",
+      "page": "business",
+      "kind": "text",
+      "label": "Discuss this idea ↗"
+    },
+    {
+      "id": "business-link-041",
+      "page": "business",
+      "kind": "link",
+      "label": "Discuss this idea ↗"
+    },
+    {
+      "id": "business-image-042",
+      "page": "business",
+      "kind": "image",
+      "label": "Bespoke occasions"
+    },
+    {
+      "id": "business-text-043",
+      "page": "business",
+      "kind": "text",
+      "label": "Bespoke occasions"
+    },
+    {
+      "id": "business-text-044",
+      "page": "business",
+      "kind": "text",
+      "label": "A launch, a milestone or a seasonal occasion. Share your idea and let us explore it with you."
+    },
+    {
+      "id": "business-text-045",
+      "page": "business",
+      "kind": "text",
+      "label": "Discuss this idea ↗"
+    },
+    {
+      "id": "business-link-046",
+      "page": "business",
+      "kind": "link",
+      "label": "Discuss this idea ↗"
+    },
+    {
+      "id": "business-text-047",
+      "page": "business",
+      "kind": "text",
+      "label": "Photographs show Butterfly products. Final design, packaging and quantities are agreed in your propo"
+    },
+    {
+      "id": "business-image-048",
+      "page": "business",
+      "kind": "image",
+      "label": "Personalised Butterfly chocolate detail"
+    },
+    {
+      "id": "business-text-049",
+      "page": "business",
+      "kind": "text",
+      "label": "THE PERSONAL TOUCH"
+    },
+    {
+      "id": "business-text-050",
+      "page": "business",
+      "kind": "text",
+      "label": "An extension of your identity."
+    },
+    {
+      "id": "business-text-051",
+      "page": "business",
+      "kind": "text",
+      "label": "From the first idea to the final presentation, we bring the details together around your brief."
+    },
+    {
+      "id": "business-text-052",
+      "page": "business",
+      "kind": "text",
+      "label": "Your logo or message"
+    },
+    {
+      "id": "business-text-053",
+      "page": "business",
+      "kind": "text",
+      "label": "A curated chocolate and dessert selection"
+    },
+    {
+      "id": "business-text-054",
+      "page": "business",
+      "kind": "text",
+      "label": "Presentation and packaging discussed together"
+    },
+    {
+      "id": "business-text-055",
+      "page": "business",
+      "kind": "text",
+      "label": "Quantities and timing agreed before confirmation"
+    },
+    {
+      "id": "business-text-056",
+      "page": "business",
+      "kind": "text",
+      "label": "Create your gifting brief ↗"
+    },
+    {
+      "id": "business-link-057",
+      "page": "business",
+      "kind": "link",
+      "label": "Create your gifting brief ↗"
+    },
+    {
+      "id": "business-text-058",
+      "page": "business",
+      "kind": "text",
+      "label": "FOR EVERY BUSINESS MOMENT"
+    },
+    {
+      "id": "business-text-059",
+      "page": "business",
+      "kind": "text",
+      "label": "Give with intention."
+    },
+    {
+      "id": "business-text-060",
+      "page": "business",
+      "kind": "text",
+      "label": "Client relationships"
+    },
+    {
+      "id": "business-text-061",
+      "page": "business",
+      "kind": "text",
+      "label": "A considered thank-you for clients and partners."
+    },
+    {
+      "id": "business-text-062",
+      "page": "business",
+      "kind": "text",
+      "label": "Teams & milestones"
+    },
+    {
+      "id": "business-text-063",
+      "page": "business",
+      "kind": "text",
+      "label": "Welcome, recognise and celebrate your people."
+    },
+    {
+      "id": "business-text-064",
+      "page": "business",
+      "kind": "text",
+      "label": "Launches & events"
+    },
+    {
+      "id": "business-text-065",
+      "page": "business",
+      "kind": "text",
+      "label": "Carry your identity into an important occasion."
+    },
+    {
+      "id": "business-text-066",
+      "page": "business",
+      "kind": "text",
+      "label": "Seasonal gifting"
+    },
+    {
+      "id": "business-text-067",
+      "page": "business",
+      "kind": "text",
+      "label": "Plan ahead for Ramadan, Eid and your annual gifting."
+    },
+    {
+      "id": "business-text-068",
+      "page": "business",
+      "kind": "text",
+      "label": "FROM IDEA TO IMPRESSION"
+    },
+    {
+      "id": "business-text-069",
+      "page": "business",
+      "kind": "text",
+      "label": "Three considered steps."
+    },
+    {
+      "id": "business-text-070",
+      "page": "business",
+      "kind": "text",
+      "label": "Share your brief"
+    },
+    {
+      "id": "business-text-071",
+      "page": "business",
+      "kind": "text",
+      "label": "Tell us who the gifts are for, the quantity, occasion and target date."
+    },
+    {
+      "id": "business-text-072",
+      "page": "business",
+      "kind": "text",
+      "label": "Review your proposal"
+    },
+    {
+      "id": "business-text-073",
+      "page": "business",
+      "kind": "text",
+      "label": "We discuss selection, personalisation, presentation, pricing and availability."
+    },
+    {
+      "id": "business-text-074",
+      "page": "business",
+      "kind": "text",
+      "label": "Confirm the details"
+    },
+    {
+      "id": "business-text-075",
+      "page": "business",
+      "kind": "text",
+      "label": "Final artwork, quantities and fulfilment arrangements are agreed before proceeding."
+    },
+    {
+      "id": "business-text-076",
+      "page": "business",
+      "kind": "text",
+      "label": "LET’S CREATE YOUR NEXT GIFT"
+    },
+    {
+      "id": "business-text-077",
+      "page": "business",
+      "kind": "text",
+      "label": "A proposal for your business."
+    },
+    {
+      "id": "business-text-078",
+      "page": "business",
+      "kind": "text",
+      "label": "Share a few details to prepare your enquiry. WhatsApp will open with your brief ready for you to sen"
+    },
+    {
+      "id": "business-text-079",
+      "page": "business",
+      "kind": "text",
+      "label": "Prefer to talk? +965 6636 3741"
+    },
+    {
+      "id": "business-link-080",
+      "page": "business",
+      "kind": "link",
+      "label": "Prefer to talk? +965 6636 3741"
+    },
+    {
+      "id": "business-text-081",
+      "page": "business",
+      "kind": "text",
+      "label": "Company / organisation *"
+    },
+    {
+      "id": "business-text-082",
+      "page": "business",
+      "kind": "text",
+      "label": "Contact person *"
+    },
+    {
+      "id": "business-text-083",
+      "page": "business",
+      "kind": "text",
+      "label": "Estimated quantity *"
+    },
+    {
+      "id": "business-text-084",
+      "page": "business",
+      "kind": "text",
+      "label": "Required date (optional)"
+    },
+    {
+      "id": "business-text-085",
+      "page": "business",
+      "kind": "text",
+      "label": "Interested in *"
+    },
+    {
+      "id": "business-text-086",
+      "page": "business",
+      "kind": "text",
+      "label": "Choose your interest"
+    },
+    {
+      "id": "business-text-087",
+      "page": "business",
+      "kind": "text",
+      "label": "Branded mini cheesecakes"
+    },
+    {
+      "id": "business-text-088",
+      "page": "business",
+      "kind": "text",
+      "label": "Branded chocolates"
+    },
+    {
+      "id": "business-text-089",
+      "page": "business",
+      "kind": "text",
+      "label": "Corporate gifts"
+    },
+    {
+      "id": "business-text-090",
+      "page": "business",
+      "kind": "text",
+      "label": "Event / launch"
+    },
+    {
+      "id": "business-text-091",
+      "page": "business",
+      "kind": "text",
+      "label": "Bespoke order"
+    },
+    {
+      "id": "business-text-092",
+      "page": "business",
+      "kind": "text",
+      "label": "Your idea / budget / delivery needs (optional)"
+    },
+    {
+      "id": "business-text-093",
+      "page": "business",
+      "kind": "text",
+      "label": "Prepare my WhatsApp enquiry ↗"
+    },
+    {
+      "id": "business-text-094",
+      "page": "business",
+      "kind": "text",
+      "label": "Your enquiry is sent when you send the WhatsApp message. Availability, pricing and lead time are con"
+    },
+    {
+      "id": "business-text-095",
+      "page": "business",
+      "kind": "text",
+      "label": "A FEW DETAILS"
+    },
+    {
+      "id": "business-text-096",
+      "page": "business",
+      "kind": "text",
+      "label": "Before we begin."
+    },
+    {
+      "id": "business-text-097",
+      "page": "business",
+      "kind": "text",
+      "label": "Can our logo be included?"
+    },
+    {
+      "id": "business-text-098",
+      "page": "business",
+      "kind": "text",
+      "label": "Share your logo and preferred concept with us on WhatsApp. Our team confirms suitable personalisatio"
+    },
+    {
+      "id": "business-text-099",
+      "page": "business",
+      "kind": "text",
+      "label": "Is there a minimum quantity?"
+    },
+    {
+      "id": "business-text-100",
+      "page": "business",
+      "kind": "text",
+      "label": "Minimum quantities depend on the product and personalisation. Enter your estimated quantity so we ca"
+    },
+    {
+      "id": "business-text-101",
+      "page": "business",
+      "kind": "text",
+      "label": "How much time should we allow?"
+    },
+    {
+      "id": "business-text-102",
+      "page": "business",
+      "kind": "text",
+      "label": "Timing depends on quantity, artwork and availability. Share your target date early; our team confirm"
+    },
+    {
+      "id": "business-text-103",
+      "page": "business",
+      "kind": "text",
+      "label": "Can we arrange delivery?"
+    },
+    {
+      "id": "business-text-104",
+      "page": "business",
+      "kind": "text",
+      "label": "Share the required destination and any multiple-address needs. Delivery options, charges and timing "
+    },
+    {
+      "id": "business-text-105",
+      "page": "business",
+      "kind": "text",
+      "label": "Home"
+    },
+    {
+      "id": "business-link-106",
+      "page": "business",
+      "kind": "link",
+      "label": "Home"
+    },
+    {
+      "id": "business-text-107",
+      "page": "business",
+      "kind": "text",
+      "label": "Catering"
+    },
+    {
+      "id": "business-link-108",
+      "page": "business",
+      "kind": "link",
+      "label": "Catering"
+    },
+    {
+      "id": "business-text-109",
+      "page": "business",
+      "kind": "text",
+      "label": "Official links"
+    },
+    {
+      "id": "business-link-110",
+      "page": "business",
+      "kind": "link",
+      "label": "Official links"
+    },
+    {
+      "id": "business-text-111",
+      "page": "business",
+      "kind": "text",
+      "label": "Request a corporate proposal ↗"
+    },
+    {
+      "id": "business-link-112",
+      "page": "business",
+      "kind": "link",
+      "label": "Request a corporate proposal ↗"
+    },
+    {
+      "id": "catering-seo-001",
+      "page": "catering",
+      "kind": "seo",
+      "label": "description"
+    },
+    {
+      "id": "catering-seo-002",
+      "page": "catering",
+      "kind": "seo",
+      "label": "og:title"
+    },
+    {
+      "id": "catering-seo-003",
+      "page": "catering",
+      "kind": "seo",
+      "label": "og:description"
+    },
+    {
+      "id": "catering-seo-004",
+      "page": "catering",
+      "kind": "seo",
+      "label": "twitter:title"
+    },
+    {
+      "id": "catering-seo-005",
+      "page": "catering",
+      "kind": "seo",
+      "label": "twitter:description"
+    },
+    {
+      "id": "catering-seo-006",
+      "page": "catering",
+      "kind": "seo",
+      "label": "Page title"
+    },
+    {
+      "id": "catering-text-007",
+      "page": "catering",
+      "kind": "text",
+      "label": "Skip to content"
+    },
+    {
+      "id": "catering-link-008",
+      "page": "catering",
+      "kind": "link",
+      "label": "Skip to content"
+    },
+    {
+      "id": "catering-text-009",
+      "page": "catering",
+      "kind": "text",
+      "label": "← Home"
+    },
+    {
+      "id": "catering-link-010",
+      "page": "catering",
+      "kind": "link",
+      "label": "← Home"
+    },
+    {
+      "id": "catering-link-011",
+      "page": "catering",
+      "kind": "link",
+      "label": "Butterfly"
+    },
+    {
+      "id": "catering-text-012",
+      "page": "catering",
+      "kind": "text",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "catering-link-013",
+      "page": "catering",
+      "kind": "link",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "catering-text-014",
+      "page": "catering",
+      "kind": "text",
+      "label": "THE ART OF REFINED HOSPITALITY"
+    },
+    {
+      "id": "catering-text-015",
+      "page": "catering",
+      "kind": "text",
+      "label": "Your occasion."
+    },
+    {
+      "id": "catering-text-016",
+      "page": "catering",
+      "kind": "text",
+      "label": "Your Butterfly experience."
+    },
+    {
+      "id": "catering-text-017",
+      "page": "catering",
+      "kind": "text",
+      "label": "Full hospitality, wedding receptions or a dedicated coffee station. Choose your service and let us b"
+    },
+    {
+      "id": "catering-text-018",
+      "page": "catering",
+      "kind": "text",
+      "label": "Find my package ↗"
+    },
+    {
+      "id": "catering-link-019",
+      "page": "catering",
+      "kind": "link",
+      "label": "Find my package ↗"
+    },
+    {
+      "id": "catering-text-020",
+      "page": "catering",
+      "kind": "text",
+      "label": "Explore the services"
+    },
+    {
+      "id": "catering-link-021",
+      "page": "catering",
+      "kind": "link",
+      "label": "Explore the services"
+    },
+    {
+      "id": "catering-text-022",
+      "page": "catering",
+      "kind": "text",
+      "label": "Coffee from 125 KD · Full hospitality from 475 KD"
+    },
+    {
+      "id": "catering-image-023",
+      "page": "catering",
+      "kind": "image",
+      "label": "تشكيلة شوكولاتة بترفلاي"
+    },
+    {
+      "id": "catering-text-024",
+      "page": "catering",
+      "kind": "text",
+      "label": "From the Butterfly product collection. Event presentation is agreed with our team."
+    },
+    {
+      "id": "catering-text-025",
+      "page": "catering",
+      "kind": "text",
+      "label": "Private receptions & weddings"
+    },
+    {
+      "id": "catering-text-026",
+      "page": "catering",
+      "kind": "text",
+      "label": "Corporate events"
+    },
+    {
+      "id": "catering-text-027",
+      "page": "catering",
+      "kind": "text",
+      "label": "Tailored proposals for up to 400 guests"
+    },
+    {
+      "id": "catering-text-028",
+      "page": "catering",
+      "kind": "text",
+      "label": "CURATE YOUR EXPERIENCE"
+    },
+    {
+      "id": "catering-text-029",
+      "page": "catering",
+      "kind": "text",
+      "label": "A package that fits your occasion."
+    },
+    {
+      "id": "catering-text-030",
+      "page": "catering",
+      "kind": "text",
+      "label": "Choose your service, then your guest count. Your package appears next, ready to personalise."
+    },
+    {
+      "id": "catering-text-031",
+      "page": "catering",
+      "kind": "text",
+      "label": "Service"
+    },
+    {
+      "id": "catering-text-032",
+      "page": "catering",
+      "kind": "text",
+      "label": "Guests"
+    },
+    {
+      "id": "catering-text-033",
+      "page": "catering",
+      "kind": "text",
+      "label": "Package"
+    },
+    {
+      "id": "catering-text-034",
+      "page": "catering",
+      "kind": "text",
+      "label": "What are you planning?"
+    },
+    {
+      "id": "catering-text-035",
+      "page": "catering",
+      "kind": "text",
+      "label": "Choose your service first. We will guide you to the right package."
+    },
+    {
+      "id": "catering-text-036",
+      "page": "catering",
+      "kind": "text",
+      "label": "Service type"
+    },
+    {
+      "id": "catering-text-037",
+      "page": "catering",
+      "kind": "text",
+      "label": "Full hospitality"
+    },
+    {
+      "id": "catering-text-038",
+      "page": "catering",
+      "kind": "text",
+      "label": "Chocolate, savouries, desserts and coffee, with a hospitality team."
+    },
+    {
+      "id": "catering-text-039",
+      "page": "catering",
+      "kind": "text",
+      "label": "Wedding"
+    },
+    {
+      "id": "catering-text-040",
+      "page": "catering",
+      "kind": "text",
+      "label": "A full hospitality experience for your wedding. Tailored proposals for up to 400 guests."
+    },
+    {
+      "id": "catering-text-041",
+      "page": "catering",
+      "kind": "text",
+      "label": "Coffee station only"
+    },
+    {
+      "id": "catering-text-042",
+      "page": "catering",
+      "kind": "text",
+      "label": "A dedicated coffee station and barista team. Packages for 30–200 guests."
+    },
+    {
+      "id": "catering-text-043",
+      "page": "catering",
+      "kind": "text",
+      "label": "Next: guest count ↗"
+    },
+    {
+      "id": "catering-text-044",
+      "page": "catering",
+      "kind": "text",
+      "label": "How many guests?"
+    },
+    {
+      "id": "catering-text-045",
+      "page": "catering",
+      "kind": "text",
+      "label": "Enter your guest count and we will recommend a package for your chosen service."
+    },
+    {
+      "id": "catering-text-046",
+      "page": "catering",
+      "kind": "text",
+      "label": "Number of guests *"
+    },
+    {
+      "id": "catering-text-047",
+      "page": "catering",
+      "kind": "text",
+      "label": "Enter a whole number from 1 to 400 guests."
+    },
+    {
+      "id": "catering-text-048",
+      "page": "catering",
+      "kind": "text",
+      "label": "Find my package ↗"
+    },
+    {
+      "id": "catering-text-049",
+      "page": "catering",
+      "kind": "text",
+      "label": "← Change service"
+    },
+    {
+      "id": "catering-text-050",
+      "page": "catering",
+      "kind": "text",
+      "label": "Your recommended package"
+    },
+    {
+      "id": "catering-text-051",
+      "page": "catering",
+      "kind": "text",
+      "label": "Change service"
+    },
+    {
+      "id": "catering-text-052",
+      "page": "catering",
+      "kind": "text",
+      "label": "Change guests"
+    },
+    {
+      "id": "catering-text-053",
+      "page": "catering",
+      "kind": "text",
+      "label": "Exact quantities for guest extensions are confirmed with our team. Base package quantities remain li"
+    },
+    {
+      "id": "catering-text-054",
+      "page": "catering",
+      "kind": "text",
+      "label": "Refine towers and service hours (optional)"
+    },
+    {
+      "id": "catering-text-055",
+      "page": "catering",
+      "kind": "text",
+      "label": "Minimum towers you would like"
+    },
+    {
+      "id": "catering-text-056",
+      "page": "catering",
+      "kind": "text",
+      "label": "Recommend for me"
+    },
+    {
+      "id": "catering-text-057",
+      "page": "catering",
+      "kind": "text",
+      "label": "At least 1 medium tower"
+    },
+    {
+      "id": "catering-text-058",
+      "page": "catering",
+      "kind": "text",
+      "label": "At least 2 medium towers"
+    },
+    {
+      "id": "catering-text-059",
+      "page": "catering",
+      "kind": "text",
+      "label": "At least 3 medium towers"
+    },
+    {
+      "id": "catering-text-060",
+      "page": "catering",
+      "kind": "text",
+      "label": "Preferred service duration"
+    },
+    {
+      "id": "catering-text-061",
+      "page": "catering",
+      "kind": "text",
+      "label": "4 service hours"
+    },
+    {
+      "id": "catering-text-062",
+      "page": "catering",
+      "kind": "text",
+      "label": "5 service hours"
+    },
+    {
+      "id": "catering-text-063",
+      "page": "catering",
+      "kind": "text",
+      "label": "6 service hours"
+    },
+    {
+      "id": "catering-text-064",
+      "page": "catering",
+      "kind": "text",
+      "label": "7 service hours"
+    },
+    {
+      "id": "catering-text-065",
+      "page": "catering",
+      "kind": "text",
+      "label": "8 service hours"
+    },
+    {
+      "id": "catering-text-066",
+      "page": "catering",
+      "kind": "text",
+      "label": "All hospitality packages include one separate setup hour. Extended service requires prior confirmati"
+    },
+    {
+      "id": "catering-text-067",
+      "page": "catering",
+      "kind": "text",
+      "label": "What is included"
+    },
+    {
+      "id": "catering-text-068",
+      "page": "catering",
+      "kind": "text",
+      "label": "Make it yours"
+    },
+    {
+      "id": "catering-text-069",
+      "page": "catering",
+      "kind": "text",
+      "label": "Savouries & canapés"
+    },
+    {
+      "id": "catering-text-070",
+      "page": "catering",
+      "kind": "text",
+      "label": "Let the Butterfly team recommend my selections"
+    },
+    {
+      "id": "catering-text-071",
+      "page": "catering",
+      "kind": "text",
+      "label": "Each selection is presented across two trays. The final selection is subject to the current menu and"
+    },
+    {
+      "id": "catering-text-072",
+      "page": "catering",
+      "kind": "text",
+      "label": "Choose the required number of savoury types, or let our team recommend them."
+    },
+    {
+      "id": "catering-text-073",
+      "page": "catering",
+      "kind": "text",
+      "label": "Included medium towers"
+    },
+    {
+      "id": "catering-text-074",
+      "page": "catering",
+      "kind": "text",
+      "label": "Choose any of the four tower types at no extra charge within your package allowance. You can repeat "
+    },
+    {
+      "id": "catering-text-075",
+      "page": "catering",
+      "kind": "text",
+      "label": "The personal touch"
+    },
+    {
+      "id": "catering-text-076",
+      "page": "catering",
+      "kind": "text",
+      "label": "Personalisation style"
+    },
+    {
+      "id": "catering-text-077",
+      "page": "catering",
+      "kind": "text",
+      "label": "Decide with our team"
+    },
+    {
+      "id": "catering-text-078",
+      "page": "catering",
+      "kind": "text",
+      "label": "Name / event name"
+    },
+    {
+      "id": "catering-text-079",
+      "page": "catering",
+      "kind": "text",
+      "label": "Initials"
+    },
+    {
+      "id": "catering-text-080",
+      "page": "catering",
+      "kind": "text",
+      "label": "Corporate logo"
+    },
+    {
+      "id": "catering-text-081",
+      "page": "catering",
+      "kind": "text",
+      "label": "Name / initials (optional)"
+    },
+    {
+      "id": "catering-text-082",
+      "page": "catering",
+      "kind": "text",
+      "label": "Preferred artistic piece (optional)"
+    },
+    {
+      "id": "catering-text-083",
+      "page": "catering",
+      "kind": "text",
+      "label": "Personalisation is subject to availability and a separate quotation. Share your name, initials or lo"
+    },
+    {
+      "id": "catering-text-084",
+      "page": "catering",
+      "kind": "text",
+      "label": "Add a little more"
+    },
+    {
+      "id": "catering-text-085",
+      "page": "catering",
+      "kind": "text",
+      "label": "Optional additions, with the price shown for each unit. Your estimate updates as you choose."
+    },
+    {
+      "id": "catering-text-086",
+      "page": "catering",
+      "kind": "text",
+      "label": "Food, desserts & coffee biscuit tags"
+    },
+    {
+      "id": "catering-text-087",
+      "page": "catering",
+      "kind": "text",
+      "label": "For example: one coffee biscuit tag add-on includes 12 personalised pieces for 7 KD."
+    },
+    {
+      "id": "catering-text-088",
+      "page": "catering",
+      "kind": "text",
+      "label": "Additional hospitality team"
+    },
+    {
+      "id": "catering-text-089",
+      "page": "catering",
+      "kind": "text",
+      "label": "Team additions and extended service are subject to availability and confirmation. Adjust service hou"
+    },
+    {
+      "id": "catering-text-090",
+      "page": "catering",
+      "kind": "text",
+      "label": "I would like additional towers — quoted separately"
+    },
+    {
+      "id": "catering-text-091",
+      "page": "catering",
+      "kind": "text",
+      "label": "Additional tower requests are passed to our team. Their price is excluded from the displayed estimat"
+    },
+    {
+      "id": "catering-text-092",
+      "page": "catering",
+      "kind": "text",
+      "label": "Complete your enquiry"
+    },
+    {
+      "id": "catering-text-093",
+      "page": "catering",
+      "kind": "text",
+      "label": "Share the venue and preferences. We prepare a WhatsApp message containing your complete selection."
+    },
+    {
+      "id": "catering-text-094",
+      "page": "catering",
+      "kind": "text",
+      "label": "Occasion type (optional)"
+    },
+    {
+      "id": "catering-text-095",
+      "page": "catering",
+      "kind": "text",
+      "label": "Choose your occasion"
+    },
+    {
+      "id": "catering-text-096",
+      "page": "catering",
+      "kind": "text",
+      "label": "Reception / engagement"
+    },
+    {
+      "id": "catering-text-097",
+      "page": "catering",
+      "kind": "text",
+      "label": "Wedding"
+    },
+    {
+      "id": "catering-text-098",
+      "page": "catering",
+      "kind": "text",
+      "label": "Private gathering"
+    },
+    {
+      "id": "catering-text-099",
+      "page": "catering",
+      "kind": "text",
+      "label": "Corporate event"
+    },
+    {
+      "id": "catering-text-100",
+      "page": "catering",
+      "kind": "text",
+      "label": "Other occasion"
+    },
+    {
+      "id": "catering-text-101",
+      "page": "catering",
+      "kind": "text",
+      "label": "Coffee preference"
+    },
+    {
+      "id": "catering-text-102",
+      "page": "catering",
+      "kind": "text",
+      "label": "Hot & cold"
+    },
+    {
+      "id": "catering-text-103",
+      "page": "catering",
+      "kind": "text",
+      "label": "Hot only"
+    },
+    {
+      "id": "catering-text-104",
+      "page": "catering",
+      "kind": "text",
+      "label": "Cold only"
+    },
+    {
+      "id": "catering-text-105",
+      "page": "catering",
+      "kind": "text",
+      "label": "Decide with our team"
+    },
+    {
+      "id": "catering-text-106",
+      "page": "catering",
+      "kind": "text",
+      "label": "Preferred service hours (optional)"
+    },
+    {
+      "id": "catering-text-107",
+      "page": "catering",
+      "kind": "text",
+      "label": "Service duration, cup allowance and any extension charges are confirmed in your booking proposal. On"
+    },
+    {
+      "id": "catering-text-108",
+      "page": "catering",
+      "kind": "text",
+      "label": "Chocolate tray preference"
+    },
+    {
+      "id": "catering-text-109",
+      "page": "catering",
+      "kind": "text",
+      "label": "Butterfly catering tray"
+    },
+    {
+      "id": "catering-text-110",
+      "page": "catering",
+      "kind": "text",
+      "label": "My own tray, subject to suitability"
+    },
+    {
+      "id": "catering-text-111",
+      "page": "catering",
+      "kind": "text",
+      "label": "Event date (optional)"
+    },
+    {
+      "id": "catering-text-112",
+      "page": "catering",
+      "kind": "text",
+      "label": "Service start time (optional)"
+    },
+    {
+      "id": "catering-text-113",
+      "page": "catering",
+      "kind": "text",
+      "label": "Service must finish by 11:00 PM, unless otherwise agreed in writing."
+    },
+    {
+      "id": "catering-text-114",
+      "page": "catering",
+      "kind": "text",
+      "label": "Area / venue *"
+    },
+    {
+      "id": "catering-text-115",
+      "page": "catering",
+      "kind": "text",
+      "label": "Contact name (optional)"
+    },
+    {
+      "id": "catering-text-116",
+      "page": "catering",
+      "kind": "text",
+      "label": "Notes, preferences or food allergies (optional)"
+    },
+    {
+      "id": "catering-text-117",
+      "page": "catering",
+      "kind": "text",
+      "label": "Prepare my WhatsApp enquiry ↗"
+    },
+    {
+      "id": "catering-text-118",
+      "page": "catering",
+      "kind": "text",
+      "label": "Your message is sent only when you send it in WhatsApp. Availability, final selections, any location"
+    },
+    {
+      "id": "catering-text-119",
+      "page": "catering",
+      "kind": "text",
+      "label": "YOUR BUTTERFLY EXPERIENCE"
+    },
+    {
+      "id": "catering-text-120",
+      "page": "catering",
+      "kind": "text",
+      "label": "Estimated total"
+    },
+    {
+      "id": "catering-text-121",
+      "page": "catering",
+      "kind": "text",
+      "label": "Additional towers are quoted separately and excluded from this estimate."
+    },
+    {
+      "id": "catering-link-122",
+      "page": "catering",
+      "kind": "link",
+      "label": "#quote"
+    },
+    {
+      "id": "catering-text-123",
+      "page": "catering",
+      "kind": "text",
+      "label": "Need help? Our team is on WhatsApp."
+    },
+    {
+      "id": "catering-text-124",
+      "page": "catering",
+      "kind": "text",
+      "label": "+965 6636 3741"
+    },
+    {
+      "id": "catering-link-125",
+      "page": "catering",
+      "kind": "link",
+      "label": "+965 6636 3741"
+    },
+    {
+      "id": "catering-text-126",
+      "page": "catering",
+      "kind": "text",
+      "label": "A FEW CONSIDERED DETAILS"
+    },
+    {
+      "id": "catering-text-127",
+      "page": "catering",
+      "kind": "text",
+      "label": "Before your occasion."
+    },
+    {
+      "id": "catering-text-128",
+      "page": "catering",
+      "kind": "text",
+      "label": "Our team confirms availability and all arrangements with you before the booking is finalised."
+    },
+    {
+      "id": "catering-text-129",
+      "page": "catering",
+      "kind": "text",
+      "label": "Plan a wedding for up to 400 guests ↗"
+    },
+    {
+      "id": "catering-text-130",
+      "page": "catering",
+      "kind": "text",
+      "label": "How is my package recommended?"
+    },
+    {
+      "id": "catering-text-131",
+      "page": "catering",
+      "kind": "text",
+      "label": "Start with your service and guest count. For coffee-only service, we recommend the smallest approved"
+    },
+    {
+      "id": "catering-text-132",
+      "page": "catering",
+      "kind": "text",
+      "label": "What if my guest count falls between package sizes?"
+    },
+    {
+      "id": "catering-text-133",
+      "page": "catering",
+      "kind": "text",
+      "label": "Coffee packages cover 30, 50, 100, 150 or 200 guests; a number between sizes uses the next suitable "
+    },
+    {
+      "id": "catering-text-134",
+      "page": "catering",
+      "kind": "text",
+      "label": "What does personalisation include?"
+    },
+    {
+      "id": "catering-text-135",
+      "page": "catering",
+      "kind": "text",
+      "label": "Personalisation of the artistic pieces included in the full hospitality packages is complimentary. C"
+    },
+    {
+      "id": "catering-text-136",
+      "page": "catering",
+      "kind": "text",
+      "label": "Can you cater for weddings and large events?"
+    },
+    {
+      "id": "catering-text-137",
+      "page": "catering",
+      "kind": "text",
+      "label": "Yes. We prepare tailored proposals for weddings and events for up to 400 guests. Menu, display, team"
+    },
+    {
+      "id": "catering-text-138",
+      "page": "catering",
+      "kind": "text",
+      "label": "What are the venue requirements?"
+    },
+    {
+      "id": "catering-text-139",
+      "page": "catering",
+      "kind": "text",
+      "label": "Please provide a suitable setup area, adequate electricity and reasonable access for loading, unload"
+    },
+    {
+      "id": "catering-text-140",
+      "page": "catering",
+      "kind": "text",
+      "label": "Outdoor catering depends on suitable weather. Our team may review service arrangements when weather "
+    },
+    {
+      "id": "catering-text-141",
+      "page": "catering",
+      "kind": "text",
+      "label": "What happens to the equipment after service?"
+    },
+    {
+      "id": "catering-text-142",
+      "page": "catering",
+      "kind": "text",
+      "label": "Butterfly equipment, trays, towers and display pieces remain company property unless explicitly purc"
+    },
+    {
+      "id": "catering-text-143",
+      "page": "catering",
+      "kind": "text",
+      "label": "Our hospitality team serves Butterfly products only. Any product alternatives are agreed with you be"
+    },
+    {
+      "id": "catering-text-144",
+      "page": "catering",
+      "kind": "text",
+      "label": "Does this confirm my booking?"
+    },
+    {
+      "id": "catering-text-145",
+      "page": "catering",
+      "kind": "text",
+      "label": "The configurator prepares an enquiry and an estimate. Our team confirms availability, selections, gu"
+    },
+    {
+      "id": "catering-text-146",
+      "page": "catering",
+      "kind": "text",
+      "label": "How long is coffee service, and how many cups are included?"
+    },
+    {
+      "id": "catering-text-147",
+      "page": "catering",
+      "kind": "text",
+      "label": "Your booking proposal confirms the drink menu, cup allowance and service duration. Each coffee packa"
+    },
+    {
+      "id": "catering-text-148",
+      "page": "catering",
+      "kind": "text",
+      "label": "Home"
+    },
+    {
+      "id": "catering-link-149",
+      "page": "catering",
+      "kind": "link",
+      "label": "Home"
+    },
+    {
+      "id": "catering-text-150",
+      "page": "catering",
+      "kind": "text",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "catering-link-151",
+      "page": "catering",
+      "kind": "link",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "catering-text-152",
+      "page": "catering",
+      "kind": "text",
+      "label": "Official links"
+    },
+    {
+      "id": "catering-link-153",
+      "page": "catering",
+      "kind": "link",
+      "label": "Official links"
+    },
+    {
+      "id": "catering-text-154",
+      "page": "catering",
+      "kind": "text",
+      "label": "Your estimate"
+    },
+    {
+      "id": "catering-text-155",
+      "page": "catering",
+      "kind": "text",
+      "label": "View summary ↗"
+    },
+    {
+      "id": "catering-link-156",
+      "page": "catering",
+      "kind": "link",
+      "label": "View summary ↗"
+    },
+    {
+      "id": "links-seo-001",
+      "page": "links",
+      "kind": "seo",
+      "label": "Page title"
+    },
+    {
+      "id": "links-seo-002",
+      "page": "links",
+      "kind": "seo",
+      "label": "description"
+    },
+    {
+      "id": "links-seo-003",
+      "page": "links",
+      "kind": "seo",
+      "label": "og:title"
+    },
+    {
+      "id": "links-seo-004",
+      "page": "links",
+      "kind": "seo",
+      "label": "og:description"
+    },
+    {
+      "id": "links-seo-005",
+      "page": "links",
+      "kind": "seo",
+      "label": "twitter:title"
+    },
+    {
+      "id": "links-seo-006",
+      "page": "links",
+      "kind": "seo",
+      "label": "twitter:description"
+    },
+    {
+      "id": "links-text-007",
+      "page": "links",
+      "kind": "text",
+      "label": "Collections"
+    },
+    {
+      "id": "links-link-008",
+      "page": "links",
+      "kind": "link",
+      "label": "Collections"
+    },
+    {
+      "id": "links-text-009",
+      "page": "links",
+      "kind": "text",
+      "label": "Our services"
+    },
+    {
+      "id": "links-link-010",
+      "page": "links",
+      "kind": "link",
+      "label": "Our services"
+    },
+    {
+      "id": "links-text-011",
+      "page": "links",
+      "kind": "text",
+      "label": "Catering"
+    },
+    {
+      "id": "links-link-012",
+      "page": "links",
+      "kind": "link",
+      "label": "Catering"
+    },
+    {
+      "id": "links-text-013",
+      "page": "links",
+      "kind": "text",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "links-link-014",
+      "page": "links",
+      "kind": "link",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "links-text-015",
+      "page": "links",
+      "kind": "text",
+      "label": "Contact us"
+    },
+    {
+      "id": "links-link-016",
+      "page": "links",
+      "kind": "link",
+      "label": "Contact us"
+    },
+    {
+      "id": "links-text-017",
+      "page": "links",
+      "kind": "text",
+      "label": "Menu"
+    },
+    {
+      "id": "links-link-018",
+      "page": "links",
+      "kind": "link",
+      "label": "Butterfly home"
+    },
+    {
+      "id": "links-text-019",
+      "page": "links",
+      "kind": "text",
+      "label": "Collections"
+    },
+    {
+      "id": "links-link-020",
+      "page": "links",
+      "kind": "link",
+      "label": "Collections"
+    },
+    {
+      "id": "links-text-021",
+      "page": "links",
+      "kind": "text",
+      "label": "Our services"
+    },
+    {
+      "id": "links-link-022",
+      "page": "links",
+      "kind": "link",
+      "label": "Our services"
+    },
+    {
+      "id": "links-text-023",
+      "page": "links",
+      "kind": "text",
+      "label": "Catering"
+    },
+    {
+      "id": "links-link-024",
+      "page": "links",
+      "kind": "link",
+      "label": "Catering"
+    },
+    {
+      "id": "links-text-025",
+      "page": "links",
+      "kind": "text",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "links-link-026",
+      "page": "links",
+      "kind": "link",
+      "label": "Corporate gifting"
+    },
+    {
+      "id": "links-text-027",
+      "page": "links",
+      "kind": "text",
+      "label": "Contact us"
+    },
+    {
+      "id": "links-link-028",
+      "page": "links",
+      "kind": "link",
+      "label": "Contact us"
+    },
+    {
+      "id": "links-image-029",
+      "page": "links",
+      "kind": "image",
+      "label": "Butterfly signature chocolate tray"
+    },
+    {
+      "id": "links-text-030",
+      "page": "links",
+      "kind": "text",
+      "label": "Chocolate · Hospitality · Gifting"
+    },
+    {
+      "id": "links-text-031",
+      "page": "links",
+      "kind": "text",
+      "label": "A thoughtful\ngesture\nstarts here."
+    },
+    {
+      "id": "links-text-032",
+      "page": "links",
+      "kind": "text",
+      "label": "Discover the collection, plan an occasion, or simply say hello. Welcome to Butterfly."
+    },
+    {
+      "id": "links-text-033",
+      "page": "links",
+      "kind": "text",
+      "label": "Made with care in Kuwait"
+    },
+    {
+      "id": "links-text-034",
+      "page": "links",
+      "kind": "text",
+      "label": "Official Butterfly links"
+    },
+    {
+      "id": "links-link-035",
+      "page": "links",
+      "kind": "link",
+      "label": "https://www.butterfly-kw.com"
+    },
+    {
+      "id": "links-text-036",
+      "page": "links",
+      "kind": "text",
+      "label": "THE COLLECTION"
+    },
+    {
+      "id": "links-text-037",
+      "page": "links",
+      "kind": "text",
+      "label": "Order online"
+    },
+    {
+      "id": "links-text-038",
+      "page": "links",
+      "kind": "text",
+      "label": "Explore our collection and order for your next occasion."
+    },
+    {
+      "id": "links-link-039",
+      "page": "links",
+      "kind": "link",
+      "label": "https://wa.me/96566363741"
+    },
+    {
+      "id": "links-text-040",
+      "page": "links",
+      "kind": "text",
+      "label": "Customer care"
+    },
+    {
+      "id": "links-text-041",
+      "page": "links",
+      "kind": "text",
+      "label": "Order assistance and enquiries from outside Kuwait."
+    },
+    {
+      "id": "links-link-042",
+      "page": "links",
+      "kind": "link",
+      "label": "catering.html"
+    },
+    {
+      "id": "links-text-043",
+      "page": "links",
+      "kind": "text",
+      "label": "Butterfly catering"
+    },
+    {
+      "id": "links-text-044",
+      "page": "links",
+      "kind": "text",
+      "label": "For receptions, weddings and events. Request a tailored quotation."
+    },
+    {
+      "id": "links-link-045",
+      "page": "links",
+      "kind": "link",
+      "label": "business.html"
+    },
+    {
+      "id": "links-text-046",
+      "page": "links",
+      "kind": "text",
+      "label": "Corporate gifting & bespoke orders"
+    },
+    {
+      "id": "links-text-047",
+      "page": "links",
+      "kind": "text",
+      "label": "Personalised gifts for companies, banks and special occasions."
+    },
+    {
+      "id": "links-link-048",
+      "page": "links",
+      "kind": "link",
+      "label": "https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA"
+    },
+    {
+      "id": "links-text-049",
+      "page": "links",
+      "kind": "text",
+      "label": "Showroom location"
+    },
+    {
+      "id": "links-text-050",
+      "page": "links",
+      "kind": "text",
+      "label": "Al Ghawali Complex · Sharq, Kuwait"
+    },
+    {
+      "id": "links-link-051",
+      "page": "links",
+      "kind": "link",
+      "label": "tel:+96566363741"
+    },
+    {
+      "id": "links-text-052",
+      "page": "links",
+      "kind": "text",
+      "label": "Contact us"
+    },
+    {
+      "id": "links-text-053",
+      "page": "links",
+      "kind": "text",
+      "label": "Call our team on +965 6636 3741."
+    },
+    {
+      "id": "links-link-054",
+      "page": "links",
+      "kind": "link",
+      "label": "https://www.instagram.com/brfly.kw/"
+    },
+    {
+      "id": "links-text-055",
+      "page": "links",
+      "kind": "text",
+      "label": "Instagram ↗"
+    },
+    {
+      "id": "links-link-056",
+      "page": "links",
+      "kind": "link",
+      "label": "index.html"
+    },
+    {
+      "id": "links-text-057",
+      "page": "links",
+      "kind": "text",
+      "label": "Home ↗"
+    }
+  ],
+  "content": {
+    "schema": 1,
+    "fields": {
+      "index-seo-001": {
+        "en": "Butterfly Chocolate Kuwait | Luxury Chocolates, Desserts & Gifting",
+        "ar": "بترفلاي للشوكولاتة الكويت | شوكولاتة فاخرة وحلويات وهدايا"
+      },
+      "index-seo-002": {
+        "en": "Butterfly Chocolate Kuwait — luxury chocolates, refined desserts, premium gifting and elegant online ordering.",
+        "ar": "Butterfly Chocolate Kuwait — luxury chocolates, refined desserts, premium gifting and elegant online ordering."
+      },
+      "index-seo-003": {
+        "en": "Butterfly Chocolate Kuwait",
+        "ar": "Butterfly Chocolate Kuwait"
+      },
+      "index-seo-004": {
+        "en": "Chocolate, gifting and elegant hospitality from Butterfly Kuwait.",
+        "ar": "Chocolate, gifting and elegant hospitality from Butterfly Kuwait."
+      },
+      "index-seo-005": {
+        "en": "Butterfly Chocolate Kuwait",
+        "ar": "Butterfly Chocolate Kuwait"
+      },
+      "index-seo-006": {
+        "en": "Chocolate, gifting and elegant hospitality from Butterfly Kuwait.",
+        "ar": "Chocolate, gifting and elegant hospitality from Butterfly Kuwait."
+      },
+      "index-text-007": {
+        "en": "Skip to content",
+        "ar": "تخطّ إلى المحتوى"
+      },
+      "index-link-008": {
+        "url": "#main"
+      },
+      "index-text-009": {
+        "en": "Menu",
+        "ar": "القائمة"
+      },
+      "index-link-010": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-text-011": {
+        "en": "Search",
+        "ar": "بحث"
+      },
+      "index-link-012": {
+        "url": "#"
+      },
+      "index-text-013": {
+        "en": "Call Us",
+        "ar": "اتصل بنا"
+      },
+      "index-link-014": {
+        "url": "tel:+96566363741"
+      },
+      "index-link-015": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-text-016": {
+        "en": "Order",
+        "ar": "اطلب الآن"
+      },
+      "index-text-017": {
+        "en": "Creations",
+        "ar": "الإبداعات"
+      },
+      "index-link-018": {
+        "url": "#creations"
+      },
+      "index-text-019": {
+        "en": "Gifting Collection",
+        "ar": "مجموعة الهدايا"
+      },
+      "index-link-020": {
+        "url": "#gifting"
+      },
+      "index-text-021": {
+        "en": "Signature Collection",
+        "ar": "المجموعة المميزة"
+      },
+      "index-link-022": {
+        "url": "#signature"
+      },
+      "index-text-023": {
+        "en": "Butterfly Services",
+        "ar": "خدمات بترفلاي"
+      },
+      "index-link-024": {
+        "url": "#services"
+      },
+      "index-text-025": {
+        "en": "Order Online",
+        "ar": "اطلب أونلاين"
+      },
+      "index-link-026": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-text-027": {
+        "en": "Corporate Gifting",
+        "ar": "إهداءات الشركات"
+      },
+      "index-link-028": {
+        "url": "business.html"
+      },
+      "index-text-029": {
+        "en": "Catering",
+        "ar": "الكيترنق"
+      },
+      "index-link-030": {
+        "url": "catering.html"
+      },
+      "index-text-031": {
+        "en": "All Official Links",
+        "ar": "جميع الروابط الرسمية"
+      },
+      "index-link-032": {
+        "url": "links.html"
+      },
+      "index-text-033": {
+        "en": "Call Center +965 6636 3741",
+        "ar": "مركز الاتصال ٣٧٤١ ٦٦٣٦ ٩٦٥+"
+      },
+      "index-link-034": {
+        "url": "tel:+96566363741"
+      },
+      "index-text-035": {
+        "en": "WhatsApp",
+        "ar": "واتساب"
+      },
+      "index-link-036": {
+        "url": "https://wa.me/96566363741"
+      },
+      "index-text-037": {
+        "en": "Boutique — Sharq, Al Ghawali Complex",
+        "ar": "البوتيك — شرق، مجمع الغوالي"
+      },
+      "index-link-038": {
+        "url": "https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA"
+      },
+      "index-image-039": {
+        "url": "images/editorial-trays.webp",
+        "alt_en": "Butterfly Chocolate signature presentation",
+        "alt_ar": "Butterfly Chocolate signature presentation"
+      },
+      "index-text-040": {
+        "en": "Gifting",
+        "ar": "الهدايا"
+      },
+      "index-text-041": {
+        "en": "Crafted to Be Remembered",
+        "ar": "صُنعت لتُذكر"
+      },
+      "index-text-042": {
+        "en": "Discover the Gift Guide",
+        "ar": "اكتشف دليل الهدايا"
+      },
+      "index-link-043": {
+        "url": "#gifting"
+      },
+      "index-text-044": {
+        "en": "The Maison",
+        "ar": "الدار"
+      },
+      "index-text-045": {
+        "en": "Explore a Selection of Butterfly's Creations",
+        "ar": "اكتشف مجموعة من إبداعات بترفلاي"
+      },
+      "index-text-046": {
+        "en": "Enjoy signature packaging and elegant presentation with every order.",
+        "ar": "استمتع بتغليف مميز وتقديم أنيق مع كل طلب."
+      },
+      "index-link-047": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-048": {
+        "url": "images/chocolate-selection.webp",
+        "alt_en": "Luxury chocolates",
+        "alt_ar": "Luxury chocolates"
+      },
+      "index-text-049": {
+        "en": "Luxury Chocolates",
+        "ar": "شوكولاتة فاخرة"
+      },
+      "index-link-050": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-051": {
+        "url": "images/macarons.jpg",
+        "alt_en": "Macarons and pastries",
+        "alt_ar": "Macarons and pastries"
+      },
+      "index-text-052": {
+        "en": "Macarons & Pastries",
+        "ar": "ماكرون ومعجنات"
+      },
+      "index-link-053": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-054": {
+        "url": "images/canapes.png",
+        "alt_en": "Savoury canapés",
+        "alt_ar": "Savoury canapés"
+      },
+      "index-text-055": {
+        "en": "Canapés",
+        "ar": "كانابيه"
+      },
+      "index-link-056": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-057": {
+        "url": "images/cake.png",
+        "alt_en": "Cakes and desserts",
+        "alt_ar": "Cakes and desserts"
+      },
+      "index-text-058": {
+        "en": "Cakes & Desserts",
+        "ar": "كيك وحلويات"
+      },
+      "index-link-059": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-060": {
+        "url": "images/signature-tray.webp",
+        "alt_en": "Gift trays",
+        "alt_ar": "Gift trays"
+      },
+      "index-text-061": {
+        "en": "Gifting & Trays",
+        "ar": "هدايا وصواني"
+      },
+      "index-link-062": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-063": {
+        "url": "images/artistic-collection.webp",
+        "alt_en": "Occasions and events",
+        "alt_ar": "Occasions and events"
+      },
+      "index-text-064": {
+        "en": "Occasions & Events",
+        "ar": "مناسبات وفعاليات"
+      },
+      "index-link-065": {
+        "url": "business.html"
+      },
+      "index-image-066": {
+        "url": "images/branded-cheesecake.webp",
+        "alt_en": "Corporate gifting",
+        "alt_ar": "Corporate gifting"
+      },
+      "index-text-067": {
+        "en": "Corporate Gifting",
+        "ar": "هدايا الشركات"
+      },
+      "index-link-068": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-069": {
+        "url": "images/artistic-detail.webp",
+        "alt_en": "Seasonal collection",
+        "alt_ar": "Seasonal collection"
+      },
+      "index-text-070": {
+        "en": "Seasonal Collection",
+        "ar": "المجموعة الموسمية"
+      },
+      "index-image-071": {
+        "url": "images/signature-tray.webp",
+        "alt_en": "",
+        "alt_ar": ""
+      },
+      "index-text-072": {
+        "en": "Gifting",
+        "ar": "الهدايا"
+      },
+      "index-text-073": {
+        "en": "The Gifting Collection",
+        "ar": "مجموعة الهدايا"
+      },
+      "index-link-074": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-075": {
+        "url": "images/chocolate-selection.webp",
+        "alt_en": "Butterfly chocolate selection",
+        "alt_ar": "Butterfly chocolate selection"
+      },
+      "index-text-076": {
+        "en": "Chocolate Selection",
+        "ar": "تشكيلة الشوكولاتة"
+      },
+      "index-link-077": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-078": {
+        "url": "images/macarons.jpg",
+        "alt_en": "Macaron coffret",
+        "alt_ar": "Macaron coffret"
+      },
+      "index-text-079": {
+        "en": "Macaron Coffret",
+        "ar": "كوفريه الماكرون"
+      },
+      "index-link-080": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-081": {
+        "url": "images/cake.png",
+        "alt_en": "Celebration cake",
+        "alt_ar": "Celebration cake"
+      },
+      "index-text-082": {
+        "en": "Celebration Cake",
+        "ar": "كيكة الاحتفال"
+      },
+      "index-link-083": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-084": {
+        "url": "images/canapes.png",
+        "alt_en": "Reception canapés",
+        "alt_ar": "Reception canapés"
+      },
+      "index-text-085": {
+        "en": "Reception Canapés",
+        "ar": "كانابيه الاستقبال"
+      },
+      "index-text-086": {
+        "en": "Discover the Collection",
+        "ar": "اكتشف المجموعة"
+      },
+      "index-link-087": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-088": {
+        "url": "images/chocolate-craft.webp",
+        "alt_en": "",
+        "alt_ar": ""
+      },
+      "index-text-089": {
+        "en": "Signature",
+        "ar": "البصمة"
+      },
+      "index-text-090": {
+        "en": "The Butterfly Icons",
+        "ar": "أيقونات بترفلاي"
+      },
+      "index-link-091": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-092": {
+        "url": "images/signature-tray.webp",
+        "alt_en": "Medallion tray",
+        "alt_ar": "Medallion tray"
+      },
+      "index-text-093": {
+        "en": "The Medallion Tray",
+        "ar": "صينية الميدالية"
+      },
+      "index-link-094": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-095": {
+        "url": "images/artistic-detail.webp",
+        "alt_en": "Butterfly artistic chocolate",
+        "alt_ar": "Butterfly artistic chocolate"
+      },
+      "index-text-096": {
+        "en": "Artistic Chocolate",
+        "ar": "الشوكولاتة الفنية"
+      },
+      "index-link-097": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-098": {
+        "url": "images/artistic-collection.webp",
+        "alt_en": "Butterfly chocolate reception pieces",
+        "alt_ar": "Butterfly chocolate reception pieces"
+      },
+      "index-text-099": {
+        "en": "Reception Pieces",
+        "ar": "قطع الاستقبال"
+      },
+      "index-link-100": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-101": {
+        "url": "images/macarons.jpg",
+        "alt_en": "Petit four assortment",
+        "alt_ar": "Petit four assortment"
+      },
+      "index-text-102": {
+        "en": "Petit Four Assortment",
+        "ar": "تشكيلة البيتي فور"
+      },
+      "index-text-103": {
+        "en": "Discover the New Creations",
+        "ar": "اكتشف الإبداعات الجديدة"
+      },
+      "index-link-104": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-text-105": {
+        "en": "Butterfly Services",
+        "ar": "خدمات بترفلاي"
+      },
+      "index-text-106": {
+        "en": "Butterfly offers an array of tailored services — including custom orders, signature gift wrapping, and event catering.",
+        "ar": "تقدم بترفلاي مجموعة من الخدمات المصممة خصيصاً — تشمل الطلبات الخاصة، وتغليف الهدايا المميز، وتموين المناسبات."
+      },
+      "index-image-107": {
+        "url": "images/branded-cheesecake.webp",
+        "alt_en": "Customization service",
+        "alt_ar": "Customization service"
+      },
+      "index-text-108": {
+        "en": "Customization",
+        "ar": "التخصيص"
+      },
+      "index-text-109": {
+        "en": "Explore Corporate Gifting",
+        "ar": "اكتشف إهداءات الشركات"
+      },
+      "index-link-110": {
+        "url": "business.html"
+      },
+      "index-image-111": {
+        "url": "images/artistic-collection.webp",
+        "alt_en": "Art of gifting",
+        "alt_ar": "Art of gifting"
+      },
+      "index-text-112": {
+        "en": "The Art of Gifting",
+        "ar": "فن الإهداء"
+      },
+      "index-text-113": {
+        "en": "For Every Occasion",
+        "ar": "لكل مناسبة"
+      },
+      "index-link-114": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-image-115": {
+        "url": "images/canapes.png",
+        "alt_en": "Events and catering",
+        "alt_ar": "Events and catering"
+      },
+      "index-text-116": {
+        "en": "Events & Catering",
+        "ar": "الفعاليات والتموين"
+      },
+      "index-text-117": {
+        "en": "Explore Catering",
+        "ar": "اكتشف الكيترنق"
+      },
+      "index-link-118": {
+        "url": "catering.html"
+      },
+      "index-text-119": {
+        "en": "Help",
+        "ar": "المساعدة"
+      },
+      "index-text-120": {
+        "en": "Call Center +965 6636 3741",
+        "ar": "مركز الاتصال ٣٧٤١ ٦٦٣٦ ٩٦٥+"
+      },
+      "index-link-121": {
+        "url": "tel:+96566363741"
+      },
+      "index-text-122": {
+        "en": "WhatsApp",
+        "ar": "واتساب"
+      },
+      "index-link-123": {
+        "url": "https://wa.me/96566363741"
+      },
+      "index-text-124": {
+        "en": "Email Us",
+        "ar": "راسلنا"
+      },
+      "index-link-125": {
+        "url": "mailto:info@butterfly-chocolate.com"
+      },
+      "index-text-126": {
+        "en": "Services",
+        "ar": "الخدمات"
+      },
+      "index-text-127": {
+        "en": "Online Ordering",
+        "ar": "الطلب أونلاين"
+      },
+      "index-link-128": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "index-text-129": {
+        "en": "Custom Orders",
+        "ar": "الطلبات الخاصة"
+      },
+      "index-link-130": {
+        "url": "business.html"
+      },
+      "index-text-131": {
+        "en": "Events & Catering",
+        "ar": "الفعاليات والتموين"
+      },
+      "index-link-132": {
+        "url": "catering.html"
+      },
+      "index-text-133": {
+        "en": "About Butterfly",
+        "ar": "عن بترفلاي"
+      },
+      "index-text-134": {
+        "en": "Our Creations",
+        "ar": "إبداعاتنا"
+      },
+      "index-link-135": {
+        "url": "#creations"
+      },
+      "index-text-136": {
+        "en": "Boutique — Sharq, Al Ghawali Complex",
+        "ar": "البوتيك — شرق، مجمع الغوالي"
+      },
+      "index-link-137": {
+        "url": "https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA"
+      },
+      "index-text-138": {
+        "en": "All Official Links",
+        "ar": "جميع الروابط الرسمية"
+      },
+      "index-link-139": {
+        "url": "links.html"
+      },
+      "index-text-140": {
+        "en": "Connect",
+        "ar": "تواصل"
+      },
+      "index-text-141": {
+        "en": "Instagram",
+        "ar": "إنستغرام"
+      },
+      "index-link-142": {
+        "url": "https://www.instagram.com/brfly.kw"
+      },
+      "index-text-143": {
+        "en": "WhatsApp",
+        "ar": "واتساب"
+      },
+      "index-link-144": {
+        "url": "https://wa.me/96566363741"
+      },
+      "index-text-145": {
+        "en": "© Butterfly Chocolate. All rights reserved.",
+        "ar": "© بترفلاي للشوكولاتة. جميع الحقوق محفوظة."
+      },
+      "index-text-146": {
+        "en": "Deliver to: Kuwait",
+        "ar": "التوصيل إلى: الكويت"
+      },
+      "index-link-147": {
+        "url": "#"
+      },
+      "business-seo-001": {
+        "en": "Butterfly | Corporate Gifting & Bespoke Orders",
+        "ar": "إهداءات الشركات والطلبات الخاصة | بترفلاي"
+      },
+      "business-seo-002": {
+        "en": "إهداءات للشركات والبنوك وطلبات خاصة ببصمة علامتكم. اكتشف شوكولاتة بترفلاي الفنية وشاركنا تفاصيل طلبك للحصول على عرض سعر.",
+        "ar": "إهداءات للشركات والبنوك وطلبات خاصة ببصمة علامتكم. اكتشف شوكولاتة بترفلاي الفنية وشاركنا تفاصيل طلبك للحصول على عرض سعر."
+      },
+      "business-seo-003": {
+        "en": "إهداءات الشركات والطلبات الخاصة | بترفلاي",
+        "ar": "إهداءات الشركات والطلبات الخاصة | بترفلاي"
+      },
+      "business-seo-004": {
+        "en": "إهداءات للشركات والبنوك وشوكولاتة وتشيزكيك بشعاركم. شاركونا الكمية والموعد للحصول على عرض خاص.",
+        "ar": "إهداءات للشركات والبنوك وشوكولاتة وتشيزكيك بشعاركم. شاركونا الكمية والموعد للحصول على عرض خاص."
+      },
+      "business-seo-005": {
+        "en": "إهداءات الشركات والطلبات الخاصة | بترفلاي",
+        "ar": "إهداءات الشركات والطلبات الخاصة | بترفلاي"
+      },
+      "business-seo-006": {
+        "en": "إهداءات للشركات والبنوك وشوكولاتة وتشيزكيك بشعاركم. شاركونا الكمية والموعد للحصول على عرض خاص.",
+        "ar": "إهداءات للشركات والبنوك وشوكولاتة وتشيزكيك بشعاركم. شاركونا الكمية والموعد للحصول على عرض خاص."
+      },
+      "business-text-007": {
+        "en": "Skip to content",
+        "ar": "تخطّ إلى المحتوى"
+      },
+      "business-link-008": {
+        "url": "#main"
+      },
+      "business-text-009": {
+        "en": "← Home",
+        "ar": "الرئيسية ←"
+      },
+      "business-link-010": {
+        "url": "index.html"
+      },
+      "business-link-011": {
+        "url": "index.html"
+      },
+      "business-text-012": {
+        "en": "Request a proposal",
+        "ar": "اطلب عرضًا لشركتك"
+      },
+      "business-link-013": {
+        "url": "business.html#quote"
+      },
+      "business-text-014": {
+        "en": "CORPORATE GIFTING & BESPOKE ORDERS",
+        "ar": "إهداءات الشركات والطلبات الخاصة"
+      },
+      "business-text-015": {
+        "en": "Your brand.",
+        "ar": "بصمة علامتكم."
+      },
+      "business-text-016": {
+        "en": "Beautifully remembered.",
+        "ar": "هدية تبقى في الذاكرة."
+      },
+      "business-text-017": {
+        "en": "Thoughtful chocolate and dessert gifts for your clients, teams and most important occasions. For companies and banks, shaped around your identity.",
+        "ar": "إهداءات من الشوكولاتة والحلويات لعملائكم وفِرقكم وأهم مناسباتكم. للشركات والبنوك، بتفاصيل تُصمم حول هويتكم."
+      },
+      "business-text-018": {
+        "en": "Request a corporate proposal ↗",
+        "ar": "اطلب عرضًا لشركتك ↗"
+      },
+      "business-link-019": {
+        "url": "#quote"
+      },
+      "business-text-020": {
+        "en": "Explore the possibilities",
+        "ar": "اكتشف خيارات الإهداء"
+      },
+      "business-link-021": {
+        "url": "#possibilities"
+      },
+      "business-text-022": {
+        "en": "Your occasion, quantity and identity. One tailored proposal.",
+        "ar": "مناسبتكم، كميتكم وهويتكم. في عرض يُصمم لكم."
+      },
+      "business-image-023": {
+        "url": "images/branded-cheesecake.webp",
+        "alt_en": "Butterfly branded mini cheesecakes",
+        "alt_ar": "Butterfly branded mini cheesecakes"
+      },
+      "business-text-024": {
+        "en": "Branded mini cheesecakes from Butterfly",
+        "ar": "تشيزكيك بشعاركم من بترفلاي"
+      },
+      "business-text-025": {
+        "en": "MADE FOR YOUR BUSINESS",
+        "ar": "مصمم لأعمالكم"
+      },
+      "business-text-026": {
+        "en": "Companies & banks",
+        "ar": "الشركات والبنوك"
+      },
+      "business-text-027": {
+        "en": "Client & team appreciation",
+        "ar": "تقدير العملاء والموظفين"
+      },
+      "business-text-028": {
+        "en": "Events & special commissions",
+        "ar": "الفعاليات والطلبات الخاصة"
+      },
+      "business-text-029": {
+        "en": "THE GIFTING EDIT",
+        "ar": "خيارات الإهداء"
+      },
+      "business-text-030": {
+        "en": "Many ways to leave an impression.",
+        "ar": "أكثر من طريقة لترك بصمة."
+      },
+      "business-text-031": {
+        "en": "Start with the purpose of your gift. We help you explore a selection and presentation that suit it.",
+        "ar": "ابدؤوا بهدف الهدية. نساعدكم في اختيار التشكيلة وطريقة التقديم المناسبة لها."
+      },
+      "business-image-032": {
+        "url": "images/branded-cheesecake.webp",
+        "alt_en": "Branded cheesecake",
+        "alt_ar": "Branded cheesecake"
+      },
+      "business-text-033": {
+        "en": "Branded cheesecake",
+        "ar": "تشيزكيك ببصمة علامتكم"
+      },
+      "business-text-034": {
+        "en": "Mini cheesecakes with your logo or message. Discuss the design and suitable formats with us.",
+        "ar": "قطع تشيزكيك تحمل شعاركم أو رسالتكم. نناقش معكم التصميم والأشكال المناسبة."
+      },
+      "business-text-035": {
+        "en": "Discuss this idea ↗",
+        "ar": "ناقش هذه الفكرة ↗"
+      },
+      "business-link-036": {
+        "url": "#quote"
+      },
+      "business-image-037": {
+        "url": "images/signature-tray.webp",
+        "alt_en": "Thoughtful gifting",
+        "alt_ar": "Thoughtful gifting"
+      },
+      "business-text-038": {
+        "en": "Thoughtful gifting",
+        "ar": "إهداءات تُعبّر عن التقدير"
+      },
+      "business-text-039": {
+        "en": "Chocolate and dessert selections for clients, colleagues and special occasions, with presentation agreed for your order.",
+        "ar": "تشكيلات شوكولاتة وحلويات للعملاء والموظفين والمناسبات الخاصة، بتقديم يُتفق عليه لطلبكم."
+      },
+      "business-text-040": {
+        "en": "Discuss this idea ↗",
+        "ar": "ناقش هذه الفكرة ↗"
+      },
+      "business-link-041": {
+        "url": "#quote"
+      },
+      "business-image-042": {
+        "url": "images/artistic-collection.webp",
+        "alt_en": "Bespoke occasions",
+        "alt_ar": "Bespoke occasions"
+      },
+      "business-text-043": {
+        "en": "Bespoke occasions",
+        "ar": "طلبات خاصة لمناسباتكم"
+      },
+      "business-text-044": {
+        "en": "A launch, a milestone or a seasonal occasion. Share your idea and let us explore it with you.",
+        "ar": "إطلاق جديد، إنجاز مهم أو مناسبة موسمية. شاركونا فكرتكم لنبحث تفاصيل تنفيذها معكم."
+      },
+      "business-text-045": {
+        "en": "Discuss this idea ↗",
+        "ar": "ناقش هذه الفكرة ↗"
+      },
+      "business-link-046": {
+        "url": "#quote"
+      },
+      "business-text-047": {
+        "en": "Photographs show Butterfly products. Final design, packaging and quantities are agreed in your proposal.",
+        "ar": "الصور لمنتجات بترفلاي. يُتفق على التصميم والتغليف والكميات النهائية ضمن عرضكم."
+      },
+      "business-image-048": {
+        "url": "images/artistic-detail.webp",
+        "alt_en": "Personalised Butterfly chocolate detail",
+        "alt_ar": "Personalised Butterfly chocolate detail"
+      },
+      "business-text-049": {
+        "en": "THE PERSONAL TOUCH",
+        "ar": "التفاصيل التي تصنع الفرق"
+      },
+      "business-text-050": {
+        "en": "An extension of your identity.",
+        "ar": "امتداد لهويتكم."
+      },
+      "business-text-051": {
+        "en": "From the first idea to the final presentation, we bring the details together around your brief.",
+        "ar": "من الفكرة الأولى إلى طريقة التقديم، نجمع التفاصيل حول احتياجكم وهوية علامتكم."
+      },
+      "business-text-052": {
+        "en": "Your logo or message",
+        "ar": "شعاركم أو رسالة الإهداء"
+      },
+      "business-text-053": {
+        "en": "A curated chocolate and dessert selection",
+        "ar": "تشكيلة شوكولاتة وحلويات تُختار لكم"
+      },
+      "business-text-054": {
+        "en": "Presentation and packaging discussed together",
+        "ar": "تنسيق التقديم والتغليف معكم"
+      },
+      "business-text-055": {
+        "en": "Quantities and timing agreed before confirmation",
+        "ar": "كميات وموعد يُتفق عليهما قبل التأكيد"
+      },
+      "business-text-056": {
+        "en": "Create your gifting brief ↗",
+        "ar": "شاركنا فكرة إهدائك ↗"
+      },
+      "business-link-057": {
+        "url": "#quote"
+      },
+      "business-text-058": {
+        "en": "FOR EVERY BUSINESS MOMENT",
+        "ar": "لكل لحظة في أعمالكم"
+      },
+      "business-text-059": {
+        "en": "Give with intention.",
+        "ar": "إهداءات لها معنى."
+      },
+      "business-text-060": {
+        "en": "Client relationships",
+        "ar": "علاقات العملاء"
+      },
+      "business-text-061": {
+        "en": "A considered thank-you for clients and partners.",
+        "ar": "لفتة تقدير للعملاء والشركاء."
+      },
+      "business-text-062": {
+        "en": "Teams & milestones",
+        "ar": "الفِرق والإنجازات"
+      },
+      "business-text-063": {
+        "en": "Welcome, recognise and celebrate your people.",
+        "ar": "للترحيب بفريقكم وتقدير إنجازاته."
+      },
+      "business-text-064": {
+        "en": "Launches & events",
+        "ar": "الإطلاقات والفعاليات"
+      },
+      "business-text-065": {
+        "en": "Carry your identity into an important occasion.",
+        "ar": "هوية علامتكم في تفاصيل المناسبة."
+      },
+      "business-text-066": {
+        "en": "Seasonal gifting",
+        "ar": "الإهداءات الموسمية"
+      },
+      "business-text-067": {
+        "en": "Plan ahead for Ramadan, Eid and your annual gifting.",
+        "ar": "خططوا لرمضان والأعياد وإهداءاتكم السنوية."
+      },
+      "business-text-068": {
+        "en": "FROM IDEA TO IMPRESSION",
+        "ar": "من الفكرة إلى البصمة"
+      },
+      "business-text-069": {
+        "en": "Three considered steps.",
+        "ar": "ثلاث خطوات واضحة."
+      },
+      "business-text-070": {
+        "en": "Share your brief",
+        "ar": "شاركوا تفاصيل الطلب"
+      },
+      "business-text-071": {
+        "en": "Tell us who the gifts are for, the quantity, occasion and target date.",
+        "ar": "لمن الإهداء؟ ما الكمية والمناسبة والموعد؟"
+      },
+      "business-text-072": {
+        "en": "Review your proposal",
+        "ar": "راجعوا عرضكم"
+      },
+      "business-text-073": {
+        "en": "We discuss selection, personalisation, presentation, pricing and availability.",
+        "ar": "نناقش التشكيلة والتخصيص والتقديم والسعر والتوفر."
+      },
+      "business-text-074": {
+        "en": "Confirm the details",
+        "ar": "اعتمدوا التفاصيل"
+      },
+      "business-text-075": {
+        "en": "Final artwork, quantities and fulfilment arrangements are agreed before proceeding.",
+        "ar": "نتفق على التصميم النهائي والكميات وترتيبات الاستلام أو التوصيل قبل التنفيذ."
+      },
+      "business-text-076": {
+        "en": "LET’S CREATE YOUR NEXT GIFT",
+        "ar": "لنصمم إهداءكم القادم"
+      },
+      "business-text-077": {
+        "en": "A proposal for your business.",
+        "ar": "عرض مصمم لشركتكم."
+      },
+      "business-text-078": {
+        "en": "Share a few details to prepare your enquiry. WhatsApp will open with your brief ready for you to send to our team.",
+        "ar": "شاركوا بعض التفاصيل لتجهيز طلبكم. سيفتح واتساب برسالة جاهزة لتُرسلوها إلى فريقنا."
+      },
+      "business-text-079": {
+        "en": "Prefer to talk? +965 6636 3741",
+        "ar": "تفضلون التواصل مباشرة؟ 6636 3741"
+      },
+      "business-link-080": {
+        "url": "https://wa.me/96566363741"
+      },
+      "business-text-081": {
+        "en": "Company / organisation *",
+        "ar": "الشركة / الجهة *"
+      },
+      "business-text-082": {
+        "en": "Contact person *",
+        "ar": "اسم مسؤول التواصل *"
+      },
+      "business-text-083": {
+        "en": "Estimated quantity *",
+        "ar": "الكمية التقريبية *"
+      },
+      "business-text-084": {
+        "en": "Required date (optional)",
+        "ar": "الموعد المطلوب (اختياري)"
+      },
+      "business-text-085": {
+        "en": "Interested in *",
+        "ar": "نوع الطلب *"
+      },
+      "business-text-086": {
+        "en": "Choose your interest",
+        "ar": "اختر نوع الطلب"
+      },
+      "business-text-087": {
+        "en": "Branded mini cheesecakes",
+        "ar": "تشيزكيك بشعاركم"
+      },
+      "business-text-088": {
+        "en": "Branded chocolates",
+        "ar": "شوكولاتة بشعاركم"
+      },
+      "business-text-089": {
+        "en": "Corporate gifts",
+        "ar": "إهداءات الشركات والبنوك"
+      },
+      "business-text-090": {
+        "en": "Event / launch",
+        "ar": "فعالية / إطلاق"
+      },
+      "business-text-091": {
+        "en": "Bespoke order",
+        "ar": "طلب خاص"
+      },
+      "business-text-092": {
+        "en": "Your idea / budget / delivery needs (optional)",
+        "ar": "الفكرة / الميزانية / متطلبات التوصيل (اختياري)"
+      },
+      "business-text-093": {
+        "en": "Prepare my WhatsApp enquiry ↗",
+        "ar": "جهّز طلب العرض عبر واتساب ↗"
+      },
+      "business-text-094": {
+        "en": "Your enquiry is sent when you send the WhatsApp message. Availability, pricing and lead time are confirmed by our team.",
+        "ar": "يُرسل الطلب عند إرسال رسالة واتساب. يؤكد فريقنا التوفر والسعر ومدة التنفيذ."
+      },
+      "business-text-095": {
+        "en": "A FEW DETAILS",
+        "ar": "تفاصيل تهمكم"
+      },
+      "business-text-096": {
+        "en": "Before we begin.",
+        "ar": "قبل أن نبدأ."
+      },
+      "business-text-097": {
+        "en": "Can our logo be included?",
+        "ar": "هل يمكن إضافة شعار الشركة؟"
+      },
+      "business-text-098": {
+        "en": "Share your logo and preferred concept with us on WhatsApp. Our team confirms suitable personalisation and artwork requirements.",
+        "ar": "شاركوا شعاركم والفكرة المطلوبة عبر واتساب. يؤكد فريقنا خيارات التخصيص ومتطلبات ملف التصميم."
+      },
+      "business-text-099": {
+        "en": "Is there a minimum quantity?",
+        "ar": "ما الحد الأدنى للطلب؟"
+      },
+      "business-text-100": {
+        "en": "Minimum quantities depend on the product and personalisation. Enter your estimated quantity so we can discuss suitable options.",
+        "ar": "يعتمد الحد الأدنى على المنتج والتخصيص. أدخلوا الكمية التقريبية لنناقش الخيارات المناسبة."
+      },
+      "business-text-101": {
+        "en": "How much time should we allow?",
+        "ar": "كم يستغرق تجهيز الطلب؟"
+      },
+      "business-text-102": {
+        "en": "Timing depends on quantity, artwork and availability. Share your target date early; our team confirms the schedule before the order is approved.",
+        "ar": "تعتمد المدة على الكمية والتصميم والتوفر. شاركوا موعدكم مبكرًا، ويؤكد فريقنا الجدول قبل اعتماد الطلب."
+      },
+      "business-text-103": {
+        "en": "Can we arrange delivery?",
+        "ar": "هل يمكن تنسيق التوصيل؟"
+      },
+      "business-text-104": {
+        "en": "Share the required destination and any multiple-address needs. Delivery options, charges and timing are agreed in your proposal.",
+        "ar": "شاركوا وجهة التوصيل وأي احتياج لعدة عناوين. يُتفق على خيارات التوصيل وتكلفته ومواعيده ضمن العرض."
+      },
+      "business-text-105": {
+        "en": "Home",
+        "ar": "الرئيسية"
+      },
+      "business-link-106": {
+        "url": "index.html"
+      },
+      "business-text-107": {
+        "en": "Catering",
+        "ar": "الكيترنق"
+      },
+      "business-link-108": {
+        "url": "catering.html"
+      },
+      "business-text-109": {
+        "en": "Official links",
+        "ar": "الروابط الرسمية"
+      },
+      "business-link-110": {
+        "url": "links.html"
+      },
+      "business-text-111": {
+        "en": "Request a corporate proposal ↗",
+        "ar": "اطلب عرضًا لشركتك ↗"
+      },
+      "business-link-112": {
+        "url": "#quote"
+      },
+      "catering-seo-001": {
+        "en": "اختر ضيافة بترفلاي الكاملة أو كيترنق الأعراس أو ستيشن قهوة فقط. حدد عدد الضيوف لتظهر باقتك المناسبة. القهوة تبدأ من 125 د.ك والضيافة من 475 د.ك.",
+        "ar": "اختر ضيافة بترفلاي الكاملة أو كيترنق الأعراس أو ستيشن قهوة فقط. حدد عدد الضيوف لتظهر باقتك المناسبة. القهوة تبدأ من 125 د.ك والضيافة من 475 د.ك."
+      },
+      "catering-seo-002": {
+        "en": "كيترنق بترفلاي | باقتك، حسب مناسبتك",
+        "ar": "كيترنق بترفلاي | باقتك، حسب مناسبتك"
+      },
+      "catering-seo-003": {
+        "en": "ضيافة كاملة، أعراس أو ستيشن قهوة فقط. اختر الخدمة وعدد الضيوف، واكتشف الباقة المناسبة.",
+        "ar": "ضيافة كاملة، أعراس أو ستيشن قهوة فقط. اختر الخدمة وعدد الضيوف، واكتشف الباقة المناسبة."
+      },
+      "catering-seo-004": {
+        "en": "كيترنق بترفلاي | باقتك، حسب مناسبتك",
+        "ar": "كيترنق بترفلاي | باقتك، حسب مناسبتك"
+      },
+      "catering-seo-005": {
+        "en": "ضيافة كاملة، أعراس أو ستيشن قهوة فقط. اختر الخدمة وعدد الضيوف، واكتشف الباقة المناسبة.",
+        "ar": "ضيافة كاملة، أعراس أو ستيشن قهوة فقط. اختر الخدمة وعدد الضيوف، واكتشف الباقة المناسبة."
+      },
+      "catering-seo-006": {
+        "en": "كيترنق بترفلاي | اختر الباقة المناسبة لمناسبتك",
+        "ar": "كيترنق بترفلاي | اختر الباقة المناسبة لمناسبتك"
+      },
+      "catering-text-007": {
+        "en": "Skip to content",
+        "ar": "تخطّ إلى المحتوى"
+      },
+      "catering-link-008": {
+        "url": "#main"
+      },
+      "catering-text-009": {
+        "en": "← Home",
+        "ar": "الرئيسية ←"
+      },
+      "catering-link-010": {
+        "url": "index.html"
+      },
+      "catering-link-011": {
+        "url": "index.html"
+      },
+      "catering-text-012": {
+        "en": "Corporate gifting",
+        "ar": "إهداءات الشركات"
+      },
+      "catering-link-013": {
+        "url": "business.html"
+      },
+      "catering-text-014": {
+        "en": "THE ART OF REFINED HOSPITALITY",
+        "ar": "فن الضيافة الراقية"
+      },
+      "catering-text-015": {
+        "en": "Your occasion.",
+        "ar": "مناسبتك،"
+      },
+      "catering-text-016": {
+        "en": "Your Butterfly experience.",
+        "ar": "ببصمة بترفلاي."
+      },
+      "catering-text-017": {
+        "en": "Full hospitality, wedding receptions or a dedicated coffee station. Choose your service and let us bring your occasion together.",
+        "ar": "ضيافة متكاملة، استقبال عرس، أو ستيشن قهوة فقط. اختر الخدمة، وننسق التفاصيل حول مناسبتك."
+      },
+      "catering-text-018": {
+        "en": "Find my package ↗",
+        "ar": "اختر باقتك المناسبة ↗"
+      },
+      "catering-link-019": {
+        "url": "#builder"
+      },
+      "catering-text-020": {
+        "en": "Explore the services",
+        "ar": "تعرّف على الخدمات"
+      },
+      "catering-link-021": {
+        "url": "#builder"
+      },
+      "catering-text-022": {
+        "en": "Coffee from 125 KD · Full hospitality from 475 KD",
+        "ar": "القهوة تبدأ من 125 د.ك · الضيافة الكاملة من 475 د.ك"
+      },
+      "catering-image-023": {
+        "url": "images/editorial-trays.webp",
+        "alt_en": "Butterfly chocolate collection",
+        "alt_ar": "تشكيلة شوكولاتة بترفلاي"
+      },
+      "catering-text-024": {
+        "en": "From the Butterfly product collection. Event presentation is agreed with our team.",
+        "ar": "من تشكيلة منتجات بترفلاي. يُتفق على تنسيق المناسبة مع فريقنا."
+      },
+      "catering-text-025": {
+        "en": "Private receptions & weddings",
+        "ar": "الاستقبالات الخاصة والأعراس"
+      },
+      "catering-text-026": {
+        "en": "Corporate events",
+        "ar": "فعاليات الشركات"
+      },
+      "catering-text-027": {
+        "en": "Tailored proposals for up to 400 guests",
+        "ar": "عروض خاصة للمناسبات حتى 400 ضيف"
+      },
+      "catering-text-028": {
+        "en": "CURATE YOUR EXPERIENCE",
+        "ar": "صمم تجربة مناسبتك"
+      },
+      "catering-text-029": {
+        "en": "A package that fits your occasion.",
+        "ar": "باقة تناسب تفاصيل مناسبتك."
+      },
+      "catering-text-030": {
+        "en": "Choose your service, then your guest count. Your package appears next, ready to personalise.",
+        "ar": "اختر نوع الخدمة، ثم عدد الضيوف. بعدها تظهر باقتك المناسبة لتكمل اختياراتك."
+      },
+      "catering-text-031": {
+        "en": "Service",
+        "ar": "نوع الخدمة"
+      },
+      "catering-text-032": {
+        "en": "Guests",
+        "ar": "عدد الضيوف"
+      },
+      "catering-text-033": {
+        "en": "Package",
+        "ar": "الباقة المناسبة"
+      },
+      "catering-text-034": {
+        "en": "What are you planning?",
+        "ar": "ما نوع الخدمة المناسبة لك؟"
+      },
+      "catering-text-035": {
+        "en": "Choose your service first. We will guide you to the right package.",
+        "ar": "اختر نوع الخدمة أولًا، ونساعدك في الوصول إلى الباقة المناسبة."
+      },
+      "catering-text-036": {
+        "en": "Service type",
+        "ar": "نوع الخدمة"
+      },
+      "catering-text-037": {
+        "en": "Full hospitality",
+        "ar": "ضيافة كاملة"
+      },
+      "catering-text-038": {
+        "en": "Chocolate, savouries, desserts and coffee, with a hospitality team.",
+        "ar": "شوكولاتة وموالح وحلويات وقهوة، مع فريق ضيافة."
+      },
+      "catering-text-039": {
+        "en": "Wedding",
+        "ar": "عرس"
+      },
+      "catering-text-040": {
+        "en": "A full hospitality experience for your wedding. Tailored proposals for up to 400 guests.",
+        "ar": "ضيافة متكاملة لعرسكم، مع عروض خاصة لغاية 400 ضيف."
+      },
+      "catering-text-041": {
+        "en": "Coffee station only",
+        "ar": "ستيشن قهوة فقط"
+      },
+      "catering-text-042": {
+        "en": "A dedicated coffee station and barista team. Packages for 30–200 guests.",
+        "ar": "ستيشن قهوة مع فريق باريستا. باقات من 30 إلى 200 ضيف."
+      },
+      "catering-text-043": {
+        "en": "Next: guest count ↗",
+        "ar": "التالي: عدد الضيوف ↗"
+      },
+      "catering-text-044": {
+        "en": "How many guests?",
+        "ar": "كم عدد ضيوفك؟"
+      },
+      "catering-text-045": {
+        "en": "Enter your guest count and we will recommend a package for your chosen service.",
+        "ar": "حدد عدد الضيوف لتظهر الباقة المناسبة لنوع الخدمة الذي اخترته."
+      },
+      "catering-text-046": {
+        "en": "Number of guests *",
+        "ar": "عدد الضيوف *"
+      },
+      "catering-text-047": {
+        "en": "Enter a whole number from 1 to 400 guests.",
+        "ar": "أدخل عددًا صحيحًا من 1 إلى 400 ضيف."
+      },
+      "catering-text-048": {
+        "en": "Find my package ↗",
+        "ar": "اعرض الباقة المناسبة ↗"
+      },
+      "catering-text-049": {
+        "en": "← Change service",
+        "ar": "تغيير نوع الخدمة"
+      },
+      "catering-text-050": {
+        "en": "Your recommended package",
+        "ar": "باقتك المناسبة"
+      },
+      "catering-text-051": {
+        "en": "Change service",
+        "ar": "تغيير الخدمة"
+      },
+      "catering-text-052": {
+        "en": "Change guests",
+        "ar": "تعديل عدد الضيوف"
+      },
+      "catering-text-053": {
+        "en": "Exact quantities for guest extensions are confirmed with our team. Base package quantities remain listed below.",
+        "ar": "تُؤكد كميات زيادة الضيوف مع فريقنا. الكميات المعروضة أدناه تخص الباقة الأساسية."
+      },
+      "catering-text-054": {
+        "en": "Refine towers and service hours (optional)",
+        "ar": "تعديل الأبراج ومدة الخدمة (اختياري)"
+      },
+      "catering-text-055": {
+        "en": "Minimum towers you would like",
+        "ar": "أقل عدد أبراج ترغب به"
+      },
+      "catering-text-056": {
+        "en": "Recommend for me",
+        "ar": "اقترحوا لي المناسب"
+      },
+      "catering-text-057": {
+        "en": "At least 1 medium tower",
+        "ar": "برج متوسط واحد على الأقل"
+      },
+      "catering-text-058": {
+        "en": "At least 2 medium towers",
+        "ar": "برجان متوسطان على الأقل"
+      },
+      "catering-text-059": {
+        "en": "At least 3 medium towers",
+        "ar": "3 أبراج متوسطة على الأقل"
+      },
+      "catering-text-060": {
+        "en": "Preferred service duration",
+        "ar": "مدة الخدمة المطلوبة"
+      },
+      "catering-text-061": {
+        "en": "4 service hours",
+        "ar": "4 ساعات خدمة"
+      },
+      "catering-text-062": {
+        "en": "5 service hours",
+        "ar": "5 ساعات خدمة"
+      },
+      "catering-text-063": {
+        "en": "6 service hours",
+        "ar": "6 ساعات خدمة"
+      },
+      "catering-text-064": {
+        "en": "7 service hours",
+        "ar": "7 ساعات خدمة"
+      },
+      "catering-text-065": {
+        "en": "8 service hours",
+        "ar": "8 ساعات خدمة"
+      },
+      "catering-text-066": {
+        "en": "All hospitality packages include one separate setup hour. Extended service requires prior confirmation.",
+        "ar": "تشمل باقات الضيافة ساعة تجهيز منفصلة. يتطلب تمديد الخدمة تأكيدًا مسبقًا."
+      },
+      "catering-text-067": {
+        "en": "What is included",
+        "ar": "تفاصيل الباقة"
+      },
+      "catering-text-068": {
+        "en": "Make it yours",
+        "ar": "اختر تفاصيل تجربتك"
+      },
+      "catering-text-069": {
+        "en": "Savouries & canapés",
+        "ar": "الموالح والكانابيه"
+      },
+      "catering-text-070": {
+        "en": "Let the Butterfly team recommend my selections",
+        "ar": "أترك اختيار الأصناف لفريق بترفلاي"
+      },
+      "catering-text-071": {
+        "en": "Each selection is presented across two trays. The final selection is subject to the current menu and availability.",
+        "ar": "يُقدم كل صنف على صينيتين. تُؤكد الاختيارات من القائمة الحالية وبحسب التوافر."
+      },
+      "catering-text-072": {
+        "en": "Choose the required number of savoury types, or let our team recommend them.",
+        "ar": "اختر العدد المطلوب من أصناف الموالح، أو اترك الاختيار لفريقنا."
+      },
+      "catering-text-073": {
+        "en": "Included medium towers",
+        "ar": "الأبراج المتوسطة المشمولة"
+      },
+      "catering-text-074": {
+        "en": "Choose any of the four tower types at no extra charge within your package allowance. You can repeat a favourite.",
+        "ar": "اختر من الأنواع الأربعة ضمن عدد الأبراج المشمول دون رسوم إضافية. ويمكنك تكرار النوع المفضل."
+      },
+      "catering-text-075": {
+        "en": "The personal touch",
+        "ar": "بصمتكم في التفاصيل"
+      },
+      "catering-text-076": {
+        "en": "Personalisation style",
+        "ar": "نوع التخصيص"
+      },
+      "catering-text-077": {
+        "en": "Decide with our team",
+        "ar": "أحدد مع الفريق"
+      },
+      "catering-text-078": {
+        "en": "Name / event name",
+        "ar": "الاسم / اسم المناسبة"
+      },
+      "catering-text-079": {
+        "en": "Initials",
+        "ar": "الأحرف"
+      },
+      "catering-text-080": {
+        "en": "Corporate logo",
+        "ar": "شعار الشركة"
+      },
+      "catering-text-081": {
+        "en": "Name / initials (optional)",
+        "ar": "الاسم / الأحرف (اختياري)"
+      },
+      "catering-text-082": {
+        "en": "Preferred artistic piece (optional)",
+        "ar": "صنف القطع الفنية المفضل (اختياري)"
+      },
+      "catering-text-083": {
+        "en": "Personalisation is subject to availability and a separate quotation. Share your name, initials or logo preference; any charges are confirmed before booking.",
+        "ar": "التخصيص بحسب التوافر وبعرض سعر مستقل. شاركنا الاسم أو الأحرف أو تفضيل الشعار، وتُوضح أي رسوم قبل تأكيد الحجز."
+      },
+      "catering-text-084": {
+        "en": "Add a little more",
+        "ar": "أضف ما يكمل مناسبتك"
+      },
+      "catering-text-085": {
+        "en": "Optional additions, with the price shown for each unit. Your estimate updates as you choose.",
+        "ar": "إضافات اختيارية، بسعر واضح لكل وحدة. يتحدث ملخص السعر مع كل اختيار."
+      },
+      "catering-text-086": {
+        "en": "Food, desserts & coffee biscuit tags",
+        "ar": "المأكولات والحلويات وبسكويت القهوة"
+      },
+      "catering-text-087": {
+        "en": "For example: one coffee biscuit tag add-on includes 12 personalised pieces for 7 KD.",
+        "ar": "مثال: إضافة واحدة من بسكويت تاق القهوة تشمل 12 قطعة بطباعة مخصصة بسعر 7 د.ك."
+      },
+      "catering-text-088": {
+        "en": "Additional hospitality team",
+        "ar": "فريق ضيافة إضافي"
+      },
+      "catering-text-089": {
+        "en": "Team additions and extended service are subject to availability and confirmation. Adjust service hours under your recommended package.",
+        "ar": "تخضع إضافات الفريق وتمديد الخدمة للتوافر والتأكيد. عدّل مدة الخدمة ضمن خيارات باقتك المرشحة."
+      },
+      "catering-text-090": {
+        "en": "I would like additional towers — quoted separately",
+        "ar": "أرغب بأبراج إضافية — بعرض سعر منفصل"
+      },
+      "catering-text-091": {
+        "en": "Additional tower requests are passed to our team. Their price is excluded from the displayed estimate.",
+        "ar": "يُرسل طلب الأبراج الإضافية للفريق، ولا تُحتسب تكلفتها ضمن السعر المعروض."
+      },
+      "catering-text-092": {
+        "en": "Complete your enquiry",
+        "ar": "أكمل طلب عرضك"
+      },
+      "catering-text-093": {
+        "en": "Share the venue and preferences. We prepare a WhatsApp message containing your complete selection.",
+        "ar": "شاركنا المكان والتفضيلات، لنجهز رسالة واتساب تتضمن اختياراتك وتفاصيل السعر."
+      },
+      "catering-text-094": {
+        "en": "Occasion type (optional)",
+        "ar": "نوع المناسبة (اختياري)"
+      },
+      "catering-text-095": {
+        "en": "Choose your occasion",
+        "ar": "اختر نوع المناسبة"
+      },
+      "catering-text-096": {
+        "en": "Reception / engagement",
+        "ar": "استقبال / ملكة"
+      },
+      "catering-text-097": {
+        "en": "Wedding",
+        "ar": "عرس"
+      },
+      "catering-text-098": {
+        "en": "Private gathering",
+        "ar": "تجمع خاص"
+      },
+      "catering-text-099": {
+        "en": "Corporate event",
+        "ar": "فعالية شركة"
+      },
+      "catering-text-100": {
+        "en": "Other occasion",
+        "ar": "مناسبة أخرى"
+      },
+      "catering-text-101": {
+        "en": "Coffee preference",
+        "ar": "اختيار القهوة"
+      },
+      "catering-text-102": {
+        "en": "Hot & cold",
+        "ar": "ساخنة وباردة"
+      },
+      "catering-text-103": {
+        "en": "Hot only",
+        "ar": "ساخنة فقط"
+      },
+      "catering-text-104": {
+        "en": "Cold only",
+        "ar": "باردة فقط"
+      },
+      "catering-text-105": {
+        "en": "Decide with our team",
+        "ar": "أحدد مع الفريق"
+      },
+      "catering-text-106": {
+        "en": "Preferred service hours (optional)",
+        "ar": "مدة خدمة القهوة المطلوبة (اختياري)"
+      },
+      "catering-text-107": {
+        "en": "Service duration, cup allowance and any extension charges are confirmed in your booking proposal. One separate setup hour is included.",
+        "ar": "تُؤكد مدة الخدمة وعدد الأكواب ورسوم التمديد في عرض الحجز. تشمل الخدمة ساعة تجهيز منفصلة."
+      },
+      "catering-text-108": {
+        "en": "Chocolate tray preference",
+        "ar": "اختيار صينية الشوكولاتة"
+      },
+      "catering-text-109": {
+        "en": "Butterfly catering tray",
+        "ar": "صينية كيترنق بترفلاي"
+      },
+      "catering-text-110": {
+        "en": "My own tray, subject to suitability",
+        "ar": "صينيتي الخاصة، بعد تأكيد ملاءمتها"
+      },
+      "catering-text-111": {
+        "en": "Event date (optional)",
+        "ar": "تاريخ المناسبة (اختياري)"
+      },
+      "catering-text-112": {
+        "en": "Service start time (optional)",
+        "ar": "وقت بدء الخدمة (اختياري)"
+      },
+      "catering-text-113": {
+        "en": "Service must finish by 11:00 PM, unless otherwise agreed in writing.",
+        "ar": "تنتهي الخدمة بحلول الساعة 11 مساءً، ما لم يتم الاتفاق كتابيًا على خلاف ذلك."
+      },
+      "catering-text-114": {
+        "en": "Area / venue *",
+        "ar": "المنطقة / مكان المناسبة *"
+      },
+      "catering-text-115": {
+        "en": "Contact name (optional)",
+        "ar": "اسم مسؤول التواصل (اختياري)"
+      },
+      "catering-text-116": {
+        "en": "Notes, preferences or food allergies (optional)",
+        "ar": "ملاحظات أو تفضيلات أو حساسية غذائية (اختياري)"
+      },
+      "catering-text-117": {
+        "en": "Prepare my WhatsApp enquiry ↗",
+        "ar": "جهّز طلبي عبر واتساب ↗"
+      },
+      "catering-text-118": {
+        "en": "Your message is sent only when you send it in WhatsApp. Availability, final selections, any location charges and booking terms are agreed before confirmation.",
+        "ar": "يُرسل الطلب عندما تُرسل الرسالة في واتساب. يُتفق على التوفر والاختيارات النهائية وأي رسوم للموقع وشروط الحجز قبل التأكيد."
+      },
+      "catering-text-119": {
+        "en": "YOUR BUTTERFLY EXPERIENCE",
+        "ar": "ملخص تجربة بترفلاي"
+      },
+      "catering-text-120": {
+        "en": "Estimated total",
+        "ar": "الإجمالي التقديري"
+      },
+      "catering-text-121": {
+        "en": "Additional towers are quoted separately and excluded from this estimate.",
+        "ar": "الأبراج الإضافية بعرض منفصل، وغير مشمولة في هذا السعر."
+      },
+      "catering-link-122": {
+        "url": "#quote"
+      },
+      "catering-text-123": {
+        "en": "Need help? Our team is on WhatsApp.",
+        "ar": "تحتاج مساعدة؟ فريقنا معك عبر واتساب."
+      },
+      "catering-text-124": {
+        "en": "+965 6636 3741",
+        "ar": "تواصل مع فريق بترفلاي"
+      },
+      "catering-link-125": {
+        "url": "https://wa.me/96566363741"
+      },
+      "catering-text-126": {
+        "en": "A FEW CONSIDERED DETAILS",
+        "ar": "تفاصيل تهمكم"
+      },
+      "catering-text-127": {
+        "en": "Before your occasion.",
+        "ar": "قبل مناسبتكم."
+      },
+      "catering-text-128": {
+        "en": "Our team confirms availability and all arrangements with you before the booking is finalised.",
+        "ar": "يؤكد فريقنا التوفر وجميع الترتيبات معكم قبل اعتماد الحجز."
+      },
+      "catering-text-129": {
+        "en": "Plan a wedding for up to 400 guests ↗",
+        "ar": "خطط لعرس لغاية 400 ضيف ↗"
+      },
+      "catering-text-130": {
+        "en": "How is my package recommended?",
+        "ar": "كيف يتم ترشيح الباقة؟"
+      },
+      "catering-text-131": {
+        "en": "Start with your service and guest count. For coffee-only service, we recommend the smallest approved package covering your guests. For full hospitality and weddings, we compare the approved hospitality packages and guest extensions. You can then adjust towers, service hours and other preferences.",
+        "ar": "ابدأ بنوع الخدمة وعدد الضيوف. للقهوة فقط، نرشح أصغر باقة معتمدة تغطي عدد ضيوفك. للضيافة الكاملة والأعراس، نقارن باقات الضيافة وزيادة الضيوف، ثم يمكنك تعديل الأبراج ومدة الخدمة والتفضيلات."
+      },
+      "catering-text-132": {
+        "en": "What if my guest count falls between package sizes?",
+        "ar": "ماذا لو كان عدد ضيوفي بين الباقات؟"
+      },
+      "catering-text-133": {
+        "en": "Coffee packages cover 30, 50, 100, 150 or 200 guests; a number between sizes uses the next suitable package. Coffee requests above 200 guests need a separate proposal and availability check. Full hospitality extends in groups of 10 at 125 KD, within the approved limits: Signature 40, Grand 70 and Prestige 95. Larger hospitality events require a tailored proposal.",
+        "ar": "باقات القهوة لـ30 أو 50 أو 100 أو 150 أو 200 ضيف؛ الأعداد بين الباقات تنتقل إلى الباقة المناسبة التالية. طلبات القهوة لأكثر من 200 ضيف تحتاج عرضًا منفصلًا وتأكيد التوافر. تزيد باقات الضيافة بمجموعات من 10 أشخاص مقابل 125 د.ك ضمن السعات المعتمدة: سيغنتشر 40، غراند 70، وبريستيج 95. الضيافة للأعداد الأكبر بعرض خاص."
+      },
+      "catering-text-134": {
+        "en": "What does personalisation include?",
+        "ar": "ما الذي يشمله التخصيص؟"
+      },
+      "catering-text-135": {
+        "en": "Personalisation of the artistic pieces included in the full hospitality packages is complimentary. Coffee station personalisation is subject to availability and a separate quotation. Coffee biscuit tags and dessert bites are optional additions to full hospitality, rather than part of the coffee-only package.",
+        "ar": "تخصيص القطع الفنية المشمولة في باقات الضيافة الكاملة مجاني. تخصيص ستيشن القهوة بحسب التوافر وبعرض سعر مستقل. بسكويت تاق القهوة وديزرت بايتس إضافات اختيارية للضيافة الكاملة، ولا تُعد جزءًا من باقة القهوة فقط."
+      },
+      "catering-text-136": {
+        "en": "Can you cater for weddings and large events?",
+        "ar": "هل تقدمون كيترنق للأعراس والمناسبات الكبيرة؟"
+      },
+      "catering-text-137": {
+        "en": "Yes. We prepare tailored proposals for weddings and events for up to 400 guests. Menu, display, team, venue arrangements and availability are confirmed by our events team.",
+        "ar": "نعم، نجهز عروضًا خاصة للأعراس والمناسبات لغاية 400 ضيف. يؤكد فريق المناسبات المنيو والتقديم والفريق وترتيبات المكان والتوفر."
+      },
+      "catering-text-138": {
+        "en": "What are the venue requirements?",
+        "ar": "ما متطلبات تجهيز المكان؟"
+      },
+      "catering-text-139": {
+        "en": "Please provide a suitable setup area, adequate electricity and reasonable access for loading, unloading and installation.",
+        "ar": "يرجى توفير مساحة مناسبة للتجهيز، ومصدر كهرباء ملائم، وإمكانية وصول مناسبة لنقل المعدات وتركيبها."
+      },
+      "catering-text-140": {
+        "en": "Outdoor catering depends on suitable weather. Our team may review service arrangements when weather affects food, equipment or staff safety.",
+        "ar": "تخضع المناسبات الخارجية لملاءمة الطقس. قد يراجع فريقنا ترتيبات الخدمة إذا أثرت الأحوال الجوية في سلامة المنتجات أو المعدات أو فريق العمل."
+      },
+      "catering-text-141": {
+        "en": "What happens to the equipment after service?",
+        "ar": "ماذا يحدث للمعدات بعد الخدمة؟"
+      },
+      "catering-text-142": {
+        "en": "Butterfly equipment, trays, towers and display pieces remain company property unless explicitly purchased. They are collected after the event; loss or damage may incur additional charges.",
+        "ar": "تبقى معدات بترفلاي والصواني والأبراج وقطع العرض ملكًا للشركة ما لم يتم الاتفاق على شرائها. تُسترجع بعد المناسبة، وقد تترتب رسوم إضافية عند الفقد أو التلف."
+      },
+      "catering-text-143": {
+        "en": "Our hospitality team serves Butterfly products only. Any product alternatives are agreed with you before confirmation.",
+        "ar": "يقدم فريق الضيافة منتجات بترفلاي فقط. يُتفق معكم على أي بدائل للمنتجات قبل التأكيد."
+      },
+      "catering-text-144": {
+        "en": "Does this confirm my booking?",
+        "ar": "هل هذا يؤكد الحجز؟"
+      },
+      "catering-text-145": {
+        "en": "The configurator prepares an enquiry and an estimate. Our team confirms availability, selections, guest-extension quantities and any venue charges. Payment, cancellation, rescheduling, booking lead time and the service area are specified in your proposal before final confirmation.",
+        "ar": "هذه الخطوة تجهز استفسارًا وسعرًا تقديريًا. يؤكد فريقنا التوفر والأصناف وكميات زيادة الضيوف وأي رسوم للموقع. تُوضح شروط الدفع والإلغاء وتغيير الموعد ومدة الحجز المسبق ومناطق الخدمة ضمن العرض قبل التأكيد النهائي."
+      },
+      "catering-text-146": {
+        "en": "How long is coffee service, and how many cups are included?",
+        "ar": "ما مدة خدمة القهوة وعدد الأكواب المشمول؟"
+      },
+      "catering-text-147": {
+        "en": "Your booking proposal confirms the drink menu, cup allowance and service duration. Each coffee package includes the listed barista team and one separate setup hour. Extended service may carry an additional charge, subject to availability. Service finishes by 11:00 PM unless agreed otherwise in writing.",
+        "ar": "يُحدد عرض الحجز قائمة المشروبات وعدد الأكواب ومدة الخدمة. تشمل باقة القهوة فريق الباريستا الموضح وساعة تجهيز منفصلة. يمكن تمديد الخدمة برسوم إضافية وفق التوافر، وتنتهي بحلول الساعة 11 مساءً ما لم يتم الاتفاق كتابيًا على خلاف ذلك."
+      },
+      "catering-text-148": {
+        "en": "Home",
+        "ar": "الرئيسية"
+      },
+      "catering-link-149": {
+        "url": "index.html"
+      },
+      "catering-text-150": {
+        "en": "Corporate gifting",
+        "ar": "إهداءات الشركات"
+      },
+      "catering-link-151": {
+        "url": "business.html"
+      },
+      "catering-text-152": {
+        "en": "Official links",
+        "ar": "الروابط الرسمية"
+      },
+      "catering-link-153": {
+        "url": "links.html"
+      },
+      "catering-text-154": {
+        "en": "Your estimate",
+        "ar": "السعر التقديري"
+      },
+      "catering-text-155": {
+        "en": "View summary ↗",
+        "ar": "عرض الملخص ↗"
+      },
+      "catering-link-156": {
+        "url": "#summary"
+      },
+      "links-seo-001": {
+        "en": "Butterfly | Official Links",
+        "ar": "بترفلاي | الروابط الرسمية"
+      },
+      "links-seo-002": {
+        "en": "Butterfly Chocolate Kuwait. Chocolate, gifting and hospitality. Explore our collections, order online or speak with our team.",
+        "ar": "Butterfly Chocolate Kuwait. Chocolate, gifting and hospitality. Explore our collections, order online or speak with our team."
+      },
+      "links-seo-003": {
+        "en": "Butterfly | Official Links",
+        "ar": "Butterfly | Official Links"
+      },
+      "links-seo-004": {
+        "en": "Order online, explore catering or connect with Butterfly.",
+        "ar": "Order online, explore catering or connect with Butterfly."
+      },
+      "links-seo-005": {
+        "en": "Butterfly | Official Links",
+        "ar": "Butterfly | Official Links"
+      },
+      "links-seo-006": {
+        "en": "Order online, explore catering or connect with Butterfly.",
+        "ar": "Order online, explore catering or connect with Butterfly."
+      },
+      "links-text-007": {
+        "en": "Collections",
+        "ar": "التشكيلات"
+      },
+      "links-link-008": {
+        "url": "index.html#creations"
+      },
+      "links-text-009": {
+        "en": "Our services",
+        "ar": "خدماتنا"
+      },
+      "links-link-010": {
+        "url": "index.html#services"
+      },
+      "links-text-011": {
+        "en": "Catering",
+        "ar": "الكيترنق"
+      },
+      "links-link-012": {
+        "url": "catering.html"
+      },
+      "links-text-013": {
+        "en": "Corporate gifting",
+        "ar": "إهداءات الشركات"
+      },
+      "links-link-014": {
+        "url": "business.html"
+      },
+      "links-text-015": {
+        "en": "Contact us",
+        "ar": "تواصل معنا"
+      },
+      "links-link-016": {
+        "url": "tel:+96566363741"
+      },
+      "links-text-017": {
+        "en": "Menu",
+        "ar": "القائمة"
+      },
+      "links-link-018": {
+        "url": "index.html"
+      },
+      "links-text-019": {
+        "en": "Collections",
+        "ar": "التشكيلات"
+      },
+      "links-link-020": {
+        "url": "index.html#creations"
+      },
+      "links-text-021": {
+        "en": "Our services",
+        "ar": "خدماتنا"
+      },
+      "links-link-022": {
+        "url": "index.html#services"
+      },
+      "links-text-023": {
+        "en": "Catering",
+        "ar": "الكيترنق"
+      },
+      "links-link-024": {
+        "url": "catering.html"
+      },
+      "links-text-025": {
+        "en": "Corporate gifting",
+        "ar": "إهداءات الشركات"
+      },
+      "links-link-026": {
+        "url": "business.html"
+      },
+      "links-text-027": {
+        "en": "Contact us",
+        "ar": "تواصل معنا"
+      },
+      "links-link-028": {
+        "url": "tel:+96566363741"
+      },
+      "links-image-029": {
+        "url": "images/signature-tray.webp",
+        "alt_en": "Butterfly signature chocolate tray",
+        "alt_ar": "صينية شوكولاتة بترفلاي المميزة"
+      },
+      "links-text-030": {
+        "en": "Chocolate · Hospitality · Gifting",
+        "ar": "شوكولاتة · ضيافة · هدايا"
+      },
+      "links-text-031": {
+        "en": "A thoughtful\ngesture\nstarts here.",
+        "ar": "تبدأ اللفتة\nالجميلة\nهنا."
+      },
+      "links-text-032": {
+        "en": "Discover the collection, plan an occasion, or simply say hello. Welcome to Butterfly.",
+        "ar": "اكتشف التشكيلة، خطط لمناسبتك، أو تواصل معنا. أهلًا بك في بترفلاي."
+      },
+      "links-text-033": {
+        "en": "Made with care in Kuwait",
+        "ar": "صُنع بعناية في الكويت"
+      },
+      "links-text-034": {
+        "en": "Official Butterfly links",
+        "ar": "روابط بترفلاي الرسمية"
+      },
+      "links-link-035": {
+        "url": "https://www.butterfly-kw.com"
+      },
+      "links-text-036": {
+        "en": "THE COLLECTION",
+        "ar": "التشكيلة"
+      },
+      "links-text-037": {
+        "en": "Order online",
+        "ar": "اطلب أونلاين"
+      },
+      "links-text-038": {
+        "en": "Explore our collection and order for your next occasion.",
+        "ar": "اكتشف تشكيلتنا واطلب لمناسبتك القادمة."
+      },
+      "links-link-039": {
+        "url": "https://wa.me/96566363741"
+      },
+      "links-text-040": {
+        "en": "Customer care",
+        "ar": "خدمة العملاء"
+      },
+      "links-text-041": {
+        "en": "Order assistance and enquiries from outside Kuwait.",
+        "ar": "للمساعدة في الطلبات والاستفسار عن الطلبات من خارج الكويت."
+      },
+      "links-link-042": {
+        "url": "catering.html"
+      },
+      "links-text-043": {
+        "en": "Butterfly catering",
+        "ar": "كيترنق بترفلاي"
+      },
+      "links-text-044": {
+        "en": "For receptions, weddings and events. Request a tailored quotation.",
+        "ar": "للاستقبالات والأعراس والفعاليات. اطلب عرض سعر يناسب مناسبتك."
+      },
+      "links-link-045": {
+        "url": "business.html"
+      },
+      "links-text-046": {
+        "en": "Corporate gifting & bespoke orders",
+        "ar": "إهداءات الشركات والطلبات الخاصة"
+      },
+      "links-text-047": {
+        "en": "Personalised gifts for companies, banks and special occasions.",
+        "ar": "هدايا مخصصة للشركات والبنوك والمناسبات الخاصة."
+      },
+      "links-link-048": {
+        "url": "https://maps.app.goo.gl/Nhxqk4iZbEcNKdjHA"
+      },
+      "links-text-049": {
+        "en": "Showroom location",
+        "ar": "موقع المعرض"
+      },
+      "links-text-050": {
+        "en": "Al Ghawali Complex · Sharq, Kuwait",
+        "ar": "مجمع الغوالي · شرق، الكويت"
+      },
+      "links-link-051": {
+        "url": "tel:+96566363741"
+      },
+      "links-text-052": {
+        "en": "Contact us",
+        "ar": "تواصل معنا"
+      },
+      "links-text-053": {
+        "en": "Call our team on +965 6636 3741.",
+        "ar": "اتصل بفريقنا على ⁦6636 3741⁩."
+      },
+      "links-link-054": {
+        "url": "https://www.instagram.com/brfly.kw/"
+      },
+      "links-text-055": {
+        "en": "Instagram ↗",
+        "ar": "إنستغرام ↗"
+      },
+      "links-link-056": {
+        "url": "index.html"
+      },
+      "links-text-057": {
+        "en": "Home ↗",
+        "ar": "الرئيسية ↗"
+      }
+    }
+  }
+}
