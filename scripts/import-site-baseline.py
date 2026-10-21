@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Import designated fields from the preserved public release, never from drafts."""
+import argparse
 from html.parser import HTMLParser
 import json
 from pathlib import Path
@@ -71,6 +72,10 @@ class Importer(HTMLParser):
         match = re.search(r"document\.title\s*=\s*lang\s*===?\s*['\"]ar['\"]\s*\?\s*(['\"])(.*?)\1\s*:\s*(['\"])(.*?)\3",self.source,re.S)
         field_id = next(d['id'] for d in self.definitions if d['kind']=='seo' and d['label']=='Page title')
         self.values[field_id] = {'en':match[4] if match else title,'ar':match[2] if match else title}
+        if self.page=='catering':
+            script=subprocess.check_output(['git','show',BASELINE+':assets/catering-configurator.js'],cwd=ROOT,text=True)
+            translated=re.search(r"document\.title=tr\('([^']*)','([^']*)'\)",script)
+            if translated:self.values[field_id]={'en':translated[1],'ar':translated[2]}
         source = self.source
         for offset,extra in sorted(self.edits,reverse=True):
             source = source[:offset]+extra+source[offset:]
@@ -81,17 +86,29 @@ class Importer(HTMLParser):
 
 
 def main():
-    definitions, fields = [], {}
+    cli=argparse.ArgumentParser(description=__doc__)
+    cli.add_argument('--destination',type=Path,help='Fresh directory for a reviewable regeneration; default checks the original checkout.')
+    args=cli.parse_args();destination=args.destination.resolve() if args.destination else ROOT
+    if args.destination and destination.exists():cli.error('Choose a fresh destination.')
+    definitions, fields, pages = [], {}, {}
     for page in ('index','business','catering','links'):
         source = subprocess.check_output(['git','show',BASELINE+':'+page+'.html'],cwd=ROOT,text=True)
         parser = Importer(page,source)
         parser.feed(source)
         updated = parser.result()
-        (ROOT/(page+'.html')).write_text(updated)
+        target=destination/(page+'.html')
+        if destination==ROOT and target.exists() and target.read_text() not in (source,updated):
+            cli.error('Public HTML has later changes. Regenerate into a fresh destination and review individual changes.')
+        pages[page+'.html']=updated
         definitions.extend(parser.definitions)
         fields.update(parser.values)
-    output = {'baseline_commit':BASELINE,'definitions':definitions,'content':{'schema':1,'fields':fields}}
-    (ROOT/'assets/content-baseline.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n')
+    output = {'baseline_commit':BASELINE,'content_seed_revision':'10000000-0000-4000-8000-000000000003','catalogue_seed_revision':'10000000-0000-4000-8000-000000000002','definitions':definitions,'content':{'schema':1,'fields':fields}}
+    payload=json.dumps(output,ensure_ascii=False,indent=2)+'\n'
+    target=destination/'assets/content-baseline.json'
+    if destination==ROOT and target.exists() and target.read_text()!=payload:cli.error('Baseline metadata differs. Regenerate into a fresh destination for review.')
+    (destination/'assets').mkdir(parents=True,exist_ok=True)
+    for name,html in pages.items():(destination/name).write_text(html)
+    target.write_text(payload)
     print('Imported',len(definitions),'designated bilingual, image, link and SEO fields from the preserved release.')
 
 

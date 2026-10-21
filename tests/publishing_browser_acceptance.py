@@ -70,6 +70,9 @@ def main():
    def coffee_total():
     public.goto(args.public_base+'/catering.html',wait_until='networkidle');public.wait_for_function('Boolean(window.ButterflyCalculator)');return public.evaluate("ButterflyCalculator.model.recommendCoffee(30).total")
    check(coffee_total()==125,'Unpublished package draft changed public calculator prices.')
+   public.locator('[data-lang=en]').click();expect(public).to_have_title('Butterfly Catering | Hospitality, weddings & coffee')
+   public.locator('[data-lang=ar]').click();expect(public).to_have_title('كيترنق بترفلاي | ضيافة وأعراس وقهوة')
+   public.locator('[data-lang=en]').click()
    publish();check(coffee_total()==135,'Public calculator did not receive the published catalogue price.')
    record('Admin package draft stays private until publication updates the configured public calculator')
    module('Website editor');expect(page.locator('#'+field+'-en')).to_have_value(marker)
@@ -88,7 +91,7 @@ def main():
    public_photo.scroll_into_view_if_needed();public_photo.evaluate('(img)=>img.complete&&img.naturalWidth>0 || new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=reject;})')
    record('Real browser photo upload stays private until publication serves the verified image bytes')
    # Restore via normal version history, preserving every intervening revision.
-   page.get_by_text('Version history',exact=True).click();page.locator('#history-version').select_option('10000000-0000-4000-8000-000000000001')
+   page.get_by_text('Version history',exact=True).click();page.locator('#history-version').select_option('10000000-0000-4000-8000-000000000003')
    page.get_by_role('button',name='Use version as a new draft',exact=True).click();expect(page.get_by_role('status')).to_contain_text('Version loaded',timeout=15000);save();publish()
    module('Packages');page.get_by_text('Version history',exact=True).click();page.locator('#history-version').select_option('10000000-0000-4000-8000-000000000002')
    page.get_by_role('button',name='Use version as a new draft',exact=True).click();expect(page.get_by_role('status')).to_contain_text('Version loaded',timeout=15000);save();publish();check(coffee_total()==125,'Version-history restore did not restore the approved package price.')

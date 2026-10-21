@@ -1,12 +1,13 @@
 /* Butterfly calculator. Uses the published catalogue when configured. */
 (async function (global) {
 'use strict';
+const form=document.getElementById('configForm');form.inert=true;form.setAttribute('aria-busy','true');
 const [pricing,site] = await Promise.all([import('./pricing.mjs'), global.ButterflySiteReady]);
 if (!site?.catalogue) {
  const status=document.createElement('p');status.setAttribute('role','alert');
  status.textContent='Package estimates are temporarily unavailable. Please contact Butterfly. تعذّر تحميل أسعار الباقات مؤقتًا. يرجى التواصل مع بترفلاي.';
  document.getElementById('configForm').before(status);
- document.getElementById('configForm').inert=true;
+ form.inert=true;form.setAttribute('aria-busy','false');
  return;
 }
 const model=pricing.createPricingModel(site.catalogue);
@@ -232,5 +233,6 @@ const parts=new Intl.DateTimeFormat('en',{timeZone:'Asia/Kuwait',year:'numeric',
 const dm=Object.fromEntries(parts.map(p=>[p.type,p.value]));$('eventDate').min=dm.year+'-'+dm.month+'-'+dm.day;
 $('year').textContent=new Date().getFullYear();try{if(localStorage.getItem('bf-lang')==='en')lang='en';}catch(e){}
 language(lang);
+form.inert=false;form.setAttribute('aria-busy','false');
 if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.documentElement.classList.add('motion');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.04});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));}
 })(typeof window!=='undefined'?window:globalThis);

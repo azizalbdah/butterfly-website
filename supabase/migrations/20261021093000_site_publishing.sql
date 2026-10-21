@@ -126,7 +126,7 @@ create function public.save_site_draft(document_kind text, new_payload jsonb, ex
 returns public.site_revisions language plpgsql security definer set search_path='' as $$
 declare head public.site_document_heads; revision public.site_revisions;
 begin
- if not (public.app_is_admin() or (document_kind='content' and public.app_staff_role()='marketing')) then
+ if not coalesce(public.app_is_admin() or (document_kind='content' and public.app_staff_role()='marketing'),false) then
   raise exception 'Editor permission is required.' using errcode='42501'; end if;
  select * into head from public.site_document_heads where kind=document_kind for update;
  if not found then raise exception 'Document not found.' using errcode='22023'; end if;
@@ -183,9 +183,11 @@ revoke all on function public.get_published_site() from public;
 grant execute on function public.get_published_site() to anon,authenticated,service_role;
 
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types)
- values('site-media','site-media',true,5242880,array['image/jpeg','image/png','image/webp','image/avif']);
--- Only the authorized publishing Edge function writes immutable public media.
-create policy site_media_read on storage.objects for select to anon,authenticated using(bucket_id='site-media');
+ values('site-media','site-media',false,5242880,array['image/jpeg','image/png','image/webp','image/avif']);
+-- Only the authorized publishing Edge function writes immutable media.
+-- Deny missing roles and keep photos private from the first migration; forward
+-- hardening migrations remain for already-initialized development previews.
+create policy site_media_read on storage.objects for select to authenticated using(bucket_id='site-media' and public.app_can_manage_media());
 
 -- The imported release below is data, not executable HTML. Never edit old migrations.
 

@@ -1,5 +1,7 @@
 {
   "baseline_commit": "ad8cda04dc84c70dbf3a4f1fbc12f711d4fd35bd",
+  "content_seed_revision": "10000000-0000-4000-8000-000000000003",
+  "catalogue_seed_revision": "10000000-0000-4000-8000-000000000002",
   "definitions": [
     {
       "id": "index-seo-001",
@@ -3856,8 +3858,8 @@
         "ar": "ضيافة كاملة، أعراس أو ستيشن قهوة فقط. اختر الخدمة وعدد الضيوف، واكتشف الباقة المناسبة."
       },
       "catering-seo-006": {
-        "en": "كيترنق بترفلاي | اختر الباقة المناسبة لمناسبتك",
-        "ar": "كيترنق بترفلاي | اختر الباقة المناسبة لمناسبتك"
+        "en": "Butterfly Catering | Hospitality, weddings & coffee",
+        "ar": "كيترنق بترفلاي | ضيافة وأعراس وقهوة"
       },
       "catering-text-007": {
         "en": "Skip to content",
