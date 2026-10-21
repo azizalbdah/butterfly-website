@@ -39,27 +39,23 @@ try {
     throw new Error('SDK bundle must be self-contained.');
   }
   const bundleBytes = await readFile(bundle);
-  const functionSource = resolve(root, 'supabase/functions/invite-staff/index.ts');
-  const functionFolder = resolve(folder, 'invite-staff');
-  const functionBundle = resolve(functionFolder, 'index.js');
-  await mkdir(functionFolder, { recursive: true, mode: 0o700 });
-  const builtFunction = await build({
-    input: functionSource,
-    cwd: staff,
-    platform: 'browser',
-    resolve: { alias: { '@supabase/supabase-js': sdkEntry } },
-    output: { file: functionBundle, format: 'esm', codeSplitting: false, sourcemap: false },
-  });
-  if (builtFunction.output.length !== 1 || builtFunction.output[0].type !== 'chunk' ||
-      builtFunction.output[0].imports.length || builtFunction.output[0].dynamicImports.length) {
-    throw new Error('Edge handler bundle must be self-contained.');
+  const functions = {};
+  for (const name of ['invite-staff','publish-site','site-media']) {
+    const source=resolve(root,'supabase/functions',name,'index.ts');
+    const functionFolder=resolve(folder,name);
+    const artifact=resolve(functionFolder,'index.js');
+    await mkdir(functionFolder,{recursive:true,mode:0o700});
+    const built=await build({input:source,cwd:staff,platform:'browser',
+      resolve:{alias:{'@supabase/supabase-js':sdkEntry}},
+      output:{file:artifact,format:'esm',codeSplitting:false,sourcemap:false}});
+    if(built.output.length!==1||built.output[0].type!=='chunk'||built.output[0].imports.length||built.output[0].dynamicImports.length)throw new Error('Edge bundles must be self-contained.');
+    functions[name]={source_sha256:sha256(await readFile(source)),bundle_sha256:sha256(await readFile(artifact))};
   }
   const metadata = {
     sdk: '@supabase/supabase-js', version: sdkVersion,
     npm_integrity: pinned.integrity,
     lockfile_sha256: sha256(lockBytes), bundle_sha256: sha256(bundleBytes),
-    function_source_sha256: sha256(await readFile(functionSource)),
-    function_bundle_sha256: sha256(await readFile(functionBundle)),
+    functions,
     scope: 'SDK plus exact Edge handler only; production source map pins the npm dependency.',
   };
   await writeFile(resolve(folder, 'sdk-metadata.json'), JSON.stringify(metadata, null, 2) + '\n', { mode: 0o600 });

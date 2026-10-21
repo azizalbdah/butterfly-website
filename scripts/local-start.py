@@ -227,14 +227,17 @@ def prepare_runtime(source, private_dir):
     text = (source / "supabase/config.toml").read_text()
 
     def local_function(match):
-        body = "\n".join(line for line in match.group(2).splitlines()
+        name = match.group(2)
+        if not (source / "supabase/functions/.env.local-preview" / name / "index.js").is_file():
+            raise SetupError("Expected compiled local function is absent.")
+        body = "\n".join(line for line in match.group(3).splitlines()
                          if not line.startswith(("entrypoint =", "import_map =")))
-        return (match.group(1) + body + '\nentrypoint = "./functions/.env.local-preview/invite-staff/index.js"\n'
+        return (match.group(1) + body + '\nentrypoint = "./functions/.env.local-preview/' + name + '/index.js"\n'
                 'import_map = "./functions/.env.local-preview/compiled-import-map.json"\n')
 
-    text, count = re.subn(r"(?ms)(^\[functions\.invite-staff\]\n)(.*?)(?=^\[|\Z)", local_function, text)
-    if count != 1:
-        raise SetupError("Expected function configuration is absent or ambiguous.")
+    text, count = re.subn(r"(?ms)(^\[functions\.([a-z][a-z-]+)\]\n)(.*?)(?=^\[|\Z)", local_function, text)
+    if count < 1:
+        raise SetupError("Expected function configuration is absent.")
     with private_file(supabase / "config.toml") as stream:
         stream.write(text)
     for name in ("functions", "migrations"):
@@ -276,6 +279,12 @@ def stop_managed_functions(private_dir, source, runtime):
 
 def serve_functions(cli, source, runtime, private_dir):
     stop_managed_functions(private_dir, source, runtime)
+    # The CLI reuses an existing Edge container, including its old route/env
+    # configuration. Recreate this stateless owned service to discover new routes.
+    previous = inspect(f"supabase_edge_runtime_{PROJECT}")
+    if previous:
+        assert_own(f"supabase_edge_runtime_{PROJECT}", previous)
+        docker("rm", "--force", f"supabase_edge_runtime_{PROJECT}")
     env_file = private_dir / "edge.env"
     if env_file.exists():
         # Preserve other private bindings; change only the proven local HTTP route.

@@ -102,3 +102,11 @@ enabled = false
 [functions.invite-staff]
 verify_jwt = false
 import_map = "./functions/invite-staff/production-import-map.json"
+
+[functions.publish-site]
+verify_jwt = false
+import_map = "./functions/publish-site/production-import-map.json"
+
+[functions.site-media]
+verify_jwt = false
+import_map = "./functions/site-media/production-import-map.json"
