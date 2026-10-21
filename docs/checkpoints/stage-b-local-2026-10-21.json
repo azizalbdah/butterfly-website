@@ -1,0 +1,101 @@
+{
+  "stage": "B",
+  "status": "passed-local-acceptance",
+  "checked_at": "2026-10-21T08:58:48.370582+00:00",
+  "tested_application_commit": "ec55d4abc49543b0f655bde591901a1f727ba5f5",
+  "production_deployed": false,
+  "hosted_backend_verified": false,
+  "backend": {
+    "passed_count": 15,
+    "passed": [
+      "Public signup rejects uninvited users",
+      "Real local Auth password sessions established for all fixture identities",
+      "Anonymous, uninvited and inactive accounts cannot read staff records",
+      "Own-profile discovery works while cross-member reads are denied at aal1",
+      "Direct role writes, editable Auth metadata escalation and pre-MFA administrator mutations are denied",
+      "Real TOTP enrollment and challenge produce database-authorized aal2 administrator session",
+      "Authorized staff changes persist and create administrator-attributed audit history",
+      "Audit writes and administrator self-membership changes are protected",
+      "Removing a real MFA factor revokes captured aal2 administrator privileges",
+      "Private Storage grants Marketing and aal2 Admin while denying Sales, anonymous and aal1 Admin",
+      "Invitation authorization, local email callback, password setup and invited login work end to end",
+      "Password reset is delivered locally and replaces the old password",
+      "Real refresh works; logout invalidates refresh credentials and captured-token data access",
+      "A valid local JWT expires and is rejected by the actual data API",
+      "Live membership deactivation denies data access before JWT expiry"
+    ],
+    "local_only": true
+  },
+  "browser": {
+    "passed_count": 13,
+    "passed": [
+      "Private login renders without signup or marketing pixels",
+      "Arabic/English, RTL, persistence, mobile width and keyboard focus work",
+      "Real Sales login persists after reload and exposes no staff management",
+      "Logout clears persisted browser access",
+      "Failed logout transport still clears local access and reports unconfirmed server revocation",
+      "A genuine Auth user without staff membership is denied the workspace",
+      "Real administrator password login stays gated until TOTP verification",
+      "Verified administrator session and real staff list persist after reload",
+      "Authenticated administrator controls support Arabic, RTL and mobile width",
+      "Real administrator UI invitation, CORS, local email callback and initial password setup work",
+      "First administrator MFA enrollment survives abandoned setup with decoded QR and verified access",
+      "Real password reset email, callback, password update and fresh password login work",
+      "No uncaught JavaScript errors or external tracking/network destinations"
+    ],
+    "local_only": true,
+    "mock_authentication": false,
+    "production_backend_verified": false
+  },
+  "recovery": {
+    "status": "passed-local-isolated-restore",
+    "tables_verified": 40,
+    "object_files_verified": 3,
+    "policy_function_digest_verified": true,
+    "role_checks": [
+      "admin:aal1",
+      "admin:aal2",
+      "sales:aal1",
+      "marketing:aal1",
+      "inactive:aal1",
+      "outsider:aal1"
+    ],
+    "source_preserved": true,
+    "elapsed_seconds": 138.566,
+    "limitations": [
+      "Local isolated recovery only; no hosted-project recovery or production cutover",
+      "Encrypted global-role export is not replayed; recovery of custom roles into a differently configured cluster is untested",
+      "Hosted SMTP/DNS/account rebinding and external service recovery are untested",
+      "Invitation Edge runtime is not started in the recovery clone; its source/config follows the separate code checkpoint",
+      "No production backup, cutover, off-site retention or production recovery is configured"
+    ]
+  },
+  "restored_runtime_checks": [
+    "independent-cluster-database-and-policy-digests",
+    "restored-auth-public-signup-disabled",
+    "restored-existing-session-refresh-and-aal2-access",
+    "auth-login-and-api-role:admin",
+    "auth-login-and-api-role:sales",
+    "auth-login-and-api-role:marketing",
+    "auth-login-and-api-role:inactive",
+    "auth-login-and-api-role:outsider",
+    "restored-verified-totp-and-aal2-admin-api",
+    "restored-storage-api-bytes-and-role-boundaries",
+    "restored-storage-api-authorized-new-upload",
+    "restored-auth-local-password-recovery-mail"
+  ],
+  "other_validation": {
+    "unit_tests": 26,
+    "public_browser_groups": 13,
+    "staff_production_build": "passed",
+    "privileged_key_scan": "passed",
+    "local_startup_repeat": "passed"
+  },
+  "remaining_setup": [
+    "Owner-controlled hosted preview and production Supabase projects",
+    "Verified SMTP domain/provider and hosted email delivery",
+    "Staff hosting with security response headers and exact Auth callbacks",
+    "Production backup scheduling, retention, off-site storage and key custody",
+    "Hosted acceptance before production release"
+  ]
+}

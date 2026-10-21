@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+node_modules/
+staff/dist/
+supabase/.temp/
+supabase/.branches/
+private-backups/
+*.dump
+*.bundle
+*.sql.gz
+playwright-report/
+test-results/

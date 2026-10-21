@@ -1,0 +1,295 @@
+{
+  "schema": 1,
+  "rules": {
+    "guestLimit": 400,
+    "guestBlockSize": 10,
+    "guestBlockPrice": 125,
+    "hourRateSmall": 45,
+    "hourRateLarge": 60,
+    "hourRateGuestThreshold": 50,
+    "minHours": 4,
+    "maxHours": 8
+  },
+  "packages": [
+    {
+      "id": "signature",
+      "name": "Signature Reception",
+      "ar": "سيغنتشر",
+      "guests": 30,
+      "max": 40,
+      "price": 475,
+      "savouries": 120,
+      "trays": 4,
+      "selections": 2,
+      "towers": 1,
+      "tiramisu": 15,
+      "delight": 15,
+      "artistic": 15,
+      "chocolate": 1.25,
+      "drinks": 35,
+      "coffee": 35,
+      "baristas": 1,
+      "staff": 3,
+      "captains": 0,
+      "hours": 4
+    },
+    {
+      "id": "grand",
+      "name": "Grand Reception",
+      "ar": "غراند",
+      "guests": 50,
+      "max": 70,
+      "price": 650,
+      "savouries": 200,
+      "trays": 6,
+      "selections": 3,
+      "towers": 2,
+      "tiramisu": 25,
+      "delight": 25,
+      "artistic": 15,
+      "chocolate": 2,
+      "drinks": 55,
+      "coffee": 55,
+      "baristas": 1,
+      "staff": 4,
+      "captains": 0,
+      "hours": 4
+    },
+    {
+      "id": "prestige",
+      "name": "Prestige Reception",
+      "ar": "بريستيج",
+      "guests": 75,
+      "max": 95,
+      "price": 995,
+      "savouries": 300,
+      "trays": 10,
+      "selections": 5,
+      "towers": 3,
+      "tiramisu": 40,
+      "delight": 40,
+      "artistic": 30,
+      "chocolate": 3,
+      "drinks": 80,
+      "coffee": 80,
+      "baristas": 2,
+      "staff": 5,
+      "captains": 1,
+      "hours": 5
+    }
+  ],
+  "coffeePackages": [
+    {
+      "id": "coffee30",
+      "service": "coffee",
+      "name": "Coffee Reception",
+      "guests": 30,
+      "price": 125,
+      "baristas": 1,
+      "helpers": 0
+    },
+    {
+      "id": "coffee50",
+      "service": "coffee",
+      "name": "Coffee Reception",
+      "guests": 50,
+      "price": 175,
+      "baristas": 1,
+      "helpers": 0
+    },
+    {
+      "id": "coffee100",
+      "service": "coffee",
+      "name": "Coffee Reception",
+      "guests": 100,
+      "price": 275,
+      "baristas": 1,
+      "helpers": 1
+    },
+    {
+      "id": "coffee150",
+      "service": "coffee",
+      "name": "Coffee Reception",
+      "guests": 150,
+      "price": 375,
+      "baristas": 2,
+      "helpers": 1
+    },
+    {
+      "id": "coffee200",
+      "service": "coffee",
+      "name": "Coffee Reception",
+      "guests": 200,
+      "price": 475,
+      "baristas": 2,
+      "helpers": 1
+    }
+  ],
+  "serviceTypes": [
+    {
+      "id": "hospitality",
+      "en": "Full hospitality",
+      "ar": "ضيافة كاملة"
+    },
+    {
+      "id": "wedding",
+      "en": "Wedding hospitality",
+      "ar": "ضيافة عرس"
+    },
+    {
+      "id": "coffee",
+      "en": "Coffee station only",
+      "ar": "ستيشن قهوة فقط"
+    }
+  ],
+  "addons": [
+    {
+      "id": "canapes",
+      "en": "Assorted savouries & canapés",
+      "ar": "موالح وكانابيه مشكلة",
+      "unitEn": "30 pieces",
+      "unitAr": "30 قطعة",
+      "price": 22,
+      "group": "food"
+    },
+    {
+      "id": "tiramisu",
+      "en": "Mini tiramisu",
+      "ar": "ميني تيراميسو",
+      "unitEn": "12 pieces",
+      "unitAr": "12 قطعة",
+      "price": 22,
+      "group": "food"
+    },
+    {
+      "id": "delight",
+      "en": "Mini Delight cakes",
+      "ar": "ميني ديلايت كيك",
+      "unitEn": "12 pieces",
+      "unitAr": "12 قطعة",
+      "price": 28,
+      "group": "food"
+    },
+    {
+      "id": "bites",
+      "en": "Dessert bites",
+      "ar": "ديزرت بايتس",
+      "unitEn": "20 pieces",
+      "unitAr": "20 قطعة",
+      "price": 22,
+      "group": "food"
+    },
+    {
+      "id": "artistic",
+      "en": "Personalised artistic pieces",
+      "ar": "قطع فنية مخصصة إضافية",
+      "unitEn": "15 pieces",
+      "unitAr": "15 قطعة",
+      "price": 25,
+      "group": "food"
+    },
+    {
+      "id": "chocolateHalf",
+      "en": "Assorted chocolate",
+      "ar": "شوكولاتة مشكلة",
+      "unitEn": "0.5 kg",
+      "unitAr": "0.5 كغم",
+      "price": 25,
+      "group": "food"
+    },
+    {
+      "id": "chocolateKg",
+      "en": "Assorted chocolate",
+      "ar": "شوكولاتة مشكلة",
+      "unitEn": "1 kg",
+      "unitAr": "1 كغم",
+      "price": 45,
+      "group": "food"
+    },
+    {
+      "id": "biscuits",
+      "en": "Personalised coffee biscuit tags",
+      "ar": "بسكويت تاق للقهوة بطباعة مخصصة",
+      "unitEn": "12 pieces",
+      "unitAr": "12 قطعة",
+      "price": 7,
+      "group": "food"
+    },
+    {
+      "id": "staff",
+      "en": "Additional hospitality staff",
+      "ar": "موظفة ضيافة إضافية",
+      "unitEn": "1 team member",
+      "unitAr": "موظفة واحدة",
+      "price": 20,
+      "group": "service"
+    },
+    {
+      "id": "barista",
+      "en": "Additional barista",
+      "ar": "باريستا إضافي",
+      "unitEn": "1 barista",
+      "unitAr": "باريستا واحد",
+      "price": 30,
+      "group": "service"
+    },
+    {
+      "id": "captain",
+      "en": "Additional event captain",
+      "ar": "مشرف مناسبة إضافي",
+      "unitEn": "1 event captain",
+      "unitAr": "مشرف واحد",
+      "price": 65,
+      "group": "service"
+    }
+  ],
+  "savouries": [
+    {
+      "id": "vine",
+      "en": "Vine leaves & musakhan",
+      "ar": "ورق عنب ومسخن"
+    },
+    {
+      "id": "tarts",
+      "en": "Savoury tarts",
+      "ar": "تارت مالح"
+    },
+    {
+      "id": "sable",
+      "en": "Savoury sablé",
+      "ar": "موالح سابليه"
+    },
+    {
+      "id": "canapes",
+      "en": "Assorted canapés",
+      "ar": "كانابيه مشكلة"
+    },
+    {
+      "id": "other",
+      "en": "Another current selection — agree with our team",
+      "ar": "صنف آخر من القائمة الحالية — يحدد مع الفريق"
+    }
+  ],
+  "towers": [
+    {
+      "id": "eclair",
+      "en": "Éclair",
+      "ar": "إكلير"
+    },
+    {
+      "id": "macaron",
+      "en": "Macaron",
+      "ar": "ماكرون"
+    },
+    {
+      "id": "madeleine",
+      "en": "Madeleine",
+      "ar": "مادلين"
+    },
+    {
+      "id": "chocolate",
+      "en": "Chocolate",
+      "ar": "شوكولاتة"
+    }
+  ]
+}

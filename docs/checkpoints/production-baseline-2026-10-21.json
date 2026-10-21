@@ -1,0 +1,69 @@
+{
+  "verified": true,
+  "checked_at": "2026-10-21T16:29:38.018985+00:00",
+  "repository": "azizalbdah/butterfly-website",
+  "expected_commit": "ad8cda04dc84c70dbf3a4f1fbc12f711d4fd35bd",
+  "expected_custom_domain": "butterflykwt.com",
+  "settings": {
+    "cname": "butterflykwt.com",
+    "build_type": "legacy",
+    "source": {
+      "branch": "main",
+      "path": "/"
+    },
+    "https_enforced": true,
+    "public": true,
+    "status": "built"
+  },
+  "build_evidence": {
+    "kind": "legacy_pages_build",
+    "sha": "ad8cda04dc84c70dbf3a4f1fbc12f711d4fd35bd",
+    "status": "built",
+    "created_at": "2026-10-14T19:17:13Z",
+    "updated_at": "2026-10-14T19:18:24Z",
+    "api_url": "https://api.github.com/repos/azizalbdah/butterfly-website/pages/builds/1284897299"
+  },
+  "deployment_evidence": {
+    "kind": "github_pages_deployment",
+    "id": 7074909245,
+    "sha": "ad8cda04dc84c70dbf3a4f1fbc12f711d4fd35bd",
+    "environment": "github-pages",
+    "created_at": "2026-10-14T19:17:40Z",
+    "status": "success",
+    "status_created_at": "2026-10-14T19:18:35Z"
+  },
+  "public_files": [
+    {
+      "file": "index.html",
+      "verified": true,
+      "expected_sha256": "c40abd8783fbdb9fea7df73427c2f3d2bcdd62e1aef923f743ff57d17fed0db0",
+      "public_sha256": "c40abd8783fbdb9fea7df73427c2f3d2bcdd62e1aef923f743ff57d17fed0db0"
+    },
+    {
+      "file": "business.html",
+      "verified": true,
+      "expected_sha256": "5240112f07b8d09bae128ba3eb7401e125d5068b1fed908991fb7e04b21ec564",
+      "public_sha256": "5240112f07b8d09bae128ba3eb7401e125d5068b1fed908991fb7e04b21ec564"
+    },
+    {
+      "file": "catering.html",
+      "verified": true,
+      "expected_sha256": "8aff40eb9bbd57880bfe05b1c3e72c6d27b0d8b44c7a0c5b5d62c3580c7d23d5",
+      "public_sha256": "8aff40eb9bbd57880bfe05b1c3e72c6d27b0d8b44c7a0c5b5d62c3580c7d23d5"
+    },
+    {
+      "file": "links.html",
+      "verified": true,
+      "expected_sha256": "a49d62d7f6fb9a743450009c70f8c61e99ed030fe991f71f540de3987ce964f3",
+      "public_sha256": "a49d62d7f6fb9a743450009c70f8c61e99ed030fe991f71f540de3987ce964f3"
+    },
+    {
+      "file": "assets/catering-configurator.js",
+      "verified": true,
+      "expected_sha256": "4826289b52936f9702014e3d3e91fad59a41ed790d7ce4c5700ae80781af3df0",
+      "public_sha256": "4826289b52936f9702014e3d3e91fad59a41ed790d7ce4c5700ae80781af3df0"
+    }
+  ],
+  "errors": [],
+  "notes": []
+}
