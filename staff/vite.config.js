@@ -23,7 +23,7 @@ function publicConfig(mode) {
 export default defineConfig(({mode,command})=>{
  const origin=publicConfig(mode);
  const connections=["'self'",origin,origin?.replace(/^http/,'ws'),...(command==='serve'?['ws://127.0.0.1:5173','ws://localhost:5173']:[])].filter(Boolean).join(' ');
- const policy=`default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src ${connections}; form-action 'self'`;
+ const policy=`default-src 'none'; base-uri 'none'; object-src 'none'; script-src 'self'; style-src 'self' blob:; font-src 'self'; frame-src 'self'; img-src 'self' data: blob: ${origin||''}; connect-src ${connections}; form-action 'self'`;
  const headers={
    'X-Frame-Options':'DENY',
    'Content-Security-Policy':policy+"; frame-ancestors 'none'",
@@ -35,7 +35,7 @@ export default defineConfig(({mode,command})=>{
   plugins:[{name:'private-staff-csp',transformIndexHtml(html){return html.replace(/(<meta http-equiv="Content-Security-Policy" content=")[^"]+/,`$1${policy}`);}}],
   server: {
     fs: {
-      allow: [fileURLToPath(new URL('.', import.meta.url)),fileURLToPath(new URL('../fonts', import.meta.url))],
+      allow: [fileURLToPath(new URL('.', import.meta.url)),fileURLToPath(new URL('../fonts', import.meta.url)),fileURLToPath(new URL('../assets', import.meta.url)),fileURLToPath(new URL('../images', import.meta.url)),...['index','business','catering','links'].map(name=>fileURLToPath(new URL('../'+name+'.html',import.meta.url)))],
       deny: ['.env','.env.*','*.{crt,pem}','**/.env*','**/.git/**','**/supabase/**','**/.temp/**','**/docker.env'],
     },
     headers,

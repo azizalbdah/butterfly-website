@@ -1,4 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
+import {createEditor} from './editor.js';
 
 const root = document.querySelector('#app');
 const memoryStorage = new Map();
@@ -8,6 +9,7 @@ const storage = {
   removeItem(name) { try { localStorage.removeItem(name); } catch { /* Restricted storage uses memory. */ } memoryStorage.delete(name); },
 };
 let lang = storage.getItem('butterfly-staff-language') === 'ar' ? 'ar' : 'en';
+let section = 'team';
 let user = null;
 let member = null;
 let members = [];
@@ -49,6 +51,7 @@ const configured = usablePublicConfig();
 const client = configured ? createClient(url, key, {
   auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, storageKey: 'butterfly-staff-auth', storage },
 }) : null;
+const editor=createEditor({client,h,t,getMember:()=>member,rerender:()=>render()});
 
 function h(tag, attrs = {}, ...children) {
   const el = document.createElement(tag);
@@ -162,13 +165,19 @@ function adminArea() {
     h('div',{class:'staff-layout'},staffLoadFailed?h('div',{class:'panel'},h('p',{class:'card-copy'},t('The staff list could not be loaded. Your session or permissions may have changed.','تعذّر تحميل قائمة الموظفين. ربما تغيرت الجلسة أو الصلاحيات.')),button(t('Check access again','التحقق من الوصول مجددًا'),()=>refresh())):h('div',{class:'staff-table-wrap'},h('table',{},h('thead',{},h('tr',{},[t('Name','الاسم'),t('Role','الدور'),t('Access','الوصول'),t('Action','الإجراء')].map(label=>h('th',{scope:'col'},label)))),h('tbody',{},members.map(memberRow)))),inviteCard())];
 }
 
+function workspaceNavigation(){
+ const tabs=member.role==='admin'?[['team',t('Team','الفريق')],['content',t('Website editor','محرر الموقع')],['catalogue',t('Packages','الباقات')]]:member.role==='marketing'?[['content',t('Website editor','محرر الموقع')]]:[];
+ return h('nav',{class:'workspace-nav','aria-label':t('Workspace modules','وحدات مساحة العمل')},tabs.map(([key,label])=>h('button',{type:'button',class:'small-button',disabled:editor.busy,'aria-current':section===key?'page':null,onclick:()=>{if(editor.busy||section===key)return;section=key;if(key!=='team')editor.open(key);render();}},label)));
+}
+
 function workspace() {
-  return h('main',{id:'main',class:'stage workspace'},h('div',{class:'workspace-heading'},h('div',{},h('span',{class:'eyebrow muted'},t('Butterfly · Staff access','بترفلاي · دخول الموظفين')),h('h1',{},t('Welcome, ','مرحبًا، ')+member.display_name),h('p',{class:'caption'},t('Your private account and assigned access.','حسابك الخاص والصلاحيات المحددة لك.'))),h('span',{class:'role-badge'},roleLabel(member.role))),alertBox(),accountGrid(),
-    member.role==='admin'?adminArea():h('section',{class:'empty-state'},h('span',{class:'eyebrow muted'},t('Your workspace','مساحتك')),h('h2',{},t('Your access is ready.','وصولك جاهز.')),h('p',{},t('You are signed in with your assigned staff role. No customer or content modules are available in this release.','أنت مسجّل بصلاحيات الموظف المحددة لك. وحدات العملاء والمحتوى غير متاحة في هذا الإصدار.'))),
+  return h('main',{id:'main',class:'stage workspace'},h('div',{class:'workspace-heading'},h('div',{},h('span',{class:'eyebrow muted'},t('Butterfly · Staff access','بترفلاي · دخول الموظفين')),h('h1',{},t('Welcome, ','مرحبًا، ')+member.display_name),h('p',{class:'caption'},t('Your private account and assigned access.','حسابك الخاص والصلاحيات المحددة لك.'))),h('span',{class:'role-badge'},roleLabel(member.role))),alertBox(),accountGrid(),workspaceNavigation(),
+    ((section==='content'&&['admin','marketing'].includes(member.role))||(section==='catalogue'&&member.role==='admin'))?editor.render():member.role==='admin'?adminArea():h('section',{class:'empty-state'},h('span',{class:'eyebrow muted'},t('Your workspace','مساحتك')),h('h2',{},t('Your access is ready.','وصولك جاهز.')),h('p',{},t('You are signed in with your assigned staff role. No customer or content modules are available in this release.','أنت مسجّل بصلاحيات الموظف المحددة لك. وحدات العملاء والمحتوى غير متاحة في هذا الإصدار.'))),
     h('div',{class:'section-head'},h('div',{},h('h3',{},t('Account security','أمان الحساب')),h('p',{},t('Keep your password unique. Never share access or verification codes.','استخدم كلمة مرور فريدة. لا تشارك بيانات الدخول أو رموز التحقق.'))),h('button',{type:'button',class:'text-button',onclick:sendOwnReset,disabled:busy},t('Request password reset','طلب إعادة تعيين كلمة المرور'))));
 }
 
 function render() {
+  const active=document.activeElement;const focusId=active?.id;const start=active?.selectionStart;const end=active?.selectionEnd;
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   document.title=t('Butterfly | Staff access','بترفلاي | دخول الموظفين');
@@ -176,6 +185,7 @@ function render() {
   const content=checking?h('main',{id:'main',class:'loading',role:'status'},t('Checking secure access…','جارٍ التحقق من الوصول الآمن…')):
     user&&member&&!passwordCallback&&(member.role!=='admin'||assurance==='aal2')?workspace():h('main',{id:'main',class:'stage auth-layout'},intro(),authCard());
   root.replaceChildren(header(),content,footer());
+  if(focusId){const next=document.getElementById(focusId);if(next){next.focus({preventScroll:true});if(start!==null&&start!==undefined){try{next.setSelectionRange(start,end);}catch{/* Numeric fields have no text selection. */}}}}
 }
 
 async function act(action) {
@@ -207,7 +217,7 @@ async function logout() {
     await client.auth.stopAutoRefresh();
     for(const name of ['butterfly-staff-auth','butterfly-staff-auth-user','butterfly-staff-auth-code-verifier'])storage.removeItem(name);
     if(result.error){try{sessionStorage.setItem('butterfly-staff-logout-warning','1');}catch{/* Optional notice. */}}
-    user=null;member=null;members=[];factor=null;assurance=null;passwordCallback=false;mode='login';
+    user=null;member=null;members=[];factor=null;assurance=null;passwordCallback=false;mode='login';section='team';editor.clear();
     // A fresh document also discards in-memory tokens and outstanding client refresh work.
     location.replace(location.origin+import.meta.env.BASE_URL);
   });
@@ -308,6 +318,7 @@ async function refresh() {
     if(error&&passwordCallback){passwordCallback=false;notify(t('This secure link has expired or is no longer valid. Request a new invitation or reset link.','انتهت صلاحية الرابط الآمن أو لم يعد صالحًا. اطلب دعوة أو رابط استعادة جديدًا.'),'error');}
     render();return;
   }
+  if(user?.id!==verified.id){section='team';editor.clear();}
   user=verified;
   const {data:own,error:memberError}=await client.from('staff_members').select('user_id,display_name,role,active').eq('user_id',user.id).maybeSingle();
   if(version!==refreshVersion)return;
@@ -329,13 +340,14 @@ async function refresh() {
     else {factor=list.totp.find(f=>f.status==='verified')||factor;}
   }else if(member.role==='admin'&&assurance==='aal2'){await loadMembers();}
   else members=[];
+  if(member?.role==='marketing'&&section==='team'){section='content';editor.open('content');}
   checking=false;render();
 }
 
 if(client){
   client.auth.onAuthStateChange((event)=>{
     if(event==='PASSWORD_RECOVERY'){passwordCallback=true;}
-    if(event==='SIGNED_OUT'){user=null;member=null;members=[];factor=null;assurance=null;passwordCallback=false;}
+    if(event==='SIGNED_OUT'){editor.clear();section='team';user=null;member=null;members=[];factor=null;assurance=null;passwordCallback=false;}
     // Auth callbacks run under a client lock; schedule subsequent client calls outside it.
     setTimeout(()=>refresh(),0);
   });
