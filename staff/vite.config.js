@@ -32,7 +32,10 @@ export default defineConfig(({mode,command})=>{
  };
  return {
   base: '/staff/',
-  plugins:[{name:'private-staff-csp',transformIndexHtml(html){return html.replace(/(<meta http-equiv="Content-Security-Policy" content=")[^"]+/,`$1${policy}`);}}],
+  plugins:[{name:'private-staff-csp',
+    transformIndexHtml(html){return html.replace(/(<meta http-equiv="Content-Security-Policy" content=")[^"]+/,`$1${policy}`);},
+    generateBundle(){this.emitFile({type:'asset',fileName:'_headers',source:'/staff/*\n'+Object.entries(headers).map(([name,value])=>'  '+name+': '+value).join('\n')+'\n  Cache-Control: no-store\n'});},
+  }],
   server: {
     fs: {
       allow: [fileURLToPath(new URL('.', import.meta.url)),fileURLToPath(new URL('../fonts', import.meta.url)),fileURLToPath(new URL('../assets', import.meta.url)),fileURLToPath(new URL('../images', import.meta.url)),...['index','business','catering','links'].map(name=>fileURLToPath(new URL('../'+name+'.html',import.meta.url)))],

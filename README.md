@@ -11,6 +11,8 @@ work is developed on the feature branch.
 - [Supabase setup and external prerequisites](docs/SUPABASE_SETUP.md)
 - [Exact owner-controlled hosted setup steps](docs/HOSTED_SETUP.md)
 - [Content, package editing and safe publishing](docs/PUBLISHING.md)
+- [Enquiry, customer and quotation workflow](docs/CRM.md)
+- [Later release boundaries](docs/FUTURE_RELEASE.md)
 - [Separate backend recovery requirements](docs/BACKEND_RECOVERY.md)
 - [Encrypted local backup and tested recovery procedure](docs/LOCAL_RECOVERY.md)
 

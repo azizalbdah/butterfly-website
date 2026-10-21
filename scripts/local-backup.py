@@ -200,6 +200,29 @@ def runtime_bindings():
                                  if name.startswith('GOTRUE_') or name == 'API_EXTERNAL_URL'}}
 
 
+def edge_artifacts(credential_file):
+    """Capture verified self-contained handlers and their private server bindings."""
+    folder = ROOT / 'supabase/functions/.env.local-preview'
+    metadata = json.loads((folder / 'sdk-metadata.json').read_bytes())
+    if metadata['lockfile_sha256'] != digest((ROOT / 'staff/package-lock.json').read_bytes()):
+        raise BackupError('Edge bundles use a different dependency lockfile; rebuild before capture.')
+    for name, expected in metadata['shared_sources_sha256'].items():
+        source = (ROOT / name).resolve()
+        if not source.is_relative_to(ROOT) or digest(source.read_bytes()) != expected:
+            raise BackupError('Shared Edge source changed; rebuild before capture.')
+    functions = {}
+    for name in ('invite-staff', 'publish-site', 'site-media', 'submit-enquiry'):
+        info = metadata['functions'][name]
+        source = ROOT / 'supabase/functions' / name / 'index.ts'
+        bundle = (folder / name / 'index.js').read_bytes()
+        if digest(source.read_bytes()) != info['source_sha256'] or digest(bundle) != info['bundle_sha256']:
+            raise BackupError('Edge handler source/artifact mismatch; rebuild before capture.')
+        functions[name] = bundle.decode()
+    bindings = read_private(Path(credential_file).resolve().parent / 'edge.env')
+    return {'edge-bindings.env.aesgcm': bindings,
+            'edge-bundles.json.aesgcm': json.dumps(functions).encode()}
+
+
 def backup(destination, key_file, credential_file, fixture_file=None):
     destination = safe_private_path(destination, must_not_exist=True)
     key_file = safe_private_path(key_file, must_not_exist=True)
@@ -211,6 +234,7 @@ def backup(destination, key_file, credential_file, fixture_file=None):
     if config.get('project_id') != PROJECT:
         raise BackupError('Unexpected project; the local-only backup guard refused to proceed.')
     state, api, service_key = credentials(credential_file)
+    captured_edge = edge_artifacts(credential_file)
     fixture_bytes = read_private(fixture_file) if fixture_file else None
     if fixture_bytes and json.loads(fixture_bytes).get('api_url') != api:
         raise BackupError('Acceptance fixture must belong to this exact local preview.')
@@ -240,6 +264,8 @@ def backup(destination, key_file, credential_file, fixture_file=None):
 
     if fixture_bytes:
         save('acceptance-fixtures.json.aesgcm', fixture_bytes)
+    for name, body in captured_edge.items():
+        save(name, body)
     save('database.dump.aesgcm', database)
     save('roles.sql.aesgcm', command(['docker','exec',CONTAINER,'pg_dumpall','-U',OPERATOR_ROLE,'--roles-only']))
     save('migration-sources.json.aesgcm', json.dumps(migration_sources).encode())
@@ -277,6 +303,8 @@ def backup(destination, key_file, credential_file, fixture_file=None):
         raise BackupError('Migrations changed during capture; partial backup rejected.')
     if fixture_bytes and read_private(fixture_file) != fixture_bytes:
         raise BackupError('Acceptance fixtures changed during capture; partial backup rejected.')
+    if captured_edge != edge_artifacts(credential_file):
+        raise BackupError('Edge artifacts changed during capture; partial backup rejected.')
     published = (json.loads(sql('select public.get_published_site()::text;'))
                  if sql("select to_regprocedure('public.get_published_site()') is not null;") == 't' else None)
     save('source-inventory.json.aesgcm', json.dumps({'tables': before, 'objects': inventory, 'policy_sha256': policy_before,

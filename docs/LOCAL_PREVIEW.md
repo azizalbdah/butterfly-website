@@ -20,7 +20,7 @@ cd /workspace/butterfly-website
 python3 scripts/local-start.py
 ```
 
-The helper verifies the project and CLI version, builds the actual invitation and publishing/media
+The helper verifies the project and CLI version, builds the actual invitation, publishing/media and enquiry
 handlers using the lockfile-pinned SDK, and starts the real Auth, Postgres,
 Storage, Data API, Mailpit and Edge services. The self-contained local Edge
 bundle avoids a certificate-chain failure in this environment's graph loader;
@@ -84,3 +84,18 @@ The acceptance sequence is:
 Do not reuse local fixture accounts or keys in production. No hosted project,
 SMTP account, production backup schedule or off-site key custody is configured
 by these commands.
+
+For configured anonymous intake, export a fresh public-only preview with
+`scripts/build-public-preview.py --credentials PRIVATE_LOCAL_STATUS --destination FRESH_DIRECTORY`,
+then serve that export with the restricted server on port 8003. The local Edge
+helper permits only its explicit public loopback origins and creates a private
+random rate secret; hosted values require separate secure configuration.
+
+After the earlier stage regressions, run publishing API/browser acceptance, then
+`python3 tests/crm_acceptance.py` and `python3 tests/crm_browser_acceptance.py`.
+Run suites that publish documents or change the same fixtures sequentially.
+A final CRM API run creates matching private recovery fixtures. Stop all writes
+before the final encrypted capture/recovery rehearsal. See [CRM.md](CRM.md).
+Use `python3 scripts/build-staff-release.py --destination FRESH_DIRECTORY` for a
+curated staff deployment root including response-header rules; hosting it and
+verifying actual HTTPS headers remains separate.

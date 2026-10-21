@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import signal
+import secrets
 import socket
 import subprocess
 import sys
@@ -277,7 +278,7 @@ def stop_managed_functions(private_dir, source, runtime):
         return
 
 
-def serve_functions(cli, source, runtime, private_dir):
+def serve_functions(cli, source, runtime, private_dir, process_env=None):
     stop_managed_functions(private_dir, source, runtime)
     # The CLI reuses an existing Edge container, including its old route/env
     # configuration. Recreate this stateless owned service to discover new routes.
@@ -293,13 +294,17 @@ def serve_functions(cli, source, runtime, private_dir):
     else:
         lines = ["BUTTERFLY_STAFF_ORIGIN=http://127.0.0.1:5173",
                  "BUTTERFLY_STAFF_REDIRECT_URL=http://127.0.0.1:5173/staff/"]
+    if not any(line.startswith("BUTTERFLY_PUBLIC_ORIGINS=") for line in lines):
+        lines.append("BUTTERFLY_PUBLIC_ORIGINS=http://127.0.0.1:8000,http://127.0.0.1:8002,http://127.0.0.1:8003")
+    if not any(line.startswith("BUTTERFLY_ENQUIRY_RATE_SECRET=") for line in lines):
+        lines.append("BUTTERFLY_ENQUIRY_RATE_SECRET=" + secrets.token_urlsafe(48))
     lines.extend(["HTTP_PROXY=", "http_proxy="])
     with private_file(env_file) as stream:
         stream.write("\n".join(lines) + "\n")
     with private_file(private_dir / "functions-serve.log") as stream:
         process = subprocess.Popen([str(cli), "functions", "serve", "--workdir", str(runtime),
                                     "--env-file", str(env_file)], stdin=subprocess.DEVNULL,
-                                   stdout=stream, stderr=subprocess.STDOUT, start_new_session=True)
+                                   stdout=stream, stderr=subprocess.STDOUT, start_new_session=True, env=process_env)
     with private_file(private_dir / "functions-serve.pid") as stream:
         stream.write(str(process.pid) + "\n")
     # CLI copies its generated main worker into the writable layer; compiled

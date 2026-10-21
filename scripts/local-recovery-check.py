@@ -17,6 +17,7 @@ import secrets
 import struct
 import subprocess
 import time
+import uuid
 from urllib.error import HTTPError
 from urllib.parse import quote, urlencode, urlsplit, urlunsplit
 from urllib.request import ProxyHandler, Request, build_opener
@@ -116,11 +117,12 @@ def restore_check(backup_set, key_file, destination, fixtures=None, runtime_api=
             'limitations': ['Local isolated recovery only; no hosted-project recovery or production cutover',
                            'Encrypted global-role export is not replayed; recovery of custom roles into a differently configured cluster is untested',
                            'Hosted SMTP/DNS/account rebinding and external service recovery are untested',
-                           'Edge runtimes are not started in the recovery clone; their source/config follows the separate code checkpoint',
                            'No production backup, cutover, off-site retention or production recovery is configured'],
         }
         if not runtime_api:
             report['limitations'].append('Second Auth/Storage HTTP runtime was not exercised')
+        if not runtime_report or not runtime_report.get('edge_runtime_exercised'):
+            report['limitations'].append('Edge runtimes were not exercised in this recovery clone')
         backup_tools.write_private(destination / 'restore-report.json', json.dumps(report, indent=2).encode())
         return report
     finally:
@@ -146,7 +148,24 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
         config = config.replace(str(old), str(new))
     config = config.replace('[auth]\n', '[auth]\njwt_secret = "env(BUTTERFLY_RECOVERY_JWT_SECRET)"\nsigning_keys_path = "./signing_keys.json"\njwt_issuer = '
                             + json.dumps(bindings['jwt_issuer']) + '\n', 1)
-    config = re.sub(r'(\[edge_runtime\]\s*\n)enabled\s*=\s*true', r'\1enabled = false', config)
+    edge_enabled = all(name in artifacts for name in ('edge-bindings.env.aesgcm','edge-bundles.json.aesgcm'))
+    if edge_enabled:
+        bundles = json.loads(artifacts['edge-bundles.json.aesgcm'])
+        if set(bundles) != {'invite-staff','publish-site','site-media','submit-enquiry'}:
+            raise backup_tools.BackupError('Unexpected captured Edge handler set.')
+        for name, source in bundles.items():
+            folder = config_dir / 'functions' / name
+            folder.mkdir(parents=True, mode=0o700)
+            backup_tools.write_private(folder / 'index.js', source.encode())
+            backup_tools.write_private(folder / 'import_map.json', b'{"imports":{}}')
+            pattern = r'(?m)^import_map\s*=\s*"./functions/' + re.escape(name) + r'/production-import-map.json"$'
+            replacement = ('import_map = "./functions/' + name + '/import_map.json"\n'
+                           'entrypoint = "./functions/' + name + '/index.js"')
+            config, count = re.subn(pattern, replacement, config)
+            if count != 1:
+                raise backup_tools.BackupError('Captured Edge configuration cannot be rebound safely.')
+    else:
+        config = re.sub(r'(\[edge_runtime\]\s*\n)enabled\s*=\s*true', r'\1enabled = false', config)
     backup_tools.write_private(config_dir / 'config.toml', config.encode())
     backup_tools.write_private(config_dir / 'signing_keys.json', json.dumps(bindings['signing_keys']).encode())
     migration_sources = json.loads(artifacts.get('migration-sources.json.aesgcm',b'{}'))
@@ -343,6 +362,63 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
                     if code != 200 or json.loads(body) is not expected:
                         raise backup_tools.BackupError('Restored publication media visibility differs from its saved state.')
             checks.append('restored-published-content-catalogue-and-media-visibility')
+        fixture = json.loads(backup_tools.read_private(fixtures))
+        if fixture.get('crm'):
+            crm = fixture['crm']
+            code, body = request('GET','/rest/v1/bookings?id=eq.' + crm['booking_id'],token=admin_token)
+            if code != 200 or len(json.loads(body)) != 1 or json.loads(body)[0]['amount_fils'] != crm['booking_amount_fils']:
+                raise backup_tools.BackupError('Recovered booking lost its immutable accepted price.')
+            for row_id, count in ((crm['assigned_enquiry'],1),(crm['other_enquiry'],0)):
+                code, body = request('GET','/rest/v1/enquiries?id=eq.' + row_id,token=sessions['sales'])
+                if code != 200 or len(json.loads(body)) != count:
+                    raise backup_tools.BackupError('Recovered Sales assignment boundary failed.')
+            checks.append('restored-crm-immutable-booking-price-and-assignment-boundaries')
+        if edge_enabled:
+            private_edge = destination / 'edge-runtime'
+            private_edge.mkdir(mode=0o700)
+            backup_tools.write_private(private_edge / 'edge.env', artifacts['edge-bindings.env.aesgcm'])
+            local_start.PROJECT = project
+            local_start.serve_functions(cli, workdir, workdir, private_edge, process_env=env)
+            local_start.require_function(status)
+            checks.append('restored-exact-captured-edge-handlers-and-private-bindings')
+            for item in inventory['objects']:
+                if item['bucket'] != 'site-media':
+                    continue
+                code, body = request('POST','/rest/v1/rpc/is_site_media_published',data={'object_name':item['path']})
+                published = code == 200 and json.loads(body) is True
+                code, body = request('GET','/functions/v1/site-media?name=' + quote(item['path'],safe=''))
+                if (published and (code != 200 or backup_tools.digest(body) != item['sha256'])) or (not published and code != 404):
+                    raise backup_tools.BackupError('Recovered Edge media serving lost its publication boundary.')
+            checks.append('restored-public-photo-edge-bytes-and-private-staging-denial')
+            catalogue = inventory['published_site']['catalogue_revision']
+            request_key = str(uuid.uuid4())
+            payload = {'action':'submit','request_key':request_key,'kind':'catering','service':'coffee',
+                       'catalogue_revision':catalogue,'customer':{'name':'Isolated recovery probe','phone':'+9659' + str(secrets.randbelow(10**7)).zfill(7),'email':'','company':''},
+                       'event_date':'','event_time':'','venue':'Isolated recovery only','notes':'','website':'',
+                       'selection':{'guests':30,'hours':4,'package_id':None,'extras':{},'team_select':True}}
+            origins = dict(line.split('=',1) for line in artifacts['edge-bindings.env.aesgcm'].decode().splitlines() if '=' in line)
+            origin = origins['BUTTERFLY_PUBLIC_ORIGINS'].split(',')[0].strip()
+            code, body = request('POST','/functions/v1/submit-enquiry',data=payload,headers={'Origin':origin})
+            if code != 201 or not json.loads(body).get('receipt'):
+                raise backup_tools.BackupError('Recovered enquiry Edge handler cannot save a new anonymous request.')
+            receipt = json.loads(body)['receipt']
+            code, body = request('GET','/rest/v1/enquiries?receipt=eq.' + quote(receipt,safe=''),token=admin_token)
+            rows = json.loads(body)
+            expected_price = round(inventory['published_site']['catalogue']['coffeePackages'][0]['price']*1000)
+            if code != 200 or len(rows) != 1 or rows[0]['status'] != 'new' or rows[0]['assigned_to'] is not None or rows[0]['price_snapshot']['total_fils'] != expected_price:
+                raise backup_tools.BackupError('Recovered enquiry lost its server price or initial assignment state.')
+            row_id = rows[0]['id']
+            code, body = request('POST','/functions/v1/submit-enquiry',data=payload,headers={'Origin':origin})
+            if code != 200 or json.loads(body).get('receipt') != receipt:
+                raise backup_tools.BackupError('Recovered enquiry retry created another record.')
+            code, _ = request('POST','/functions/v1/submit-enquiry',data={'action':'whatsapp_open_requested','request_key':request_key},headers={'Origin':origin})
+            if code != 202:
+                raise backup_tools.BackupError('Recovered WhatsApp activity endpoint failed.')
+            for table in ('quotations','bookings'):
+                code, body = request('GET','/rest/v1/' + table + '?enquiry_id=eq.' + row_id,token=admin_token)
+                if code != 200 or json.loads(body):
+                    raise backup_tools.BackupError('Recovered WhatsApp activity fabricated a quotation or booking.')
+            checks.append('restored-anonymous-capture-server-pricing-idempotency-and-whatsapp-separation')
         code, _ = request('POST','/auth/v1/recover?redirect_to=' + quote('http://127.0.0.1:5173/staff/',safe=''),
                            data={'email':accounts['recovery']['email']})
         if code != 200:
@@ -360,6 +436,7 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
                 'checks':checks, 'independent_database_and_storage_volumes':True,
                 'fresh_cli_cluster_role_inventory_verified':True,
                 'auth_signing_keys_restored':True, 'source_users_logged_out':False,
+                'edge_runtime_exercised':edge_enabled,
                 'cleanup':'Disposable project and its volumes removed after rehearsal'}
     finally:
         backup_tools.CONTAINER = original_container

@@ -44,7 +44,12 @@ saved release until the hosted preview passes acceptance.
    workdir for hosted deployment.
 6. In an owner-private file outside the checkout, set the non-secret
    `BUTTERFLY_STAFF_ORIGIN` and `BUTTERFLY_STAFF_REDIRECT_URL` to those exact HTTPS
-   values. Bind that file with `supabase secrets set --env-file PRIVATE_FILE
+   values. Include `BUTTERFLY_PUBLIC_ORIGINS` as a comma-separated list of exact
+   approved public preview HTTPS origins, without paths or wildcards. Generate
+   `BUTTERFLY_ENQUIRY_RATE_SECRET` with at least 32 random bytes into that private
+   file (for example using Python's `secrets.token_urlsafe(48)`, writing directly
+   to the protected file). It stays server-only; do not print or paste it in chat.
+   Bind that file with `supabase secrets set --env-file PRIVATE_FILE
    --project-ref "$BUTTERFLY_PROJECT_REF"`. Supabase supplies the server project
    URL, anon key and service-role key to functions; do not copy the privileged key
    into the staff build or public website. Deploy the implemented functions from
@@ -54,6 +59,7 @@ saved release until the hosted preview passes acceptance.
    supabase functions deploy invite-staff --project-ref "$BUTTERFLY_PROJECT_REF"
    supabase functions deploy publish-site --project-ref "$BUTTERFLY_PROJECT_REF"
    supabase functions deploy site-media --project-ref "$BUTTERFLY_PROJECT_REF"
+   supabase functions deploy submit-enquiry --project-ref "$BUTTERFLY_PROJECT_REF"
    ```
 
    The source configuration uses pinned production import maps. Local bundles
@@ -67,9 +73,12 @@ saved release until the hosted preview passes acceptance.
    build settings or ignored `staff/.env.local`. Use the preview project's public
    publishable/anon key. Build with `npm --prefix staff ci` followed by
    `npm --prefix staff run build`. Privileged browser keys are rejected during
-   configuration validation.
-2. The built client expects `/staff/`. Place the contents of `staff/dist/` under
-   a `staff/` directory in a clean static deployment root. Deploy only that
+   configuration validation. Create the curated release with
+   `python3 scripts/build-staff-release.py --destination FRESH_RELEASE_DIRECTORY`.
+2. The release contains the built client under `/staff/`, response-header rules
+   in root `_headers`, and a root redirect in `_redirects`. The rules use the
+   Netlify/Cloudflare Pages format; use a host supporting these files or translate
+   the exact rules to its supported configuration. Deploy only that
    curated artifact, never the repository root or private work directories.
 3. Enforce these response headers on `/staff/*`: `X-Frame-Options: DENY`,
    `Referrer-Policy: no-referrer`, `X-Content-Type-Options: nosniff`, and CSP matching
@@ -103,7 +112,11 @@ Create a private public-only JSON configuration with `supabaseUrl` and
 preview host. It contains no production CNAME, staff files, backend source or
 privileged key. Verify the real published content/catalogue, photo endpoint,
 languages/RTL, calculator rules, outage behavior, keyboard/mobile journey,
-ordering links and public tracking.
+ordering links and public tracking. Check actual anonymous catering/corporate
+capture, receipts and safe retries; distinguish saving from the optional
+WhatsApp step; verify assignment isolation, quotation/booking actions and frozen
+prices. The staff overview must reflect these real preview records. See
+[CRM.md](CRM.md) for workflow and date-filter semantics.
 
 Before production: select and record the plan and usage costs; configure verified
 database/Auth/Storage backups, external retention and separate key custody;
