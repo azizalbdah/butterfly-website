@@ -1,0 +1,111 @@
+{
+  "stage": "C",
+  "status": "passed-local-acceptance",
+  "checked_at": "2026-10-21T10:02:01.485225+00:00",
+  "tested_application_commit": "9f1d5da2f6414f3273af61e7d5c2ebc035276210",
+  "checkpoint_tag": "checkpoint/butterfly-stage-c-local-2026-10-21",
+  "production_deployed": false,
+  "hosted_backend_verified": false,
+  "imported_fields": 472,
+  "pricing_parity_cases": 55494,
+  "publishing_api": {
+    "status": "passed",
+    "passed_count": 8,
+    "passed": [
+      "Preserved bilingual content, photos, links, SEO and package catalogue are imported exactly",
+      "Anonymous, Sales, inactive, outsider and pre-MFA Admin cannot access private drafts or mutate documents",
+      "Marketing drafts remain private and optimistic concurrency prevents lost updates",
+      "Database validation rejects executable links, missing languages, unknown fields, invalid capacities and changed pricing rules",
+      "Publishing Edge function independently requires active Admin MFA and the exact staff origin",
+      "Private originals and staged copies remain unreadable before successful publication",
+      "Atomic publish exposes resolved immutable media while stale publishes and direct history rewrites are denied",
+      "Published catalogue prices update independently while old versions and human-attributed audit history remain intact"
+    ],
+    "local_only": true,
+    "production_deployed": false
+  },
+  "publishing_browser": {
+    "status": "passed",
+    "passed_count": 8,
+    "passed": [
+      "Marketing edits both languages and saved drafts persist after a real reload",
+      "Private website preview renders the real layout with safe text and without scripts or tracking",
+      "Editor and draft preview support Arabic/English, RTL and mobile width",
+      "Admin package draft stays private until publication updates the configured public calculator",
+      "Admin content publication reaches anonymous visitors in both languages without executing markup",
+      "Real browser photo upload stays private until publication serves the verified image bytes",
+      "Version history restores content and prices through new audited drafts and publications",
+      "No uncaught JavaScript errors or external private-screen tracking requests"
+    ],
+    "local_only": true,
+    "mock_authentication": false,
+    "production_deployed": false
+  },
+  "regression": {
+    "backend_security_groups": 15,
+    "staff_auth_browser_groups": 13,
+    "public_browser_groups": 13,
+    "unit_tests": 29,
+    "staff_production_build": "passed",
+    "privileged_key_scan": "passed",
+    "private_preview_filesystem_denials": "passed",
+    "configured_pricing_outage_fail_closed": "passed",
+    "production_baseline_reverified": "passed"
+  },
+  "recovery": {
+    "status": "passed-local-isolated-restore",
+    "tables_verified": 45,
+    "object_files_verified": 12,
+    "policy_function_digest_verified": true,
+    "role_checks": [
+      "admin:aal1",
+      "admin:aal2",
+      "sales:aal1",
+      "marketing:aal1",
+      "inactive:aal1",
+      "outsider:aal1"
+    ],
+    "source_preserved": true,
+    "elapsed_seconds": 136.898,
+    "limitations": [
+      "Local isolated recovery only; no hosted-project recovery or production cutover",
+      "Encrypted global-role export is not replayed; recovery of custom roles into a differently configured cluster is untested",
+      "Hosted SMTP/DNS/account rebinding and external service recovery are untested",
+      "Edge runtimes are not started in the recovery clone; their source/config follows the separate code checkpoint",
+      "No production backup, cutover, off-site retention or production recovery is configured"
+    ]
+  },
+  "recovered_runtime_checks": [
+    "clean-versioned-migrations-applied",
+    "independent-cluster-database-and-policy-digests",
+    "restored-auth-public-signup-disabled",
+    "restored-existing-session-refresh-and-aal2-access",
+    "auth-login-and-api-role:admin",
+    "auth-login-and-api-role:sales",
+    "auth-login-and-api-role:marketing",
+    "auth-login-and-api-role:inactive",
+    "auth-login-and-api-role:outsider",
+    "restored-verified-totp-and-aal2-admin-api",
+    "restored-storage-api-bytes-and-role-boundaries",
+    "restored-storage-api-authorized-new-upload",
+    "restored-published-content-catalogue-and-media-visibility",
+    "restored-auth-local-password-recovery-mail"
+  ],
+  "backup_code_commit": "9f1d5da2f6414f3273af61e7d5c2ebc035276210",
+  "backup_capture_working_tree_clean": true,
+  "captured_migration_sha256": {
+    "20261020133000_staff_access.sql": "c1fb9651694c17b61f52136d03aec4ee8f83a51794ebab805cb8fa106efba9a0",
+    "20261021093000_site_publishing.sql": "e953c8e701c5ee7584067305ceb389209cc630815bf344caae3a3d3467fa9584",
+    "20261021094500_private_publish_media.sql": "bf8896b7209f01b8d9fbe815734ebde288fc937529981a7f7be0160d9597a70b",
+    "20261021100500_fail_closed_draft_authorization.sql": "c3b24fd64e96a0b8efeb94fefa5fb1d756357ebed1c2432d3e0fd763aeb8fa87",
+    "20261021102000_publishing_conflict_status.sql": "4cb01e0da92926967a443ead860adca89403930746da11b4083203f2ecb64560",
+    "20261021103500_import_catering_seo_languages.sql": "f8142a2c0c05fba54a243e04d1927c94ef1280e9e4890c346f9994f3fabc580d"
+  },
+  "remaining_setup": [
+    "Owner-controlled hosted Supabase preview and production projects",
+    "Verified SMTP and actual hosted invitation/reset delivery",
+    "Staff host with exact callbacks and response security headers",
+    "Hosted preview acceptance and production backup/retention/off-site custody",
+    "Stage D enquiries, customers and follow-ups"
+  ]
+}

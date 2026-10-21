@@ -1,6 +1,6 @@
 # Staff dashboard delivery gates
 
-Status on 21 October 2026: **Stages A and B passed their local acceptance gates; Stage C has passed its publishing API/browser checks and is completing its final recovery rehearsal; Stage D has not started.** Production remains on the preserved website baseline. Stage B is a genuine local backend and browser checkpoint, not a verified hosted deployment. See [the sanitized Stage B report](checkpoints/stage-b-local-2026-10-21.json).
+Status on 21 October 2026: **Stages A, B and C passed their local acceptance gates; Stage D is next.** Production remains on the preserved website baseline. Stage B is a genuine local backend and browser checkpoint, not a verified hosted deployment. See [the sanitized Stage B report](checkpoints/stage-b-local-2026-10-21.json).
 
 ## A — Baseline and preview
 
@@ -19,6 +19,10 @@ No hosted Supabase project, production SMTP service or hosted staff preview has 
 Acceptance: real Supabase connection; invitation-only login, reset, logout, refresh/persistence and expired/revoked session handling; mandatory administrator MFA; database-enforced Admin/Sales/Marketing roles; no self-escalation; audit events; private uploads. Test direct REST/database/Storage access for anonymous, uninvited, inactive, wrong-role, wrong-assignee and administrator aal1/aal2 cases. Test an isolated backup/recovery before claiming recoverability. Build the private staff UI separately from public tracking. Commit and tag a tested B checkpoint only after this passes.
 
 ## C — Content and package publishing
+
+Completed locally: 472 imported bilingual/text/image/link/SEO fields; private Marketing drafts; MFA-admin package editing and publishing; safe real-page previews; concurrent-edit rejection; immutable revisions and paginated history; private staged photos served publicly only after successful publication. The same published catalogue and shared pricing engine drive the public calculator and staff preview. See [PUBLISHING.md](PUBLISHING.md) and [the sanitized Stage C report](checkpoints/stage-c-local-2026-10-21.json).
+
+Acceptance passed: 55,494 comparisons against the saved calculator, eight direct publishing API groups, eight real publishing browser groups, 15 backend security regression groups, 13 staff-auth browser groups, 13 public browser groups and 29 unit tests. A clean official Supabase project applied all six captured migrations, then restored and checked 45 tables, 12 uploads, Auth/MFA/sessions, permissions and published content/catalogue/media visibility. The source was preserved. Backup `stage-c-003` captured clean application commit `9f1d5da2f6414f3273af61e7d5c2ebc035276210`; private artifacts and keys are outside the repository. Hosted setup remains pending.
 
 Only begin after B passes. Import existing AR/EN content and approved package data. Preserve the logo font and quiet luxury design. Add explicit draft/preview/publish/version-history states and publish atomically with auditing; permit Marketing drafts and media, and Admin prices/publishing. Store one authoritative published package catalogue used by the dashboard and public calculator. Preserve the current recommendation rules, guest capacities, prices and add-ons, testing old versus new results across capacities, extensions, hours, towers, unavailable packages and custom quotations. Snapshots must retain the catalogue version and calculated price used by each enquiry/quotation. Test persistence, concurrent editing, invalid publishes, anonymous published reads, private draft isolation, AR/EN, RTL/mobile and keyboard access. Commit/tag only after acceptance passes.
 

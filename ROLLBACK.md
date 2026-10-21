@@ -23,6 +23,22 @@ SHA256: `98d835790893bc02ccb50ecf5746e4ac3fff99235a300f64047d8dd225b086e8`.
 
 `git bundle verify`, cloning that bundle to a separate directory, `git fsck --full`, and resolving the saved tag and restored HEAD all passed. This is a website-source backup; it contains no customer database or uploaded files. Copy private backup artifacts to an owner-controlled backup location before depending on this workspace for disaster recovery.
 
+## Accepted local dashboard checkpoints
+
+| Stage | Git tag | Backend recovery evidence |
+| --- | --- | --- |
+| A | `checkpoint/butterfly-stage-a-2026-10-20` | Verified public archive and offline Git-bundle restoration. |
+| B | `checkpoint/butterfly-stage-b-local-2026-10-21` | 40-table, three-upload isolated Auth/Storage recovery. |
+| C | `checkpoint/butterfly-stage-c-local-2026-10-21` | Clean six-migration setup and 45-table, 12-upload isolated recovery; published state, Auth, MFA and permissions checked. |
+
+These are local acceptance checkpoints, not hosted production releases. The
+original website baseline remains the website rollback target. The latest private
+backend rehearsal is `stage-c-003`; restore it only into a fresh isolated target
+following [LOCAL_RECOVERY.md](docs/LOCAL_RECOVERY.md). It is not a production
+customer backup. The code/report checkpoint does not authorize restoring an old
+database over newer records. Production was reverified unchanged on 21 October
+2026; see [the sanitized report](docs/checkpoints/production-baseline-2026-10-21.json).
+
 ## Deployment configuration: confirmed versus unknown
 
 Confirmed from the preserved tree:
