@@ -27,6 +27,18 @@ backup_tools = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(backup_tools)
 
 
+def restore_extensions(artifacts, database):
+    captured = json.loads(artifacts.get('extensions.json.aesgcm', b'[]'))
+    for item in captured:
+        name, schema, version = item['name'], item['schema'], item['version']
+        if not re.fullmatch(r'[a-z][a-z0-9_-]*', name) or not re.fullmatch(r'[A-Za-z0-9_.-]+', version) or schema not in backup_tools.SCHEMAS:
+            raise backup_tools.BackupError('Unsafe captured extension dependency.')
+        backup_tools.sql('CREATE EXTENSION IF NOT EXISTS "' + name + '" WITH SCHEMA '
+                         + backup_tools.identifier(schema) + " VERSION '" + version + "';", database)
+    if captured and backup_tools.extension_inventory(database) != captured:
+        raise backup_tools.BackupError('Recovered extension names, versions or namespaces differ from capture.')
+
+
 def restore_check(backup_set, key_file, destination, fixtures=None, runtime_api=False, cli=None):
     started = time.monotonic()
     os.umask(0o077)
@@ -82,6 +94,7 @@ def restore_check(backup_set, key_file, destination, fixtures=None, runtime_api=
         backup_tools.sql('DROP SCHEMA public;', target_db)
         backup_tools.command(['docker','exec','-i',backup_tools.CONTAINER,'pg_restore','--exit-on-error','-U',backup_tools.OPERATOR_ROLE,'-d',target_db],
                              data=artifacts['database.dump.aesgcm'])
+        restore_extensions(artifacts, target_db)
         restored = backup_tools.table_fingerprints(target_db)
         if restored != inventory['tables']:
             raise backup_tools.BackupError('Recovered table contents/counts do not match the captured backup.')
@@ -111,6 +124,7 @@ def restore_check(backup_set, key_file, destination, fixtures=None, runtime_api=
             'source_preserved': True, 'target_database': target_db,
             'tables_verified': len(restored), 'object_files_verified': object_checks,
             'policy_function_digest_verified': True, 'role_checks': role_checks,
+            'extension_dependencies_verified': 'extensions.json.aesgcm' in artifacts,
             'existing_cluster_role_inventory_verified': True,
             'separate_supabase_runtime': runtime_report,
             'elapsed_seconds': round(time.monotonic() - started, 3),
@@ -205,6 +219,9 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
         backup_tools.sql('DROP SCHEMA public;', recovery_db)
         backup_tools.command(['docker','exec','-i',clone_db,'pg_restore','--exit-on-error','-U',backup_tools.OPERATOR_ROLE,'-d',recovery_db],
                              data=artifacts['database.dump.aesgcm'])
+        restore_extensions(artifacts, recovery_db)
+        if 'extensions.json.aesgcm' in artifacts:
+            checks.append('captured-extension-versions-and-namespaces-restored')
         if backup_tools.table_fingerprints(recovery_db) != inventory['tables']:
             raise backup_tools.BackupError('Independent runtime database differs from the backup.')
         if backup_tools.policy_fingerprint(recovery_db) != inventory['policy_sha256']:
@@ -400,6 +417,13 @@ def verify_runtime_api(artifacts, inventory, destination, fixtures, cli):
             origin = origins['BUTTERFLY_PUBLIC_ORIGINS'].split(',')[0].strip()
             code, body = request('POST','/functions/v1/submit-enquiry',data=payload,headers={'Origin':origin})
             if code != 201 or not json.loads(body).get('receipt'):
+                # Keep diagnostic responses private; never emit token-bearing service logs.
+                diagnostic = {'status':code,'response':json.loads(body)}
+                probe_code, probe_body = request('POST','/rest/v1/rpc/lookup_website_enquiry',token=status['SERVICE_ROLE_KEY'],
+                    data={'request_key':request_key,'request_fingerprint':'0'*64})
+                diagnostic['service_rpc_status'] = probe_code
+                diagnostic['service_rpc_response'] = json.loads(probe_body)
+                backup_tools.write_private(destination / 'edge-failure.json',json.dumps(diagnostic).encode())
                 raise backup_tools.BackupError('Recovered enquiry Edge handler cannot save a new anonymous request.')
             receipt = json.loads(body)['receipt']
             code, body = request('GET','/rest/v1/enquiries?receipt=eq.' + quote(receipt,safe=''),token=admin_token)

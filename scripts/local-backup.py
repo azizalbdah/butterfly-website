@@ -145,6 +145,15 @@ def storage_inventory(database=SOURCE_DB):
                           "ORDER BY bucket_id,name),'[]'::jsonb) FROM storage.objects;", database))
 
 
+def extension_inventory(database=SOURCE_DB):
+    # Schema-filtered pg_dump omits extension definitions and extension-owned
+    # functions. Preserve the explicit dependencies inside the captured schemas.
+    return json.loads(sql("SELECT coalesce(jsonb_agg(jsonb_build_object('name',e.extname,'schema',n.nspname,"
+                          "'version',e.extversion) ORDER BY e.extname),'[]'::jsonb)::text "
+                          "FROM pg_extension e JOIN pg_namespace n ON n.oid=e.extnamespace "
+                          "WHERE n.nspname IN ('public','auth','storage','extensions');", database))
+
+
 def role_fingerprint():
     data = sql("""
 SELECT jsonb_build_object(
@@ -249,6 +258,7 @@ def backup(destination, key_file, credential_file, fixture_file=None):
     roles_before = role_fingerprint()
     bindings_before = runtime_bindings()
     inventory = storage_inventory()
+    extensions = extension_inventory()
     args = ['docker', 'exec', CONTAINER, 'pg_dump', '-U', OPERATOR_ROLE, '-d', SOURCE_DB, '--format=custom']
     for schema in SCHEMAS:
         args.extend(['--schema', schema])
@@ -267,6 +277,7 @@ def backup(destination, key_file, credential_file, fixture_file=None):
     for name, body in captured_edge.items():
         save(name, body)
     save('database.dump.aesgcm', database)
+    save('extensions.json.aesgcm', json.dumps(extensions).encode())
     save('roles.sql.aesgcm', command(['docker','exec',CONTAINER,'pg_dumpall','-U',OPERATOR_ROLE,'--roles-only']))
     save('migration-sources.json.aesgcm', json.dumps(migration_sources).encode())
     save('runtime-bindings.json.aesgcm', json.dumps(bindings_before, sort_keys=True).encode())
@@ -294,7 +305,7 @@ def backup(destination, key_file, credential_file, fixture_file=None):
         item['artifact'] = 'objects/' + digest((item['bucket'] + '\0' + item['path']).encode()) + '.aesgcm'
         save(item['artifact'], body)
     after = table_fingerprints()
-    if (before != after or policy_before != policy_fingerprint() or roles_before != role_fingerprint()
+    if (before != after or extensions != extension_inventory() or policy_before != policy_fingerprint() or roles_before != role_fingerprint()
             or bindings_before != runtime_bindings() or config_bytes != (ROOT / 'supabase/config.toml').read_bytes() or storage_inventory() != [
         {k:v for k,v in item.items() if k in ('bucket','path','metadata')} for item in inventory
     ]):
