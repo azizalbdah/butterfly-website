@@ -1,6 +1,6 @@
 // JWT validation is explicit here; gateway verify_jwt=false supports current keys.
 // Never expose SUPABASE_SERVICE_ROLE_KEY or invite users before checking aal2/RLS.
-import { createClient } from "npm:@supabase/supabase-js@2.118.0";
+import { createClient } from "@supabase/supabase-js";
 
 const roles = new Set(["admin", "sales", "marketing"]);
 const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";

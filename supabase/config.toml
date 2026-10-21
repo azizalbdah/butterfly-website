@@ -101,3 +101,4 @@ enabled = false
 # Caller identity, active administrator role, and aal2 are verified inside this function.
 [functions.invite-staff]
 verify_jwt = false
+import_map = "./functions/invite-staff/production-import-map.json"
