@@ -146,5 +146,5 @@ export function createEditor({client,h,t,getMember,rerender}){
    }),true)),
    h('div',{class:'editor-fields'},state.kind==='content'?contentFields():packageFields()));
  }
- return {open,render,clear(){state.cache.clear();state.cssBlobs.forEach(url=>URL.revokeObjectURL(url));state.cssBlobs=[];for(const blob of state.blobs.values())URL.revokeObjectURL(blob);state.blobs.clear();state.payload=null;state.head=null;},get kind(){return state.kind;},get busy(){return state.busy;}};
+ return {open,render,ensure(){if(!state.payload&&!state.busy)open('content');},clear(){state.cache.clear();state.cssBlobs.forEach(url=>URL.revokeObjectURL(url));state.cssBlobs=[];for(const blob of state.blobs.values())URL.revokeObjectURL(blob);state.blobs.clear();state.payload=null;state.head=null;state.history=[];state.notice=null;},get kind(){return state.kind;},get busy(){return state.busy;}};
 }

@@ -2,7 +2,7 @@
 (async function (global) {
 'use strict';
 const form=document.getElementById('configForm');form.inert=true;form.setAttribute('aria-busy','true');
-const [pricing,site] = await Promise.all([import('./pricing.mjs'), global.ButterflySiteReady]);
+const [pricing,site,enquiries] = await Promise.all([import('./pricing.mjs'), global.ButterflySiteReady,import('./enquiry-client.mjs')]);
 if (!site?.catalogue) {
  const status=document.createElement('p');status.setAttribute('role','alert');
  status.textContent='Package estimates are temporarily unavailable. Please contact Butterfly. تعذّر تحميل أسعار الباقات مؤقتًا. يرجى التواصل مع بترفلاي.';
@@ -197,7 +197,7 @@ $('guestNext').addEventListener('click',nextGuests);
 $('guestBack').addEventListener('click',()=>showStage(1));
 $('editService').addEventListener('click',()=>showStage(1));
 $('editGuests').addEventListener('click',()=>showStage(2));
-$('configForm').addEventListener('submit',e=>{
+$('configForm').addEventListener('submit',async e=>{
  e.preventDefault();
  if(stage===1){if(currentService)showStage(2);return;}
  if(stage===2){nextGuests();return;}
@@ -206,7 +206,17 @@ $('configForm').addEventListener('submit',e=>{
  if(result&&!isCoffee()&&!$('teamSelect').checked&&state.savouries.length!==result.package.selections){$('selectionError').hidden=false;$('teamSelect').focus();return;}
  $('selectionError').hidden=true;
  if(!$('venue').value.trim()){$('venue').setCustomValidity(tr('Please enter the area or venue.','يرجى إدخال المنطقة أو المكان.'));$('venue').reportValidity();return;}
- const url='https://wa.me/96566363741?text='+encodeURIComponent(message());window.open(url,'_blank','noopener,noreferrer');
+ const url='https://wa.me/96566363741?text='+encodeURIComponent(message());
+ if(site.configured){
+  const customer=enquiries.contactDetails('contactName');if(!customer)return;
+  await enquiries.saveAndOfferWhatsApp({form:$('configForm'),status:$('formStatus'),whatsappURL:url,
+   payload:{kind:'catering',service:currentService,customer,event_date:$('eventDate').value,event_time:$('eventTime').value,venue:$('venue').value.trim(),notes:$('notes').value.trim(),
+    selection:{guests:guests(),hours:requestedHours(),min_towers:Number($('towerNeed').value),package_id:result?.package.id||null,extras:{...state.extras},savouries:[...state.savouries],towers:isCoffee()?[]:state.towers.slice(0,result?.package.towers||3),team_select:$('teamSelect').checked,extra_towers:$('extraTowers').checked,
+     personalisation:$('personalisation').value,personal_text:$('personalText').value.trim(),artistic_choice:$('artisticChoice').value.trim(),occasion:$('occasion').value,coffee_style:$('coffeeStyle').value,coffee_hours:$('coffeeHours').value?Number($('coffeeHours').value):null,tray_style:$('trayStyle').value}},
+   onWhatsApp:()=>{if(typeof global.fbq==='function')global.fbq('trackCustom','CateringEnquiryClick',{source:'catering_configurator',service:currentService});}});
+  return;
+ }
+ window.open(url,'_blank','noopener,noreferrer');
  const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=tr('Open your prepared message on WhatsApp. Send it to request confirmation.','افتح رسالتك المجهزة في واتساب وأرسلها لطلب التأكيد.');$('formStatus').replaceChildren(a);
  if(typeof global.fbq==='function')global.fbq('trackCustom','CateringEnquiryClick',{source:'catering_configurator',service:currentService});
 });
@@ -232,6 +242,7 @@ document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',(
 const parts=new Intl.DateTimeFormat('en',{timeZone:'Asia/Kuwait',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
 const dm=Object.fromEntries(parts.map(p=>[p.type,p.value]));$('eventDate').min=dm.year+'-'+dm.month+'-'+dm.day;
 $('year').textContent=new Date().getFullYear();try{if(localStorage.getItem('bf-lang')==='en')lang='en';}catch(e){}
+if(site.configured)enquiries.mountContactFields(form,'contactName');
 language(lang);
 form.inert=false;form.setAttribute('aria-busy','false');
 if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion:reduce)').matches){document.documentElement.classList.add('motion');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.04});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));}

@@ -62,7 +62,7 @@ def main():
    verified=accounts['admin'].get('mfa_verified_at',0)
    if int(time.time())//30==int(verified)//30:time.sleep(31-time.time()%30)
    page.locator('#totp').fill(totp(accounts['admin']['totp_secret']));page.get_by_role('button',name='Verify and continue',exact=False).click()
-   expect(page.get_by_role('heading',name='Your team',exact=True)).to_be_visible(timeout=15000)
+   expect(page.get_by_role('heading',name='Overview',exact=True)).to_be_visible(timeout=15000)
    module('Packages');page.locator('#coffeePackages-coffee30-price').fill('135');save()
    public_context=browser.new_context(reduced_motion='reduce')
    public_context.route('**/*',lambda route:route.continue_() if urlsplit(route.request.url).hostname in ('127.0.0.1','localhost') else route.abort())

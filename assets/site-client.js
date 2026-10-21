@@ -51,6 +51,7 @@
     result={content:content.content,catalogue,content_revision:null,catalogue_revision:null,configured:false};
    }
    if(result?.content?.schema!==1||result?.catalogue?.schema!==1)throw new Error('Invalid published site');
+   result.configured=Boolean(config.supabaseUrl&&config.publishableKey);
    snapshot=result;apply();
    new MutationObserver(apply).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
    document.dispatchEvent(new CustomEvent('butterfly:published',{detail:{contentRevision:result.content_revision,catalogueRevision:result.catalogue_revision}}));
