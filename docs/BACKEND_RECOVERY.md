@@ -1,6 +1,6 @@
-# Backend backup and recovery plan — not yet exercised
+# Backend backup and recovery requirements
 
-Prepared on 20 October 2026. **No Supabase project, customer database, uploaded-file backup, backup schedule, or backend restoration test exists at this checkpoint.** This is a future runbook and acceptance plan. It must not be reported as an implemented or tested recovery system.
+Updated on 21 October 2026. The encrypted **local development** backup and independent database/Auth/Storage API recovery rehearsal passed: 40 tables, three uploads, policy/function digests and role/MFA/session checks, with the source preserved. See [LOCAL_RECOVERY.md](LOCAL_RECOVERY.md). **No hosted project, production customer backup, off-site retention or scheduled production backup exists.** The requirements below govern that separate production setup.
 
 Website code rollback and data recovery are separate operations. Reverting a website release must preserve enquiries, quotations, bookings, customers, activity, and uploads created after that release. **Never automatically restore an old production database when rolling back website code.** Follow the website baseline procedure in [ROLLBACK.md](../ROLLBACK.md); it does not substitute for the backend procedures below.
 
@@ -52,7 +52,7 @@ Do not run a production migration unless all of the following have current evide
 
 If the backup is missing, incomplete, inaccessible, or untested, production migration remains blocked. Do not bypass this precondition by relying on an unverified paid feature or by inventing a successful backup checkpoint.
 
-## Routine backup workflow to implement in Stage B
+## Routine production backup workflow
 
 1. Provision private, encrypted backup storage and an operator/job identity with the minimum necessary export access. Exclude the backup destination from public hosting and repository paths.
 2. Use pinned, provider-supported database export tools with TLS and normal verification enabled. Retrieve credentials securely at execution time; avoid command-line passwords, shell tracing, credential-bearing URLs in logs, or secret values in reports.
@@ -60,7 +60,7 @@ If the backup is missing, incomplete, inaccessible, or untested, production migr
 4. Check exit statuses, checksums, object counts/bytes, expected schemas and row counts, and current manifest timestamps. Upload the backup set to the private destination, verify it there, and alert on failure/staleness.
 5. Enforce the approved retention policy. Test that an authorized operator can download and decrypt the backup without depending only on the production account being recovered.
 
-No runnable backup command is supplied yet because no project, chosen plan, credential binding, storage destination, or supported restore path has been configured and tested. Stage B must implement and exercise these commands; this document is not a substitute.
+The local-only commands in [LOCAL_RECOVERY.md](LOCAL_RECOVERY.md) have captured encrypted backups and passed an isolated SQL plus independent Auth/Storage API restoration. They deliberately cannot target a hosted project. A production command, scheduler, retention destination and cutover path still require the owner-controlled hosted project, selected plan and secure credential bindings. Local rehearsal is not evidence of a production backup or hosted recovery.
 
 ## Isolated recovery acceptance test
 

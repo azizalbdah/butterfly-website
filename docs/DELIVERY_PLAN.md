@@ -1,6 +1,6 @@
 # Staff dashboard delivery gates
 
-Status on 20 October 2026: **Stage A passed; Stage B is next.** The public HTML, CSS, JavaScript, images, domain file and tracking remain unchanged. This checkpoint is tested recovery work; there is no dashboard, mock login, sample metric or working backend integration yet.
+Status on 21 October 2026: **Stages A and B passed their local acceptance gates; Stages C and D have not started.** Production remains on the preserved website baseline. Stage B is a genuine local backend and browser checkpoint, not a verified hosted deployment. See [the sanitized Stage B report](checkpoints/stage-b-local-2026-10-21.json).
 
 ## A — Baseline and preview
 
@@ -10,7 +10,11 @@ Production gate passed: GitHub Pages legacy `main:/`, custom domain `butterflykw
 
 ## B — Authentication and permissions
 
-Only begin after A passes. [SUPABASE_SETUP.md](SUPABASE_SETUP.md) describes the proposed implementation and account/project setup; [BACKEND_RECOVERY.md](BACKEND_RECOVERY.md) describes the separate recovery requirements. `.env.example` contains public placeholders only. No migration is applied and no account/project has been created.
+The local Supabase stack is running and the staff access migration has been applied locally. Implemented backend controls include invitation-only authentication, active staff membership, session-bound Admin/Sales/Marketing roles, mandatory administrator MFA, immutable audit events and private media permissions. The separate staff interface implements login, password recovery, session handling, administrator MFA and staff management, and passed all 13 real browser acceptance groups.
+
+All **15 backend acceptance groups passed**, including real invitation email delivery and password setup, reset, refresh/logout, expiry, MFA revocation and private-media boundaries. The invitation runtime routing issue is resolved. The isolated encrypted backup/recovery rehearsal passed for 40 tables and three uploads, including a separate Auth/Storage/Data API runtime with recovered sessions, MFA, role permissions and exact file bytes. Source data was preserved. All 26 unit tests, all 13 public browser groups and the staff production build passed. The local startup helper also passed a repeated repair/readiness run. See [LOCAL_PREVIEW.md](LOCAL_PREVIEW.md) and [LOCAL_RECOVERY.md](LOCAL_RECOVERY.md).
+
+No hosted Supabase project, production SMTP service or hosted staff preview has been provisioned. [SUPABASE_SETUP.md](SUPABASE_SETUP.md) describes configuration and [BACKEND_RECOVERY.md](BACKEND_RECOVERY.md) describes the separate recovery requirements. `.env.example` contains public placeholders only. Development fixtures and credentials remain private and outside public previews.
 
 Acceptance: real Supabase connection; invitation-only login, reset, logout, refresh/persistence and expired/revoked session handling; mandatory administrator MFA; database-enforced Admin/Sales/Marketing roles; no self-escalation; audit events; private uploads. Test direct REST/database/Storage access for anonymous, uninvited, inactive, wrong-role, wrong-assignee and administrator aal1/aal2 cases. Test an isolated backup/recovery before claiming recoverability. Build the private staff UI separately from public tracking. Commit and tag a tested B checkpoint only after this passes.
 

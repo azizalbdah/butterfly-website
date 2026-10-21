@@ -1,14 +1,14 @@
-# Supabase setup plan — Stage B is not implemented
+# Supabase setup and staff security
 
-Prepared on 20 October 2026. This document is preparation for the next stage, not a claim that a backend, staff account, connection, or deployment exists. Stage A production verification and isolated website recovery passed. Stage B must pass in a separate backend/preview before any later stage or production release.
+Updated on 21 October 2026. Stage A passed. A genuine local Supabase stack now runs the versioned staff access migration and separate staff client. All 15 direct-backend acceptance groups and the isolated database/Auth/Storage API recovery rehearsal passed locally. Check [DELIVERY_PLAN.md](DELIVERY_PLAN.md) for the complete stage gate and browser acceptance status. No hosted Supabase project or staff deployment has been created.
 
-The current website is static HTML, CSS, and JavaScript. It has no application backend, database, package build, or staff login. Its public ordering links and tracking remain in their existing roles. Foodics, Ordable, and Respond.io have not been connected or tested by this work.
+The public website remains static HTML, CSS and JavaScript. The private staff client has its own pinned Vite build under `staff/` and connects to real Supabase Auth/Postgres/Storage. Public ordering links and tracking remain in their existing roles. Foodics, Ordable and Respond.io have not been connected or tested by this work. See [LOCAL_PREVIEW.md](LOCAL_PREVIEW.md) for the tested local workflow.
 
-## Proposed architecture
+## Architecture
 
 - Keep the public website usable without a customer account. Build the private staff interface separately, using Butterfly's existing logo font, bilingual content, RTL support, and keyboard/mobile navigation.
 - Use Supabase Auth for invitation-only staff access, Postgres for records and versioned content, private Storage for protected uploads, and server-side Edge Functions for privileged actions and validated public submissions.
-- Add pinned dependencies and versioned migrations only after Stage A passes. There are no migrations, staff application, or working Supabase connection in this checkpoint.
+- Staff dependencies are pinned in `staff/package-lock.json`. The staff access schema is versioned under `supabase/migrations/`; the invitation Edge Function is under `supabase/functions/invite-staff/`. Apply changes in preview before production. Use backward-compatible migrations and preserve newer records during website rollback.
 - Enforce Owner/Admin, Sales, and Marketing access in database policies and server functions. Owner/Admin can manage users, permissions, prices, publishing, and all records; Sales can access assigned records and follow-ups; Marketing can prepare content drafts and media. UI controls supplement these policies.
 - Store active staff membership and roles in a protected database table. Do not derive authorization from editable user metadata, let users change their own role, or automatically promote the first person who signs up.
 - Require a verified administrator MFA session (`aal2`) for administrator data and privileged operations. A minimally scoped own-profile query can identify the role before MFA, without exposing customer records or administrator capabilities. Handle enrollment, challenge, recovery, session expiry, token refresh, password reset, and logout as acceptance checks.
@@ -29,22 +29,25 @@ The current website is static HTML, CSS, and JavaScript. It has no application b
 
 No secret values are needed in chat. Supply credentials only through the Supabase dashboard, a password manager, or secure deployment/environment settings. Do not put them in GitHub Pages files, workflow logs, screenshots, commits, or a public `.env` file.
 
-## Planned environment configuration
+## Environment configuration
 
-The eventual `.env.example` must contain names and placeholders only. Final names will match the implemented build and deployment rather than assuming a framework now.
+The root and staff `.env.example` files contain names and placeholders only. Actual private bindings stay outside the public checkout; `staff/.env.local` contains only public browser configuration and is ignored by Git.
 
 | Binding | Scope | Purpose |
 | --- | --- | --- |
-| `PUBLIC_SUPABASE_URL` | Public staff/public client configuration | Project API URL for the selected environment. |
-| `PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Public client configuration | Browser API access subject to RLS; never a service-role key. |
-| `SUPABASE_URL` | Server/Edge Function runtime | Project URL; Supabase may supply this automatically. |
+| `VITE_SUPABASE_URL` | Public staff build configuration | Project API URL for the selected environment. |
+| `VITE_SUPABASE_PUBLISHABLE_KEY` | Public staff build configuration | Browser API access subject to RLS; never a service-role key. |
+| `SUPABASE_URL` and `SUPABASE_ANON_KEY` | Server/Edge Function runtime | Supabase-provided project URL and public key used to validate caller identity and invoke policies with the caller JWT. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server/Edge Function runtime only | Privileged Auth operations after caller authorization; reuse the platform-provided binding when applicable. Never bundle it into browser code. |
 | `SUPABASE_ACCESS_TOKEN` | Private operator/CI deployment environment only | Supabase CLI management/deployment, if required; not an application browser credential. |
 | `SUPABASE_DB_PASSWORD` or a private database connection binding | Private operator/CI environment only | Approved migrations and backup operations. Do not embed a connection URL containing a password in shell history or documentation. |
 | SMTP provider settings | Supabase Auth/provider settings | Invitation/reset delivery; keep credentials in secure settings. |
+| `BUTTERFLY_STAFF_ORIGIN` and `BUTTERFLY_STAFF_REDIRECT_URL` | Edge Function runtime, non-secret | Exact permitted staff origin and `/staff/` invitation callback; mandatory for the invitation function. |
 | Verified staff origins and callback URLs | Non-secret per-environment configuration | Explicit invitation/reset destinations, CORS checks, and preview/production separation. |
 
 Never duplicate existing secure bindings without checking their names and operation first. A publishable key is not evidence that invitation administration, database backups, or deployment permissions work.
+
+The staff client uses a separate Vite build under `staff/`; it never needs the service-role key. Vite rejects privileged keys in public configuration before creating the bundle. The local preview/dev host sets CSP including `frame-ancestors 'none'`, `X-Frame-Options: DENY`, `Referrer-Policy: no-referrer`, and `X-Content-Type-Options: nosniff`. The eventual staff host must enforce those response headers. Legacy GitHub Pages cannot supply arbitrary response headers, so its public-site configuration must not be treated as a verified secure staff-host deployment. The production staff host is not selected or deployed yet.
 
 ## Recurring services and plan decisions
 
